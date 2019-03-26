@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Document</title>
+</head>
+<body>
+
+<form class="get-data">
+	<div>Wybierz miasto:</div>
+	<select name="city" class="select-city">
+		<option value="Białystok">Białystok</option>
+		<option value="Bydgoszcz">Bydgoszcz</option>
+		<option value="Gdańsk">Gdańsk</option>
+		<option value="Katowice">Katowice</option>
+		<option value="Kraków">Kraków</option>
+		<option value="Lublin">Lublin</option>
+		<option value="Łódź">Łódź</option>
+		<option value="Poznań">Poznań</option>
+		<option value="Szczecin">Szczecin</option>
+		<option value="Warszawa" selected="true">Warszawa</option>
+		<option value="Wrocław">Wrocław</option>
+	</select>
+	<button type="button" class="btn-city">Sprawdź</button>
+</form>
+
+<div class="preferences">
+	<div class="range-1">
+		<div>
+			<span>Temperatura poniżej</span><input type="text" class="range-1-below"><span>°C</span>
+		</div>
+		<div>
+			<input type="checkbox" id="scales" name="scales" value="czapka"
+         checked>
+		  <label for="scales">czapka</label>
+			<input type="checkbox" id="scales" name="scales" value="szalik"
+         >
+		  <label for="scales">szalik</label>
+		</div>
+		<span>Dodaj własne: </span><input type="text" value="kalesony">
+	</div>
+</div>
+
+<div class="currently-group">
+	<div class="currently-info">
+		<div class="icon diw-cloud"></div>
+		<div>
+			<div class="city"></div>
+			<div class="currently-temp"></div>
+		</div>
+	</div>
+	<table class="currently-table">
+		<thead>
+			<th><span class="day">Wtorek</span> <span class="today">dzisiaj</span></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Opis</td>
+				<td class="summary"></td>
+			</tr>
+			<tr>
+				<td>Temperatura</td>
+				<td class="bigger temp"></td>
+			</tr>
+			<tr>
+				<td>Odczuwalna temperatura</td>
+				<td class="bigger apparent-temp"></td>
+			</tr>
+			<tr>
+				<td>Zachmurzenie</td>
+				<td class="bigger clouds"></td>
+			</tr>
+			<tr>
+				<td>Wilgotność</td>
+				<td class="bigger humidity"></td>
+			</tr>
+			<tr>
+				<td>Prędkość wiatru</td>
+				<td class="bigger wind">
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
