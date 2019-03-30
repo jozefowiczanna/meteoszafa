@@ -21,15 +21,11 @@
 
 .cardround_header {
 	border-bottom: 1px solid $bc-border-color;
-  padding: 2rem 2rem 1rem;
+  padding: 2rem;
 }
 
 .condition_label-hidden {
   display: none;
-}
-
-.condition_text {
-	font-weight: 600;
 }
 
 .condition_input {
@@ -66,37 +62,16 @@
   font-size: 20px;
 }
 
+
 // --------------------- table
 
-.settings-table {
-	padding: 2rem;
-
-	td {
-
-		$td-p: 0.3rem;
-		padding-top: $td-p;
-		padding-bottom: $td-p;
-	}
+.dropdown-add_select, .input-add_input {
+  width: 100%;
+  margin-right: 1.5rem;
 }
-
-.td-col-1 {
-	padding-right: 2rem;
-}
-
-.td-col-2 {
-	width: 70%;
-	padding-right: 0.8rem;
-}
-
-.settings-table_select, .settings-table_input {
-	width: 100%;
-}
-
-// .dropdown-add_select, .input-add_input {
-//   width: 100%;
-// }
 
 // --------------------- table end
+
 
 // buttons
 

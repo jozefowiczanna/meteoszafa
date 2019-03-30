@@ -90,8 +90,8 @@
 						<div class="cardround">
 							<div class="cardround_header">
 								<div class="condition">
-									<label class="condition_label-hidden" aria-hidden="true" for="condition-1">Warunek 1: Temperatura poniżej wybranej w stopniach celsjusza</label>
-									<span class="condition_text">Warunek 1: Temperatura poniżej</span>
+									<label class="condition_label-hidden" aria-hidden="true" for="condition-1">Temperatura poniżej wybranej w stopniach celsjusza</label>
+									<span class="condition_text">Temperatura poniżej</span>
 									<input class="condition_input" type="text" id="condition-1" value="10">
 									<span class="condition_text">°C</span>
 								</div>
@@ -116,44 +116,41 @@
 									</li>
 								</ul>
 
-								<!-- table -->
-								<table class="settings-table">
+								<table>
 									<tr>
-										<td class="td-col-1">
-											<label class="dropdown-add_label" for="select-clothes">Dodaj z listy:</label>
+										<td>
+
 										</td>
-										<td class="td-col-2">
-											<select class="select settings-table_select" name="select-clothes" id="select-clothes">
-											<optgroup label="kurtki">
+									</tr>
+								</table>
+								<div class="dropdown-add">
+									<label class="dropdown-add_label" for="select-clothes">Dodaj z listy:</label>
+									<div class="add-group">
+										<select class="select dropdown-add_select" name="select-clothes" id="select-clothes">
+											<optgroup class="dropdown-add_optgroup" label="kurtki">
 											 <option class="dropdown-add_option" value="k-wiosenna">kurtka wiosenna</option>
 											 <option class="dropdown-add_option" value="k-letnia">kurtka letnia</option>
 											 <option class="dropdown-add_option" value="k-jesienna">kurtka jesienna</option>
 											 <option class="dropdown-add_option" value="k-zimowa">kurtka zimowa</option>
 										 </optgroup>
-										 <optgroup label="nakrycia głowy">
+										 <optgroup class="dropdown-add_optgroup" label="nakrycia głowy">
 												<option class="dropdown-add_option" value="gl-z-daszkiem">czapka z daszkiem</option>
 												<option class="dropdown-add_option" value="gl-zimowa">czapka zimowa</option>
 												<option class="dropdown-add_option" value="gl-kapelusz">kapelusz</option>
 												<option class="dropdown-add_option" value="gl-lekka">lekka czapka</option>
 												<option class="dropdown-add_option" value="gl-nauszniki">nauszniki</option>
-											 </optgroup>
-											</select>
-										</td>
-										<td>
-											<button type="button" class="btn-add"><i class="fas fa-plus-square"></i></button>
-										</td>
-									</tr>
-									<tr>
-										<td class="td-col-1">
-											<label class="input-add_label" for="">Dodaj własne:</label>
-										</td>
-										<td class="td-col-2"><input class="input settings-table_input" type="text" placeholder="kalosze"></td>
-										<td>
-											<button type="button" class="btn-add"><i class="fas fa-plus-square"></i></button>
-										</td>
-									</tr>
-								</table>
-
+										 </optgroup>
+										</select>
+										<button type="button" class="btn-add"><i class="fas fa-plus-square"></i></button>
+									</div>
+								</div>
+								<div class="input-add">
+									<label class="input-add_label" for="">Dodaj własne:</label>
+									<div class="add-group">
+										<input class="input input-add_input" type="text" placeholder="kalosze">
+										<button type="button" class="btn-add"><i class="fas fa-plus-square"></i></button>
+									</div>
+								</div>
 							</div><!-- cardround_body -->
 						</div><!-- cardround -->
 					</section><!-- sethow -->

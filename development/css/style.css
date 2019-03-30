@@ -398,6 +398,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
+  font-weight: 500;
 }
 
 p {
@@ -420,6 +421,7 @@ h1 {
 
 h2 {
   font-size: 18px;
+  margin-bottom: 2rem;
 }
 
 h3 {
@@ -455,14 +457,14 @@ body {
 }
 
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 .btn {
   border: none;
   background-color: #ddd;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 30px;
 }
 
 .input {
@@ -533,7 +535,6 @@ body {
 .about_text {
   color: #6c757d;
   font-size: 1rem;
-  font-weight: 300;
   max-width: 450px;
 }
 
@@ -565,33 +566,36 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
   border-radius: 5px;
-  padding: 1rem;
-  padding-left: 1rem;
+  padding: 2rem;
 }
 
 .boxround .boxround_select-label {
-  width: 40%;
+  flex-shrink: 0;
+  margin-right: 2rem;
 }
 
 .boxround .boxround_select {
-  width: 60%;
+  width: 100%;
 }
 
 .cardround {
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
   border-radius: 5px;
 }
 
 .cardround_header {
-  border-bottom: 2px solid #ccc;
-  padding: 1rem;
-  padding-left: 1rem;
+  border-bottom: 1px solid #bbb;
+  padding: 2rem 2rem 1rem;
 }
 
 .condition_label-hidden {
   display: none;
+}
+
+.condition_text {
+  font-weight: 600;
 }
 
 .condition_input {
@@ -606,7 +610,7 @@ body {
 
 .list {
   list-style-type: none;
-  padding: 0;
+  padding: 2rem;
   margin: 0;
   margin-bottom: 2rem;
 }
@@ -615,17 +619,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ccc;
-  height: 50px;
-  padding-left: 1rem;
+  border-bottom: 1px solid #bbb;
+  padding: 0.8rem 0.5rem;
 }
 
 .list-item:hover {
-  background-color: #eee;
-}
-
-.list-item_text {
-  padding-left: 1rem;
+  background-color: #f9f9f9;
 }
 
 .item-right-text {
@@ -633,46 +632,64 @@ body {
   font-size: 20px;
 }
 
-.dropdown-add, .input-add {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.settings-table {
+  padding: 2rem;
+}
+.settings-table td {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.td-col-1 {
+  padding-right: 2rem;
+}
+
+.td-col-2 {
   width: 70%;
-  padding-left: 1rem;
-  margin-bottom: 0.5rem;
+  padding-right: 0.8rem;
 }
 
-.input-add {
-  margin-bottom: 1rem;
+.settings-table_select, .settings-table_input {
+  width: 100%;
 }
 
-.dropdown-add_select, .input-add_input {
-  width: 300px;
-  margin-right: 0.8rem;
+.btn-add {
+  border-radius: 5px;
 }
-
-.add-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.btn-add:hover {
+  opacity: 0.9;
 }
 
 .btn-add, .btn-remove {
-  width: 30px;
-  height: 30px;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  width: auto;
+  height: auto;
 }
 
-.btn-add:hover, .btn-remove:hover {
-  background-color: #ccc;
+.btn-add > i {
+  font-size: 1.8rem;
+  color: #808080;
+}
+.btn-add > i:hover {
+  color: #63b50b;
 }
 
-.btn-remove {
-  margin: 5px;
+.btn-remove > i {
+  font-size: 1.5rem;
+  color: #808080;
+}
+.btn-remove > i:hover {
+  color: #e82020;
 }
 
-.btn-holder {
+.btn-apply_holder {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .btn-apply {
@@ -680,7 +697,6 @@ body {
   color: #ffffff;
   padding: 1rem 1.5rem;
 }
-
 .btn-apply:hover {
   opacity: 0.9;
 }
