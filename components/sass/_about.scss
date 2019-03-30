@@ -1,0 +1,36 @@
+.about-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+}
+
+.about_text {
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 450px;
+}
+
+.btn-cta {
+  font-size: 16px;
+  border-radius: 30px;
+  padding: 10px 30px;
+  border: 2px solid #27aae2;
+  background: #27aae2;
+  color: #fff;
+  margin-top: 3rem;
+  transition: background-color 0.3s;
+}
+.btn-cta:hover {
+  background: transparent;
+  color: #000;
+}
+
+.logo-big-img {
+  width: 40%;
+}
+
+.about-text-holder, .logo-big-img {
+  margin-bottom: 7rem;
+}

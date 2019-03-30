@@ -1,0 +1,39 @@
+// Header
+
+.nav {
+	padding: 1rem;
+	position: fixed;
+	width: 100%;
+	background-color: $bg-color;
+}
+
+.menu-holder {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.menu_link {
+	color: $menu_link-color;
+	text-decoration: none;
+	font-weight: bolder;
+	padding: 0.5rem;
+	margin-top: 1rem;
+	font-family: 'Montserrat';
+  font-weight: 500;
+
+	&:hover {
+		color: $menu_link-color-hover;
+	}
+}
+
+.header-h1 {
+	font-size: 3.5rem;
+	color: $light-blue;
+	margin-bottom: 0;
+}
+
+.header-h2 {
+	font-weight: lighter;
+	margin-bottom: 3rem;
+	font-size: 1.9rem;
+}

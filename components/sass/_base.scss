@@ -1,0 +1,47 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FDFDFD;
+  padding: 0;
+  margin: 0;
+  color: #6c757d;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.input {
+  font-size: 0.9em;
+  padding: 7px;
+  border: none;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.select {
+  font-size: 0.9em;
+  padding: 5px;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.boxround, .cardround {
+  background-color: #fff;
+}
