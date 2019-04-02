@@ -1,50 +1,48 @@
 $(document).ready(function(){
 
 const citiesGeo = {
-		"Białystok": {
-			"lat": 53.1325,
-			"lon": 23.1688
-		},
-		"Bydgoszcz": {
-			"lat": 53.1235,
-			"lon": 18.0084
-		},
-		"Gdańsk": {
-			"lat": 54.3520,
-			"lon": 18.6466
-		},
-		"Katowice": {
-			"lat": 50.2649,
-			"lon": 19.0238
-		},
-		"Kraków": {
-			"lat": 50.0647,
-			"lon": 19.9450
-		},
-		"Lublin": {
-			"lat": 51.2465,
-			"lon": 22.5684
-		},
-		"Łódź": {
-			"lat": 51.7592,
-			"lon": 19.4560
-		},
 		"Poznań": {
+			"name": "poznan",
 			"lat": 52.4064,
 			"lon": 16.9252
 		},
-		"Szczecin": {
-			"lat": 53.4285,
-			"lon": 14.5528
+		"Lizbona": {
+			"name": "lizbona",
+			"lat": 38.736946,
+			"lon": -9.142685
 		},
-		"Warszawa": {
-			"lat": 52.2297,
-			"lon": 21.0122
+		"Londyn": {
+			"name": "londyn",
+			"lat": 51.509865,
+			"lon": -0.118092
 		},
-		"Wrocław": {
-			"lat": 51.1079,
-			"lon": 17.0385
-		}
+		"Reykjavik": {
+			"name": "reykjavik",
+			"lat": 64.128288,
+			"lon": -21.827774
+		},
+		"Novosibirsk": {
+			"name": "novosibirsk",
+			"lat": 55.018803,
+			"lon": 82.933952
+		},
+	};
+
+	const clothes = {
+		"kurtki" :
+			["kurtka jesienna", "kurtka letnia", "kurtka wiosenna", "kurtka zimowa", "płaszcz jesienny", "płaszcz letni", "płaszcz wiosenny", "płaszcz zimowy"],
+
+		"czapki" :
+			["czapka z daszkiem", "czapka zimowa", "kapelusz", "lekka czapka", "nauszniki"],
+
+		"szaliki" :
+			["chustka", "cienki szalik", "gruby szalik", "komin"],
+
+		"rękawiczki" :
+			["rękawiczki", "rękawiczki bez palców"],
+
+		"buty" :
+			["adidasy", "baleriny", "botki", "japonki", "kalosze", "kozaki", "obuwie trekkingowe", "sandały", "trampki", "śniegowce"]
 	};
 
 	const icons = {
@@ -102,12 +100,12 @@ const citiesGeo = {
 		}
 	};
 
+
+
 	function template(){
 		const cityName = "Poznań"
 		const iconName = "partly-cloudy-night";
-		const icon = document.querySelector(".icon");
-		icon.classList.remove(icon.classList[1]);
-		icon.classList.add("diw-" + icons[iconName].icon);
+		const icon = "";
 		const summary = "Niewielkie zachmurzenie, ustanie wieczorem, po południu słaby wiatr.";
 		const shortSummary = "Średnie zachmurzenie";
 		const sevenDaysSummary = "Dzisiaj niewielki deszcz, w sobotę ocieplenie do 17°C.";
@@ -138,11 +136,8 @@ const citiesGeo = {
 		// document.querySelector(".btn-city").addEventListener("click", template)
 
 	function processData(data, city){
-		console.log(data);
 		const iconName = data.currently.icon;
-		const icon = document.querySelector(".icon");
-		icon.classList.remove(icon.classList[1]);
-		icon.classList.add("diw-" + icons[iconName].icon);
+		const icon = "";
 		const summary = data.currently.summary;
 		const shortSummary = icons[iconName].pl;
 		const sevenDaysSummary = data.currently.daily.summary;
@@ -152,34 +147,142 @@ const citiesGeo = {
 		const humidity = data.currently.humidity * 100 + "%";
 		const windSpeed = data.currently.windSpeed + " km/h";
 		const windDeg = data.currently.windBearing;
-		console.log(summary, temp, apparentTemp, clouds, humidity, windSpeed, windDeg);
+		// console.log(summary, temp, apparentTemp, clouds, humidity, windSpeed, windDeg);
 		document.querySelector(".windarrow").style.transform = `rotate(${windDeg}deg)`;
 	}
 
-	// document.querySelector(".btn-city").addEventListener("click", function(){
-	//
-	// 	const city = document.querySelector(".select-city").value;
-	// 	$.ajax({
-	// 		 url: "https://api.darksky.net/forecast/82dd8519eb0941abad295fda7a5ed88e/"
-	// 		 +citiesGeo[city].lat+","
-	// 		 +citiesGeo[city].lon
-	// 		 +"?lang=pl&units=ca",
-	// 		 dataType: 'jsonp',
-	// 		 success: function(data){
-	// 			 processData(data, city);
- 	// 		 }
- 	//  });
+
+function getData(){
+	const city = "Novosibirsk";
+	$.ajax({
+		 url: "https://api.darksky.net/forecast/82dd8519eb0941abad295fda7a5ed88e/"
+		 +citiesGeo[city].lat+","
+		 +citiesGeo[city].lon
+		 +"?lang=pl&units=ca",
+		 dataType: 'jsonp',
+		 success: function(data){
+			 processData(data, city);
+		 }
+ });
+}
+
+function addCitiesToList(){
+	const boxroundSelect = document.querySelector(".boxround_select");
+	boxroundSelect.innerHTML = "";
+	for (city in citiesGeo){
+		const optionEl = document.createElement("option");
+		// console.log(city);
+		// console.log(city["name"]);
+		optionEl.value = citiesGeo[city]["name"];
+		optionEl.innerText = city;
+		boxroundSelect.appendChild(optionEl);
+	}
+}
+
+function escapeDiacritics(str){
+	let s = str;
+		s = s.replace(/ż/ig,'z');
+    s = s.replace(/ó/ig,'o');
+    s = s.replace(/ł/ig,'l');
+    s = s.replace(/ć/ig,'c');
+    s = s.replace(/ś/ig,'s');
+    s = s.replace(/ź/ig,'z');
+    s = s.replace(/ń/ig,'n');
+    s = s.replace(/ą/ig,'a');
+
+		//add "-" between words
+		s = s.replace(" ", "-");
+		return s;
+}
 
 
+
+function createDefaultClothesList(){
+	const clothesList = document.querySelector(".settings-table_select");
+	clothesList.innerHTML = "";
+	for (cloth in clothes) {
+
+		const optgroupEl = document.createElement("optgroup");
+		optgroupEl.label =  cloth;
+		let options = "";
+
+		for (var i = 0; i < clothes[cloth].length; i++) {
+			const name = clothes[cloth][i];
+			const value = escapeDiacritics(name);
+			const optionEl = `<option value="${value}">${name}</option>`;
+			options = options + optionEl;
+		}
+		optgroupEl.innerHTML = options;
+		clothesList.appendChild(optgroupEl);
+	}
+};
+
+const defaultClothes = {
+	"condition-1": ["czapka zimowa", "szalik", "buty zimowe", "rękawiczki"]
+}
+
+function addClothes(selector, cloth){
+	const list = document.querySelector(selector);
+	const listItem = document.createElement("li");
+	listItem.classList.add("list-item");
+	listItem.innerHTML =
+	`
+		<div class="list-item_text">${cloth}</div>
+		<button type="button" class="btn-remove"><i class="fas fa-minus-circle"></i></button>
+	`;
+	list.appendChild(listItem);
+}
+
+function addDefaultClothes(conditionNr){
+	const list = document.querySelector(`[data-condition-list="${conditionNr}"]`);
+	list.innerHTML = "";
+	const selector = `[data-condition-list="${conditionNr}"]`;
+	const condition = "condition-" + conditionNr;
+	for (i=0; i<defaultClothes[condition].length; i++){
+		addClothes(selector, defaultClothes[condition][i])
+	}
+};
+
+addCitiesToList();
+createDefaultClothesList();
+addDefaultClothes(1);
+
+const conditionLists = document.querySelectorAll(".condition");
+for (list of conditionLists){
+	list.addEventListener("click", function(e){
+		if (e.target.parentNode.classList.contains("btn-remove")){
+			const t = e.target.closest(".list-item");
+			t.remove();
+		} else if (e.target.parentNode.classList.contains("btn-add")) {
+			const btn = e.target.parentNode;
+			// wyszukanie nr listy do ktorej zostanie dolaczony element
+			const card = e.target.closest(".cardround_body");
+			const nr = card.querySelector("[data-condition-list]").dataset.conditionList;
+			const selector = `[data-condition-list="${nr}"]`;
+
+			// pobranie nazwy ubrania, ktore ma zostac dolaczone do listy
+			if (btn.classList.contains("btn-add-select")){
+				const val = card.querySelector("select").value; // warrtosc elementu
+				const cloth = card.querySelector(`[value=${val}]`).innerHTML; // wlasciwa nazwa z polskimi literami
+				addClothes(selector, cloth);
+			} else if (btn.classList.contains("btn-add-input")){
+				const cloth = card.querySelector("input").value;
+				addClothes(selector, cloth);
+			}
+		}
 	})
+}
 
-// clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night. (Developers should ensure that a sensible default is defined, as additional values, such as hail, thunderstorm, or tornado, may be defined in the future.)
+// const conditionLists = document.querySelectorAll(".list-condition");
+// for (list of conditionLists){
+// 	list.addEventListener("click", function(e){
+// 		if (e.target.tagName === "I"){
+// 			t = e.target.closest(".list-item");
+// 			t.remove();
+// 		}
+// 	})
+// }
 
 
-
-
-
-
-
-
-// })
+ // getData()
+})

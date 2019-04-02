@@ -608,7 +608,7 @@ body {
   font-size: inherit;
 }
 
-.list {
+.list-condition {
   list-style-type: none;
   padding: 2rem;
   margin: 0;
@@ -621,6 +621,7 @@ body {
   align-items: center;
   border-bottom: 1px solid #bbb;
   padding: 0.8rem 0.5rem;
+  transition: background-color 0.2s;
 }
 
 .list-item:hover {
@@ -652,6 +653,9 @@ body {
 .settings-table_select, .settings-table_input {
   width: 100%;
 }
+.settings-table_select:hover, .settings-table_input:hover {
+  border-color: #63b50b;
+}
 
 .btn-add {
   border-radius: 5px;
@@ -668,6 +672,9 @@ body {
   cursor: pointer;
   width: auto;
   height: auto;
+}
+.btn-add i, .btn-remove i {
+  transition: color 0.3s;
 }
 
 .btn-add > i {

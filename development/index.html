@@ -68,17 +68,6 @@
 						<div class="boxround">
 							<label class="boxround_select-label" for="select-city">Wybierz miasto:</label>
 							<select class="select boxround_select" name="select-city" id="select-city">
-								<option class="option" value="Białystok">Białystok</option>
-								<option class="option" value="Bydgoszcz">Bydgoszcz</option>
-								<option class="option" value="Gdańsk">Gdańsk</option>
-								<option class="option" value="Katowice">Katowice</option>
-								<option class="option" value="Kraków">Kraków</option>
-								<option class="option" value="Lublin">Lublin</option>
-								<option class="option" value="Łódź">Łódź</option>
-								<option class="option" value="Poznań">Poznań</option>
-								<option class="option" value="Szczecin">Szczecin</option>
-								<option class="option" value="Warszawa" selected="selected">Warszawa</option>
-								<option class="option" value="Wrocław">Wrocław</option>
 							</select>
 						</div>
 					</section>
@@ -87,9 +76,9 @@
 
 					<section class="section">
 						<h2 id="sethow">Co założysz?</h2>
-						<div class="cardround">
+						<div class="cardround condition">
 							<div class="cardround_header">
-								<div class="condition">
+								<div>
 									<label class="condition_label-hidden" aria-hidden="true" for="condition-1">Warunek 1: Temperatura poniżej wybranej w stopniach celsjusza</label>
 									<span class="condition_text">Warunek 1: Temperatura poniżej</span>
 									<input class="condition_input" type="text" id="condition-1" value="10">
@@ -97,7 +86,7 @@
 								</div>
 							</div>
 							<div class="cardround_body">
-								<ul class="list">
+								<ul class="list-condition" data-condition-list="1">
 									<li class="list-item">
 										<div class="list-item_text">czapka zimowa</div>
 										<button type="button" class="btn-remove"><i class="fas fa-minus-circle"></i></button>
@@ -124,32 +113,19 @@
 										</td>
 										<td class="td-col-2">
 											<select class="select settings-table_select" name="select-clothes" id="select-clothes">
-											<optgroup label="kurtki">
-											 <option class="dropdown-add_option" value="k-wiosenna">kurtka wiosenna</option>
-											 <option class="dropdown-add_option" value="k-letnia">kurtka letnia</option>
-											 <option class="dropdown-add_option" value="k-jesienna">kurtka jesienna</option>
-											 <option class="dropdown-add_option" value="k-zimowa">kurtka zimowa</option>
-										 </optgroup>
-										 <optgroup label="nakrycia głowy">
-												<option class="dropdown-add_option" value="gl-z-daszkiem">czapka z daszkiem</option>
-												<option class="dropdown-add_option" value="gl-zimowa">czapka zimowa</option>
-												<option class="dropdown-add_option" value="gl-kapelusz">kapelusz</option>
-												<option class="dropdown-add_option" value="gl-lekka">lekka czapka</option>
-												<option class="dropdown-add_option" value="gl-nauszniki">nauszniki</option>
-											 </optgroup>
 											</select>
 										</td>
 										<td>
-											<button type="button" class="btn-add"><i class="fas fa-plus-square"></i></button>
+											<button type="button" class="btn-add btn-add-select"><i class="fas fa-plus-square"></i></button>
 										</td>
 									</tr>
 									<tr>
 										<td class="td-col-1">
 											<label class="input-add_label" for="">Dodaj własne:</label>
 										</td>
-										<td class="td-col-2"><input class="input settings-table_input" type="text" placeholder="kalosze"></td>
+										<td class="td-col-2"><input class="input settings-table_input" type="text"></td>
 										<td>
-											<button type="button" class="btn-add"><i class="fas fa-plus-square"></i></button>
+											<button type="button" class="btn-add btn-add-input"><i class="fas fa-plus-square"></i></button>
 										</td>
 									</tr>
 								</table>

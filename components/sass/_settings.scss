@@ -42,7 +42,7 @@
   font-size: inherit;
 }
 
-.list {
+.list-condition {
   list-style-type: none;
   padding: 2rem;
   margin: 0;
@@ -56,6 +56,7 @@
   border-bottom: 1px solid $bc-border-color;
   // height: 50px;
 	padding: 0.8rem 0.5rem;
+	transition: background-color 0.2s;
 }
 .list-item:hover {
   background-color: #f9f9f9;
@@ -90,6 +91,10 @@
 
 .settings-table_select, .settings-table_input {
 	width: 100%;
+
+	&:hover {
+		border-color: $btn-add-bg-hover;
+	}
 }
 
 // .dropdown-add_select, .input-add_input {
@@ -116,6 +121,10 @@
 	cursor: pointer;
 	width: auto;
 	height: auto;
+
+	i {
+		transition: color 0.3s;
+	}
 }
 
 .btn-add > i {
