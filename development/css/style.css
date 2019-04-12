@@ -453,6 +453,7 @@ body {
 
 .wrapper {
   max-width: 1000px;
+  padding: 0 2rem;
   margin: 0 auto;
 }
 
@@ -484,8 +485,33 @@ body {
   height: 30px;
 }
 
+.section_where {
+  margin-bottom: 2rem;
+}
+
 .boxround, .cardround {
   background-color: #fff;
+}
+
+.cardround {
+  margin-bottom: 2rem;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.width-big {
+  width: 60% !important;
+}
+
+.width-small {
+  width: 38% !important;
+}
+
+.plr-2 {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 .nav {
@@ -493,6 +519,7 @@ body {
   position: fixed;
   width: 100%;
   background-color: #FDFDFD;
+  z-index: 10;
 }
 
 .menu-holder {
@@ -596,6 +623,10 @@ body {
 
 .condition_text {
   font-weight: 600;
+}
+
+.ml {
+  margin-left: 13px;
 }
 
 .condition_input {
@@ -706,4 +737,124 @@ body {
 }
 .btn-apply:hover {
   opacity: 0.9;
+}
+
+.pair {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-group {
+  margin-bottom: 1rem;
+  font-size: 1.2em;
+}
+
+.icon-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+.daily-summary {
+  font-size: 0.9em;
+}
+
+.forecast-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  display: block;
+}
+.forecast-header .icon {
+  font-size: 6rem;
+}
+.forecast-header .city, .forecast-header .big-temp {
+  text-align: center;
+}
+.forecast-header .city {
+  font-size: 1.5rem;
+}
+.forecast-header .big-temp {
+  font-size: 2rem;
+}
+
+.day-nr {
+  margin-right: 0.5rem;
+}
+
+.weekday {
+  font-weight: bolder;
+}
+
+.date {
+  font-weight: bolder;
+}
+
+.table-forecast {
+  border-collapse: collapse;
+  white-space: nowrap;
+  width: 100%;
+}
+.table-forecast tr:hover {
+  background-color: #f9f9f9;
+}
+.table-forecast .th {
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid black;
+}
+.table-forecast .td {
+  line-height: 1.5rem;
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid black;
+}
+.table-forecast .td-col-1 {
+  width: 50%;
+  font-size: 0.9em;
+}
+.table-forecast .td-col-2 {
+  width: 50%;
+}
+.table-forecast .wind-speed {
+  margin-right: 1rem;
+}
+.table-forecast .small-font {
+  font-size: 0.9em;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.mr {
+  margin-right: 0.5rem;
+}
+
+.border-top {
+  border-top: 1px solid black;
+}
+
+.list-take {
+  margin: 0 0 2rem;
+  padding: 0.5rem 2rem 2rem 2rem;
+}
+
+.list-take-item {
+  list-style: none;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.list-take-item::before {
+  display: block;
+  content: "-";
+  font-weight: bold;
+  position: absolute;
+  left: -12px;
 }

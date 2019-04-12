@@ -11,6 +11,7 @@ body {
 
 .wrapper {
   max-width: 1000px;
+	padding: 0 2rem;
   margin: 0 auto;
 }
 
@@ -42,6 +43,31 @@ body {
   height: 30px;
 }
 
+.section_where {
+	margin-bottom: 2rem;
+}
+
 .boxround, .cardround {
   background-color: #fff;
+}
+
+.cardround {
+  margin-bottom: 2rem;
+}
+
+.no-border {
+	border: none !important;
+}
+
+.width-big {
+	width: 60% !important;
+}
+
+.width-small {
+	width: 38% !important;
+}
+
+.plr-2 {
+	padding-left: 2rem !important;
+	padding-right: 2rem !important;
 }

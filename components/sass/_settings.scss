@@ -32,6 +32,10 @@
 	font-weight: 600;
 }
 
+.ml {
+	margin-left: 13px;
+}
+
 .condition_input {
   margin-left: 13px;
   border: none;
@@ -59,7 +63,7 @@
 	transition: background-color 0.2s;
 }
 .list-item:hover {
-  background-color: #f9f9f9;
+  background-color: $list-item-hover;
 }
 
 .item-right-text {

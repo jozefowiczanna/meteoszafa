@@ -46,63 +46,26 @@
 				</div>
 			</section>
 
-			<!-- <h2>O co chodzi?</h2> -->
-			<!-- <div class="circles">
-				<div class="circle">
-					<div class="circle-text">wybierasz cel podroży</div>
-				</div>
-				<div class="circle">
-					<div class="circle-text">określasz preferencje odnośnie ubioru</div>
-				</div>
-				<div class="circle">
-					<div class="circle-text">dostajesz prognozę oraz listę ciuchów do spakowania</div>
-				</div>
-			</div> -->
-
 			<!-- settings -->
 			<section class="section settings">
 				<form action="GET">
-					<!-- setwhere -->
-					<section class="section">
-						<h2 id="setwhere">Dokąd pojedziesz?</h2>
-						<div class="boxround">
-							<label class="boxround_select-label" for="select-city">Wybierz miasto:</label>
-							<select class="select boxround_select" name="select-city" id="select-city">
-							</select>
-						</div>
-					</section>
 
 					<!-- sethow -->
 
 					<section class="section">
 						<h2 id="sethow">Co założysz?</h2>
+
+						<!-- CONDITION 1 -->
 						<div class="cardround condition">
 							<div class="cardround_header">
 								<div>
-									<label class="condition_label-hidden" aria-hidden="true" for="condition-1">Warunek 1: Temperatura poniżej wybranej w stopniach celsjusza</label>
-									<span class="condition_text">Warunek 1: Temperatura poniżej</span>
+									<label class="condition_text" for="condition-1">Warunek 1: Temperatura mniejsza lub równa</span>
 									<input class="condition_input" type="text" id="condition-1" value="10">
 									<span class="condition_text">°C</span>
 								</div>
 							</div>
 							<div class="cardround_body">
 								<ul class="list-condition" data-condition-list="1">
-									<li class="list-item">
-										<div class="list-item_text">czapka zimowa</div>
-										<button type="button" class="btn-remove"><i class="fas fa-minus-circle"></i></button>
-									</li>
-									<li class="list-item">
-										<div class="list-item_text">szalik</div>
-										<button type="button" class="btn-remove"><i class="fas fa-minus-circle"></i></button>
-									</li>
-									<li class="list-item">
-										<div class="list-item_text">buty zimowe</div>
-										<button type="button" class="btn-remove"><i class="fas fa-minus-circle"></i></button>
-									</li>
-									<li class="list-item">
-										<div class="list-item_text">rękawiczki</div>
-										<button type="button" class="btn-remove"><i class="fas fa-minus-circle"></i></button>
-									</li>
 								</ul>
 
 								<!-- table -->
@@ -132,7 +95,190 @@
 
 							</div><!-- cardround_body -->
 						</div><!-- cardround -->
+						<!-- END OF CONDITION 1 -->
+
+						<!-- CONDITION 2 -->
+						<div class="cardround condition">
+							<div class="cardround_header">
+								<div>
+									<label class="condition_text" for="condition-2a">Warunek 2: Temperatura pomiędzy</label>
+									<input class="condition_input" type="text" id="condition-2a" value="10">
+									<span class="condition_text">°C</span>
+									<label class="condition_text ml" for="condition-2b"> a </label>
+									<input class="condition_input" type="text" id="condition-2b" value="20">
+									<span class="condition_text">°C</span>
+								</div>
+							</div>
+							<div class="cardround_body">
+								<ul class="list-condition" data-condition-list="2">
+								</ul>
+
+								<!-- table -->
+								<table class="settings-table">
+									<tr>
+										<td class="td-col-1">
+											<label class="dropdown-add_label" for="select-clothes">Dodaj z listy:</label>
+										</td>
+										<td class="td-col-2">
+											<select class="select settings-table_select" name="select-clothes" id="select-clothes">
+											</select>
+										</td>
+										<td>
+											<button type="button" class="btn-add btn-add-select"><i class="fas fa-plus-square"></i></button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-col-1">
+											<label class="input-add_label" for="">Dodaj własne:</label>
+										</td>
+										<td class="td-col-2"><input class="input settings-table_input" type="text"></td>
+										<td>
+											<button type="button" class="btn-add btn-add-input"><i class="fas fa-plus-square"></i></button>
+										</td>
+									</tr>
+								</table>
+
+							</div><!-- cardround_body -->
+						</div><!-- cardround -->
+						<!-- END OF CONDITION 2 -->
+
+						<!-- CONDITION 3 -->
+						<div class="cardround condition">
+							<div class="cardround_header">
+								<div>
+									<label class="condition_text" for="condition-3">Warunek 3: Temperatura większa lub równa</label>
+									<input class="condition_input" type="text" id="condition-3" value="20">
+									<span class="condition_text">°C</span>
+								</div>
+							</div>
+							<div class="cardround_body">
+								<ul class="list-condition" data-condition-list="3">
+								</ul>
+
+								<!-- table -->
+								<table class="settings-table">
+									<tr>
+										<td class="td-col-1">
+											<label class="dropdown-add_label" for="select-clothes">Dodaj z listy:</label>
+										</td>
+										<td class="td-col-2">
+											<select class="select settings-table_select" name="select-clothes" id="select-clothes">
+											</select>
+										</td>
+										<td>
+											<button type="button" class="btn-add btn-add-select"><i class="fas fa-plus-square"></i></button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-col-1">
+											<label class="input-add_label" for="">Dodaj własne:</label>
+										</td>
+										<td class="td-col-2"><input class="input settings-table_input" type="text"></td>
+										<td>
+											<button type="button" class="btn-add btn-add-input"><i class="fas fa-plus-square"></i></button>
+										</td>
+									</tr>
+								</table>
+
+							</div><!-- cardround_body -->
+						</div><!-- cardround -->
+						<!-- END OF CONDITION 3 -->
+
+						<!-- CONDITION 4 -->
+						<div class="cardround condition">
+							<div class="cardround_header">
+								<div>
+									<label class="condition_text" for="condition-4">Warunek 4: Wiatr większy niż </label>
+									<input class="condition_input" type="text" id="condition-4" value="15">
+									<span class="condition_text">km/h</span>
+								</div>
+							</div>
+							<div class="cardround_body">
+								<ul class="list-condition" data-condition-list="4">
+								</ul>
+
+								<!-- table -->
+								<table class="settings-table">
+									<tr>
+										<td class="td-col-1">
+											<label class="dropdown-add_label" for="select-clothes">Dodaj z listy:</label>
+										</td>
+										<td class="td-col-2">
+											<select class="select settings-table_select" name="select-clothes" id="select-clothes">
+											</select>
+										</td>
+										<td>
+											<button type="button" class="btn-add btn-add-select"><i class="fas fa-plus-square"></i></button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-col-1">
+											<label class="input-add_label" for="">Dodaj własne:</label>
+										</td>
+										<td class="td-col-2"><input class="input settings-table_input" type="text"></td>
+										<td>
+											<button type="button" class="btn-add btn-add-input"><i class="fas fa-plus-square"></i></button>
+										</td>
+									</tr>
+								</table>
+
+							</div><!-- cardround_body -->
+						</div><!-- cardround -->
+						<!-- END OF CONDITION 4 -->
+
+						<!-- CONDITION 5 -->
+						<div class="cardround condition">
+							<div class="cardround_header">
+								<div>
+									<label class="condition_text" for="condition-5">Warunek 4: Szansa opadów większa niż </label>
+									<input class="condition_input" type="text" id="condition-5" value="70">
+									<span class="condition_text">%</span>
+								</div>
+							</div>
+							<div class="cardround_body">
+								<ul class="list-condition" data-condition-list="5">
+								</ul>
+
+								<!-- table -->
+								<table class="settings-table">
+									<tr>
+										<td class="td-col-1">
+											<label class="dropdown-add_label" for="select-clothes">Dodaj z listy:</label>
+										</td>
+										<td class="td-col-2">
+											<select class="select settings-table_select" name="select-clothes" id="select-clothes">
+											</select>
+										</td>
+										<td>
+											<button type="button" class="btn-add btn-add-select"><i class="fas fa-plus-square"></i></button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-col-1">
+											<label class="input-add_label" for="">Dodaj własne:</label>
+										</td>
+										<td class="td-col-2"><input class="input settings-table_input" type="text"></td>
+										<td>
+											<button type="button" class="btn-add btn-add-input"><i class="fas fa-plus-square"></i></button>
+										</td>
+									</tr>
+								</table>
+
+							</div><!-- cardround_body -->
+						</div><!-- cardround -->
+						<!-- END OF CONDITION 5 -->
 					</section><!-- sethow -->
+
+					<!-- setwhere -->
+					<section class="section section_where">
+						<h2 id="setwhere">Dokąd pojedziesz?</h2>
+						<div class="boxround">
+							<label class="boxround_select-label" for="select-city">Wybierz miasto:</label>
+							<select class="select boxround_select" name="select-city" id="select-city">
+							</select>
+						</div>
+					</section>
+
 				</form>
 				<div class="btn-apply_holder">
 					<button type="button" class="btn btn-apply">Sprawdź prognozę</button>
@@ -142,9 +288,15 @@
 			<!-- forecast -->
 			<section class="section forecast" id="#forecast">
 				<h2 id="forecast">Pakuj się</h2>
-			</section>
+				<div class="forecast_content">
+
+				</div><!-- forecast_content -->
+
+			</section> <!-- forecast END -->
 		</div>
 	</main>
+
+	<!-- footer -->
 	<footer class="footer">
 		<div class="wrapper">
 			<p class="footer_author">Logo, layout i kod - <a class="footer_link" href="https://jozefowiczanna.github.io/">Anna Józefowicz</a></p>
@@ -152,7 +304,6 @@
 		</div>
 	</footer>
 
-<!-- <div class="icon diw-cloud"></div> -->
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="js/script.js"></script>
 <script src="//localhost:35729/livereload.js?snipver=1" async="" defer=""></script>

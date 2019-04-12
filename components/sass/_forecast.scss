@@ -1,0 +1,123 @@
+.pair {
+	display: flex;
+	justify-content: space-between;
+}
+
+.date-group {
+	margin-bottom: 1rem;
+	font-size: 1.2em;
+}
+
+.icon-group {
+	@include flex-a();
+	margin-bottom: 1rem;
+	font-size: 1.1em;
+  line-height: 1.5;
+}
+
+.daily-summary {
+	font-size: 0.9em;
+}
+
+.forecast-header {
+	@include flex-a();
+	display: block;
+
+	.icon {
+		font-size: 6rem;
+	}
+
+	.city, .big-temp {
+		text-align: center;
+	}
+
+	.city {
+		font-size: 1.5rem;
+	}
+
+	.big-temp {
+		font-size: 2rem;
+	}
+}
+
+.day-nr {
+	margin-right: 0.5rem;
+}
+.weekday {
+	font-weight: bolder;
+}
+.date {
+	font-weight: bolder;
+}
+
+.table-forecast {
+
+	border-collapse: collapse;
+	white-space: nowrap;
+	width: 100%;
+
+	tr:hover {
+		background-color: $list-item-hover;
+	}
+
+	.th {
+		padding: 0.5rem 2rem;
+		border-bottom: 1px solid black;
+	}
+
+	.td {
+		line-height: 1.5rem;
+		padding: 0.5rem 2rem;
+		border-bottom: 1px solid black;
+	}
+
+	.td-col-1 {
+		width: 50%;
+		font-size: 0.9em;
+	}
+	.td-col-2 {
+		width: 50%;
+	}
+	.wind-speed {
+		margin-right: 1rem;
+	}
+	.small-font {
+		font-size: 0.9em;
+	}
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-right {
+	text-align: right;
+}
+.mr {
+	margin-right: 0.5rem;
+}
+
+.border-top {
+	border-top: 1px solid black;
+}
+
+// list
+
+.list-take {
+	margin: 0 0 2rem;
+	padding: 0.5rem 2rem 2rem 2rem;
+}
+
+.list-take-item {
+	list-style: none;
+	margin-bottom: 0.5rem;
+	position: relative;
+}
+
+.list-take-item::before {
+	display: block;
+	content: "-";
+	font-weight: bold;
+	position: absolute;
+	left: -12px;
+}

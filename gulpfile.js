@@ -2,11 +2,17 @@ const gulp = require('gulp'),
 		log = require('fancy-log'),
 		compass = require('gulp-compass'),
 		path = require('path'),
-		connect = require('gulp-connect');
+		connect = require('gulp-connect'),
+		concat = require('gulp-concat');
 
 const sassSources = ['components/sass/style.scss'];
 const htmlSources = ['development/*.html'];
 const jsFinal = ['development/js/*.js'];
+
+const jsSources = [
+	'components/js/_templates.js',
+	'components/js/_main.js'
+];
 
 gulp.task('compass', function(done){
 	gulp.src(sassSources)
@@ -21,6 +27,13 @@ gulp.task('compass', function(done){
 	.pipe(connect.reload());
 	done();
 });
+
+gulp.task('concat', function(done){
+	gulp.src(jsSources)
+	.pipe(concat('script.js'))
+	.pipe(gulp.dest('development/js'));
+	done();
+})
 
 gulp.task('html', function(done){
 	gulp.src(htmlSources)
@@ -37,6 +50,7 @@ gulp.task('js', function(done){
 gulp.task('watch', function(){
 	gulp.watch('components/sass/*.scss', gulp.series('compass'));
 	gulp.watch(htmlSources, gulp.series('html'));
+	gulp.watch(jsSources, gulp.series('concat'));
 	gulp.watch(jsFinal, gulp.series('js'));
 });
 
@@ -47,7 +61,7 @@ gulp.task('connect', function(){
 	});
 });
 
-const seriesFunctions = gulp.series('html', 'js', 'compass');
+const seriesFunctions = gulp.series('html', 'concat', 'js', 'compass');
 const parallelFunctions = gulp.parallel('connect', 'watch');
 
 gulp.task('all', gulp.series(seriesFunctions, parallelFunctions));
