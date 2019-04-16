@@ -14,7 +14,7 @@ $bc-padding-left: 1rem;
 
 $light-blue: #27aae2;
 $bg-color: #FDFDFD;
-$text-color: #6c757d;
+$text-color: #000;
 
 // button colors:
 
@@ -37,12 +37,3 @@ $menu_link-color-hover: #bbb;
 // list
 
 $list-item-hover: #f9f9f9;
-
-
-// condition icons
-
-.diw-thermometer-25 {
-	color: blue;
-	display: inline-block;
-	font-size: 2rem;
-}

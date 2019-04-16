@@ -23,26 +23,28 @@
 	</header>
 
 	<main>
-		<div class="wrapper">
+		<div class="">
 
 			<!-- about -->
 			<section class="section about" id="#about">
-				<div class="about_holder">
-					<div class="about_text-holder">
-						<h1 class="h1-big">METEOSZAFA</h1>
-						<h2 class="h2-big">dopasuj ubrania do pogody</h2>
-						<div class="logo_holder">
-							<img class="logo-mobile" src="images/logo_rain.png" alt="">
+				<div class="wrapper">
+					<div class="about_holder">
+						<div class="about_text-holder">
+							<h1 class="h1-big">METEOSZAFA</h1>
+							<h2 class="h2-big">dopasuj ubrania do pogody</h2>
+							<div class="logo_holder">
+								<img class="logo-mobile" src="images/logo_rain.png" alt="">
+							</div>
+							<div class="about_text">
+								<p>Pewnie znasz ten scenariusz: Planujesz wyjazd i ogarnia cię niechęć na myśl, że musisz się spakować. Jaka będzie pogoda? Upał? Deszcz? A może silny wiatr? Musisz sprawdzić prognozę pogody, a potem zastanowić się co zabrać...</p>
+								<p>A co jeśli mógłbyś zrobić taką listę tylko raz i więcej nie zawracać sobie głowy? Określasz co lubisz nosić w zależności od warunków atmosferycznych i zapisujesz swoje preferencje. Następnie wybierasz cel podróży i otrzymujesz prognozę wraz z listą ubrań, które powinieneś zabrać.</p>
+							</div>
+							<div class="btn-cta_holder">
+								<button type="button" class="btn btn-cta" name="button">Zaczynaj</button>
+							</div>
 						</div>
-						<div class="about_text">
-							<p>Pewnie znasz ten scenariusz: Planujesz wyjazd i ogarnia cię niechęć na myśl, że musisz się spakować. Jaka będzie pogoda? Upał? Deszcz? A może silny wiatr? Musisz sprawdzić prognozę pogody, a potem zastanowić się co zabrać...</p>
-							<p>A co jeśli mógłbyś zrobić taką listę tylko raz i więcej nie zawracać sobie głowy? Określasz co lubisz nosić w zależności od warunków atmosferycznych i zapisujesz swoje preferencje. Następnie wybierasz cel podróży i otrzymujesz prognozę wraz z listą ubrań, które powinieneś zabrać.</p>
-						</div>
-						<div class="btn-cta_holder">
-							<button type="button" class="btn btn-cta" name="button">Zaczynaj</button>
-						</div>
+						<img class="logo-big" src="images/logo_rain.png" alt="">
 					</div>
-					<img class="logo-big" src="images/logo_rain.png" alt="">
 				</div>
 			</section>
 
@@ -53,181 +55,239 @@
 					<!-- sethow -->
 
 					<section class="section">
-						<h2 id="sethow">Co założysz?</h2>
+						<div class="wrapper">
+							<h2 id="sethow">Co założysz?</h2>
+						</div>
 
 						<!-- CONDITION 1 -->
-						<div class="cardround js-condition">
-							<div class="cardround_header">
-								<span class="condition_text-nr">Warunek 1:</span>
-								<label class="condition_label" for="condition-1">Temperatura mniejsza lub równa</label>
-								<input class="condition_input" type="text" id="condition-1" value="10">
-								<span class="condition_unit">°C</span>
-							</div><!-- cardround_header -->
-							<div class="cardround_body">
-								<ul class="list-condition" data-condition-list="1">
-								</ul>
-								<div class="add">
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-										<div class="add_group">
-											<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
-											</select>
-											<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj własne:</label>
-										<div class="add_group">
-											<input class="input add_input" type="text">
-											<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-								</div><!-- add -->
-							</div><!-- cardround_body -->
-						</div><!-- cardround -->
-						<!-- END OF CONDITION 1 -->
+						<section class="bgc bgc-01">
+							<div class="wrapper">
+								<div class="big-wrapper">
+									<div class="big-text-group big-text">Warunek 1:</div>
+									<div class="big-text-group">
+										<div class="icon diw-thermometer-25"></div>
+										<div class="big-text">20°C</div>
+										<i class="fas fa-long-arrow-alt-down"></i>
+									</div>
+								</div>
+								<div class="cardround bgc-box js-condition">
+									<div class="cardround_header">
+										<label class="condition_label" for="condition-1">Temperatura mniejsza lub równa</label>
+										<input class="condition_input" type="text" id="condition-1" value="10">
+										<span class="condition_unit">°C</span>
+									</div><!-- cardround_header -->
+									<div class="cardround_body">
+										<ul class="list-condition" data-condition-list="1">
+										</ul>
+										<div class="add">
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add_group">
+													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+													</select>
+													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj własne:</label>
+												<div class="add_group">
+													<input class="input add_input" type="text">
+													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+										</div><!-- add -->
+									</div><!-- cardround_body -->
+								</div><!-- cardround -->
+								<!-- END OF CONDITION 1 -->
+							</div>
+						</section>
 
 
 						<!-- CONDITION 2 -->
-						<div class="cardround js-condition">
-							<div class="cardround_header">
-								<span class="condition_text-nr">Warunek 2:</span>
-								<label class="condition_label" for="condition-2a">Temperatura pomiędzy</label>
-								<input class="condition_input" type="text" id="condition-2a" value="10">
-								<span class="condition_unit">°C</span>
-								<label class="condition_label-inline" for="condition-2b"> a </label>
-								<input class="condition_input" type="text" id="condition-2b" value="20">
-								<span class="condition_text">°C</span>
-							</div><!-- cardround_header -->
-							<div class="cardround_body">
-								<ul class="list-condition" data-condition-list="2">
-								</ul>
-								<div class="add">
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-										<div class="add_group">
-											<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
-											</select>
-											<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj własne:</label>
-										<div class="add_group">
-											<input class="input add_input" type="text">
-											<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-								</div><!-- add -->
-							</div><!-- cardround_body -->
-						</div><!-- cardround -->
-						<!-- END OF CONDITION 2 -->
+						<section class="bgc bgc-02">
+							<div class="wrapper">
+								<div class="big-wrapper">
+									<div class="big-text-group big-text">Warunek 2:</div>
+									<div class="big-text-group">
+										<div class="icon diw-thermometer-50"></div>
+										<div class="big-text">10°C - 20°C</div>
+									</div>
+								</div>
+								<div class="cardround bgc-box js-condition">
+									<div class="cardround_header">
+										<label class="condition_label" for="condition-2a">Temperatura pomiędzy</label>
+										<input class="condition_input" type="text" id="condition-2a" value="10">
+										<span class="condition_unit">°C</span>
+										<label class="condition_label-inline" for="condition-2b"> a </label>
+										<input class="condition_input" type="text" id="condition-2b" value="20">
+										<span class="condition_text">°C</span>
+									</div><!-- cardround_header -->
+									<div class="cardround_body">
+										<ul class="list-condition" data-condition-list="2">
+										</ul>
+										<div class="add">
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add_group">
+													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+													</select>
+													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj własne:</label>
+												<div class="add_group">
+													<input class="input add_input" type="text">
+													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+										</div><!-- add -->
+									</div><!-- cardround_body -->
+								</div><!-- cardround -->
+								<!-- END OF CONDITION 2 -->
+							</div>
+						</section>
 
 						<!-- CONDITION 3 -->
-						<div class="cardround js-condition">
-							<div class="cardround_header">
-								<span class="condition_text-nr">Warunek 3:</span>
-								<label class="condition_label" for="condition-3">Temperatura powyżej</label>
-								<input class="condition_input" type="text" id="condition-3" value="10">
-								<span class="condition_unit">°C</span>
-							</div><!-- cardround_header -->
-							<div class="cardround_body">
-								<ul class="list-condition" data-condition-list="3">
-								</ul>
-								<div class="add">
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-										<div class="add_group">
-											<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
-											</select>
-											<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj własne:</label>
-										<div class="add_group">
-											<input class="input add_input" type="text">
-											<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-								</div><!-- add -->
-							</div><!-- cardround_body -->
-						</div><!-- cardround -->
-						<!-- END OF CONDITION 3 -->
+						<section class="bgc bgc-03">
+							<div class="wrapper">
+								<div class="big-wrapper">
+									<div class="big-text-group big-text">Warunek 3:</div>
+									<div class="big-text-group">
+										<div class="icon diw-thermometer-75"></div>
+										<div class="big-text">20°C</div>
+										<i class="fas fa-long-arrow-alt-up"></i>
+									</div>
+								</div>
+								<div class="cardround bgc-box js-condition">
+									<div class="cardround_header">
+										<label class="condition_label" for="condition-3">Temperatura powyżej</label>
+										<input class="condition_input" type="text" id="condition-3" value="10">
+										<span class="condition_unit">°C</span>
+									</div><!-- cardround_header -->
+									<div class="cardround_body">
+										<ul class="list-condition" data-condition-list="3">
+										</ul>
+										<div class="add">
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add_group">
+													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+													</select>
+													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj własne:</label>
+												<div class="add_group">
+													<input class="input add_input" type="text">
+													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+										</div><!-- add -->
+									</div><!-- cardround_body -->
+								</div><!-- cardround -->
+								<!-- END OF CONDITION 3 -->
+							</div>
+						</section>
 
 						<!-- CONDITION 4 -->
-						<div class="cardround js-condition">
-							<div class="cardround_header">
-								<span class="condition_text-nr">Warunek 4:</span>
-								<label class="condition_label" for="condition-4">Wiatr większy niż</label>
-								<input class="condition_input" type="text" id="condition-4" value="10">
-								<span class="condition_unit">km/h</span>
-							</div><!-- cardround_header -->
-							<div class="cardround_body">
-								<ul class="list-condition" data-condition-list="4">
-								</ul>
-								<div class="add">
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-										<div class="add_group">
-											<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
-											</select>
-											<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj własne:</label>
-										<div class="add_group">
-											<input class="input add_input" type="text">
-											<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-								</div><!-- add -->
-							</div><!-- cardround_body -->
-						</div><!-- cardround -->
-						<!-- END OF CONDITION 4 -->
+						<section class="bgc bgc-04">
+							<div class="wrapper">
+								<div class="big-wrapper">
+									<div class="big-text-group big-text">Warunek 4:</div>
+									<div class="big-text-group">
+										<div class="icon diw-wind"></div>
+										<div class="big-text">25 km/h</div>
+										<i class="fas fa-long-arrow-alt-up"></i>
+									</div>
+								</div>
+								<div class="cardround bgc-box js-condition">
+									<div class="cardround_header">
+										<label class="condition_label" for="condition-4">Wiatr większy niż</label>
+										<input class="condition_input" type="text" id="condition-4" value="10">
+										<span class="condition_unit">km/h</span>
+									</div><!-- cardround_header -->
+									<div class="cardround_body">
+										<ul class="list-condition" data-condition-list="4">
+										</ul>
+										<div class="add">
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add_group">
+													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+													</select>
+													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj własne:</label>
+												<div class="add_group">
+													<input class="input add_input" type="text">
+													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+										</div><!-- add -->
+									</div><!-- cardround_body -->
+								</div><!-- cardround -->
+								<!-- END OF CONDITION 4 -->
+							</div>
+						</section>
 
 						<!-- CONDITION 5 -->
-						<div class="cardround js-condition">
-							<div class="cardround_header">
-								<span class="condition_text-nr">Warunek 5:</span>
-								<label class="condition_label" for="condition-5">Wiatr większy niż</label>
-								<input class="condition_input" type="text" id="condition-5" value="10">
-								<span class="condition_unit">%</span>
-							</div><!-- cardround_header -->
-							<div class="cardround_body">
-								<ul class="list-condition" data-condition-list="5">
-								</ul>
-								<div class="add">
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-										<div class="add_group">
-											<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
-											</select>
-											<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-									<div class="add_row">
-										<label class="add_label" for="select-clothes">Dodaj własne:</label>
-										<div class="add_group">
-											<input class="input add_input" type="text">
-											<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
-										</div>
-									</div><!-- add_row -->
-								</div><!-- add -->
-							</div><!-- cardround_body -->
-						</div><!-- cardround -->
-						<!-- END OF CONDITION 5 -->
+						<section class="bgc bgc-05">
+							<div class="wrapper">
+								<div class="big-wrapper">
+									<div class="big-text-group big-text">Warunek 5:</div>
+									<div class="big-text-group">
+										<div class="icon diw-rain"></div>
+										<div class="big-text">80%</div>
+										<i class="fas fa-long-arrow-alt-up"></i>
+									</div>
+								</div>
+								<div class="cardround bgc-box js-condition">
+									<div class="cardround_header">
+										<label class="condition_label" for="condition-5">Opady większe niż</label>
+										<input class="condition_input" type="text" id="condition-5" value="10">
+										<span class="condition_unit">%</span>
+									</div><!-- cardround_header -->
+									<div class="cardround_body">
+										<ul class="list-condition" data-condition-list="5">
+										</ul>
+										<div class="add">
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add_group">
+													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+													</select>
+													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+											<div class="add_row">
+												<label class="add_label" for="select-clothes">Dodaj własne:</label>
+												<div class="add_group">
+													<input class="input add_input" type="text">
+													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+												</div>
+											</div><!-- add_row -->
+										</div><!-- add -->
+									</div><!-- cardround_body -->
+								</div><!-- cardround -->
+								<!-- END OF CONDITION 5 -->
+							</div>
+						</section>
 
 					</section><!-- sethow -->
 
 					<!-- setwhere -->
 					<section class="section section_where">
-						<h2 id="setwhere">Dokąd pojedziesz?</h2>
-						<div class="boxround">
-							<label class="boxround_select-label" for="select-city">Wybierz miasto:</label>
-							<select class="select boxround_select" name="select-city" id="select-city">
-							</select>
+						<div class="wrapper">
+							<h2 id="setwhere">Dokąd pojedziesz?</h2>
+							<div class="boxround">
+								<label class="boxround_select-label" for="select-city">Wybierz miasto:</label>
+								<select class="select boxround_select" name="select-city" id="select-city">
+								</select>
+							</div>
 						</div>
 					</section>
 

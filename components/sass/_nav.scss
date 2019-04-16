@@ -3,7 +3,8 @@
 	position: fixed;
 	width: 100%;
 	background-color: $bg-color;
-	z-index: 10;
+	z-index: 999;
+	// box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); // on-scroll
 }
 
 .nav_menu {

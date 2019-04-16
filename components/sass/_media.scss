@@ -89,12 +89,8 @@
 		margin-right: 0.5rem;
 	}
 
-	.list-condition {
-		padding: 2rem;
-	}
-
 	.list-item {
-		padding: 0.7rem 0.5rem;
+		padding: 0.7rem 2rem;
 	}
 
 	.add {
@@ -152,5 +148,23 @@
 
 	.cardround_weather {
 		// margin-right: 2rem;
+	}
+}
+
+// =================================
+// background
+@media screen and (min-width: 700px) {
+	.big-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 2rem;
+	}
+}
+
+
+@media screen and (min-width: 900px) {
+	.big-wrapper {
+		font-size: 2.5rem;
 	}
 }

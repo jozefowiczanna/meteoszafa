@@ -5,7 +5,6 @@
 }
 
 .cardround_header {
-	border-bottom: 1px solid $bc-border-color;
   padding: 1rem;
 	font-weight: 600;
 }
@@ -52,7 +51,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid $bc-border-color;
 	transition: background-color 0.2s;
 
 	&:hover {
