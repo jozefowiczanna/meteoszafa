@@ -3,7 +3,7 @@ const info = {
 	weekday : "Wtorek",
 	date : "21.01.2019",
 	city : "Poznań",
-	icon : "diw-cloud-moon",
+	icon : "cloud-moon",
 	dailySummary : "Bezchmurnie",
 	tempDay : "20°C",
 	apparentTempDay : "18°C",
@@ -25,96 +25,121 @@ test = {
 
 function addForecastClothes(text, list) {
 	let template = `
-	<div>${text}</div>
+	<h4>${text}</h4>
 	<ul class="list-take">
 	`;
 	for (let i = 0; i < list.length; i++) {
-		template += `<li class="list-take-item">${list[i]}</li>`;
+		template += `<li class="list-take_item">${list[i]}</li>`;
 	}
 	template += `</ul>`;
 	return template;
 }
 
 function addForecast(info) {
+
 	let template = `
 	<div class="pair" data-day="${info.dayNr}">
-		<div class="cardround cardround_weather width-big">
-			<div class="cardround_header no-border">
-				<div class="forecast-header">
-					<div class="date-group">
-						<span>Dzień </span><span class="day-nr">${info.dayNr}: </span><span class="weekday">${info.weekday}</span> <span class="date">${info.date}</span>
-					</div>
-					<div class="icon-group">
-						<div>
-							<div class="city">${info.city}</div>
-							<div class="big-temp">${info.tempDay}</div>
+			<div class="cardround cardround_weather">
+				<div class="cardround_header no-border">
+					<div class="forecast-header">
+						<div class="date-group">
+							<div>
+								<span class="date-group_day">Dzień </span>
+								<span>${info.dayNr}: </span>
+							</div>
+							<span class="date-group_weekday">${info.weekday} </span>
+							<span>${info.date}</span>
 						</div>
-						<div class="icon diw-${info.icon}"></div>
-					</div>
-					<div class="daily-summary align-left">
-						${info.dailySummary}
+						<div class="icon-group">
+							<div>
+								<div class="icon-group_city">${info.city}</div>
+								<div class="icon-group_big-temp">${info.tempDay}</div>
+							</div>
+							<div class="icon diw-${info.icon}"></div>
+						</div>
+						<div class="daily-summary align-left">
+							${info.dailySummary}
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="cardround_body">
-				<table class="table table-forecast">
-					<tbody>
-						<tr>
-							<td class="td td-col-1 border-top">Temperatura w dzień</td>
-							<td class="td td-col-2 border-top align-right">
-								<span class="temp-day mr">${info.tempDay}</span>
-							<span class="apparent-temp-day small-font">(${info.apparentTempDay}*)</span>
-							</td>
-						</tr>
-						<tr>
-							<td class="td td-col-1 border-top">Temperatura w nocy</td>
-							<td class="td td-col-2 border-top align-right">
-								<span class="temp-night mr">${info.tempNight}</span>
-								<span class="apparent-temp-night small-font">(${info.apparentTempNight}*)</span>
-							</td>
-						</tr>
-						<tr>
-							<td class="td td-col-1">Zachmurzenie</td>
-							<td class="td td-col-2 align-right clouds">${info.clouds}</td>
-						</tr>
-						<tr>
-							<td class="td td-col-1">Wilgotność</td>
-							<td class="td td-col-2 align-right humidity">${info.humidity}</td>
-						</tr>
-						<tr>
-							<td class="td td-col-1">Szansa opadów</td>
-							<td class="td td-col-2 align-right humidity">${info.rainSnow}</td>
-						</tr>
-						<tr>
-							<td class="td td-col-1">Prędkość wiatru</td>
-							<td class="td td-col-2 align-right wind">
-								<span class="wind-speed">${info.windSpeed}</span>
-								<img class="windarrow" src="images/windarrow.svg" alt="kierunek wiatru" style="transform: rotate(${info.windDeg}deg);">
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2" class="td td-col-2 align-right small-font no-border">*temperatura odczuwalna</td>
-						</tr>
-					</tbody>
-				</table>
-			</div><!-- cardround_body -->
-		</div><!-- cardround -->
-		<div class="cardround take width-small">
-			<div class="cardround_header no-border">
+				<div class="cardround_body">
+					<table class="table table-forecast">
+						<tbody>
+							<tr class="border-top">
+								<td class="td td-col-1">Temperatura w dzień</td>
+								<td class="td td-col-2 align-right">
+									<span class="temp-day mr">${info.tempDay}</span>
+								<span class="apparent-temp-day small-font">(18°C*)</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="td td-col-1 border-top">Temperatura w nocy</td>
+								<td class="td td-col-2 border-top align-right">
+									<span class="temp-night mr"${info.tempNight}</span>
+									<span class="apparent-temp-night small-font">(${info.apparentTempNight}*)</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="td td-col-1">Zachmurzenie</td>
+								<td class="td td-col-2 align-right clouds">11%</td>
+							</tr>
+							<tr>
+								<td class="td td-col-1">Wilgotność</td>
+								<td class="td td-col-2 align-right humidity">${info.clouds}</td>
+							</tr>
+							<tr>
+								<td class="td td-col-1">Szansa opadów</td>
+								<td class="td td-col-2 align-right humidity">${info.rainSnow}</td>
+							</tr>
+							<tr>
+								<td class="td td-col-1">${info.windSpeed}</td>
+								<td class="td td-col-2 align-right wind">
+									<span class="wind-speed">12 km/h</span>
+									<img class="windarrow" src="images/windarrow.svg" alt="kierunek wiatru" style="transform: rotate(${info.windDeg}deg);">
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="td td-col-2 align-right small-font no-border">*temperatura odczuwalna</td>
+							</tr>
+						</tbody>
+					</table>
+				</div><!-- cardround_body -->
+			</div><!-- cardround -->
+			<div class="cardround cardround_take">
 				<h3>Zabierz:</h3>
 				${info.listTemplate}
 			</div>
-			<div class="cardround_body no-border plr-2" data-forecast-list="${info.dayNr}">
-			</div>
-		</div>
-	</div><!-- pair -->
+		</div><!-- pair -->
 	`;
 	$(".forecast_content").append(template);
 }
 
 
+// addForecast(info);
 
-addForecast(info);
+// window.addEventListener("load", function() {
+//
+// 	const initMargin = 60;
+// 	const fpe = document.querySelector(`.fpe`); // fpe = full page element
+//
+// 	function makeFullPage(fpe) {
+// 		const fpeStyle = window.getComputedStyle(fpe);
+// 		const fpeH = fpeStyle.getPropertyValue("height");
+// 		const fpeRect = fpe.getBoundingClientRect();
+// 		const fpePos = parseInt(fpeH) + fpeRect.top;
+// 		const marginBottom = window.innerHeight - fpePos;
+// 		if (marginBottom > initMargin) {
+// 			fpe.style.marginBottom = marginBottom + "px";
+// 		}
+// 	}
+//
+// 	makeFullPage(fpe);
+//
+// 	window.addEventListener("resize", function() {
+// 		makeFullPage(fpe);
+// 	})
+//
+// });
 
 // _main.js
 $(document).ready(function(){
@@ -149,6 +174,11 @@ const citiesGeo = {
 			"name": "Kair",
 			"lat": 30.0626,
 			"lon": 31.2497
+		},
+		"miedzywodzie": {
+			"name": "Międzywodzie",
+			"lat": 54.0064,
+			"lon": 14.6958
 		}
 	};
 
@@ -268,16 +298,16 @@ function escapeDiacritics(str){
     s = s.replace(/ą/ig,'a');
 
 		//add "-" between words
-		s = s.replace(" ", "-");
+		s = s.replace(/ /ig, "-");
 		return s;
 }
 
 
 
-function createDefaultClothesList(){
-	const clothesList = document.querySelectorAll(".settings-table_select");
+function createDefaultselectClothes(){
+	const selectClothes = document.querySelectorAll(".js-select-clothes");
 	// stworzenie i dodanie pierwszej listy
-	clothesList[0].innerHTML = "";
+	selectClothes[0].innerHTML = "";
 	for (cloth in clothes) {
 
 		const optgroupEl = document.createElement("optgroup");
@@ -291,11 +321,11 @@ function createDefaultClothesList(){
 			options = options + optionEl;
 		}
 		optgroupEl.innerHTML = options;
-		clothesList[0].appendChild(optgroupEl);
+		selectClothes[0].appendChild(optgroupEl);
 	}
 	// skopiowanie listy do pozostałych
-	for (var i = 1; i < clothesList.length; i++) {
-		clothesList[i].innerHTML = clothesList[0].innerHTML;
+	for (var i = 1; i < selectClothes.length; i++) {
+		selectClothes[i].innerHTML = selectClothes[0].innerHTML;
 	}
 };
 
@@ -314,7 +344,7 @@ function addClothes(selector, cloth){
 	listItem.innerHTML =
 	`
 		<div class="list-item_text">${cloth}</div>
-		<button type="button" class="btn-remove"><i class="fas fa-minus-circle"></i></button>
+		<button type="button" class="remove_btn"><i class="fas fa-minus-circle"></i></button>
 	`;
 	list.appendChild(listItem);
 }
@@ -330,20 +360,20 @@ function addDefaultClothes(conditionNr){
 };
 
 addCitiesToList();
-createDefaultClothesList();
+createDefaultselectClothes();
 addDefaultClothes(1);
 addDefaultClothes(2);
 addDefaultClothes(3);
 addDefaultClothes(4);
 addDefaultClothes(5);
 
-const conditionLists = document.querySelectorAll(".condition");
+const conditionLists = document.querySelectorAll(".js-condition");
 for (list of conditionLists){
 	list.addEventListener("click", function(e){
-		if (e.target.parentNode.classList.contains("btn-remove")){
+		if (e.target.parentNode.classList.contains("remove_btn")){
 			const t = e.target.closest(".list-item");
 			t.remove();
-		} else if (e.target.parentNode.classList.contains("btn-add")) {
+		} else if (e.target.parentNode.classList.contains("add_btn")) {
 			const btn = e.target.parentNode;
 			// wyszukanie nr listy do ktorej zostanie dolaczony element
 			const card = e.target.closest(".cardround_body");
@@ -351,11 +381,11 @@ for (list of conditionLists){
 			const selector = `[data-condition-list="${nr}"]`;
 
 			// pobranie nazwy ubrania, ktore ma zostac dolaczone do listy
-			if (btn.classList.contains("btn-add-select")){
+			if (btn.classList.contains("js-add_btn-select")){
 				const val = card.querySelector("select").value; // warrtosc elementu
 				const cloth = card.querySelector(`[value=${val}]`).innerHTML; // wlasciwa nazwa z polskimi literami
 				addClothes(selector, cloth);
-			} else if (btn.classList.contains("btn-add-input")){
+			} else if (btn.classList.contains("js-add_btn-input")){
 				const cloth = card.querySelector("input").value;
 				addClothes(selector, cloth);
 			}

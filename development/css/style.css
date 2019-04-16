@@ -1,3 +1,9 @@
+.diw-thermometer-25 {
+  color: blue;
+  display: inline-block;
+  font-size: 2rem;
+}
+
 @font-face {
   font-family: "dripicons-weather";
   src: url("../fonts/dripicons-weather.eot");
@@ -395,6 +401,10 @@
   content: "|";
 }
 
+html {
+  font-size: 17px;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
@@ -453,7 +463,7 @@ body {
 
 .wrapper {
   max-width: 1000px;
-  padding: 0 2rem;
+  padding: 0 1rem;
   margin: 0 auto;
 }
 
@@ -489,10 +499,6 @@ body {
   margin-bottom: 2rem;
 }
 
-.boxround, .cardround {
-  background-color: #fff;
-}
-
 .cardround {
   margin-bottom: 2rem;
 }
@@ -501,68 +507,62 @@ body {
   border: none !important;
 }
 
-.width-big {
-  width: 60% !important;
-}
-
-.width-small {
-  width: 38% !important;
-}
-
-.plr-2 {
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
-}
-
 .nav {
-  padding: 1rem;
   position: fixed;
   width: 100%;
   background-color: #FDFDFD;
   z-index: 10;
 }
 
-.menu-holder {
+.nav_menu {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 
-.menu_link {
-  color: #000;
+.nav_menu_link {
+  color: #949494;
   text-decoration: none;
-  font-weight: bolder;
-  padding: 0.5rem;
-  margin-top: 1rem;
-  font-family: 'Montserrat';
-  font-weight: 500;
+  font-weight: 700;
+  padding: 1rem;
 }
-.menu_link:hover {
+.nav_menu_link:hover {
   color: #bbb;
 }
 
-.header-h1 {
-  font-size: 3.5rem;
+.h1-big {
+  font-size: 2.2rem;
   color: #27aae2;
   margin-bottom: 0;
 }
 
-.header-h2 {
+.h2-big {
   font-weight: lighter;
-  margin-bottom: 3rem;
-  font-size: 1.9rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
 }
 
-.about-holder {
+.about {
+  padding-top: 5rem;
+}
+
+.logo_holder {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
-.about_text {
-  color: #6c757d;
-  font-size: 1rem;
-  max-width: 450px;
+.logo-mobile {
+  width: 100%;
+  padding: 0 2rem 1rem;
+}
+
+.logo-big {
+  display: none;
+}
+
+.btn-cta_holder {
+  display: flex;
+  justify-content: center;
 }
 
 .btn-cta {
@@ -572,7 +572,7 @@ body {
   border: 2px solid #27aae2;
   background: #27aae2;
   color: #fff;
-  margin-top: 3rem;
+  margin-top: 1rem;
   transition: background-color 0.3s;
 }
 
@@ -581,121 +581,65 @@ body {
   color: #000;
 }
 
-.logo-big-img {
-  width: 40%;
-}
-
-.about-text-holder, .logo-big-img {
-  margin-bottom: 7rem;
-}
-
-.boxround {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #bbb;
-  border-radius: 5px;
-  padding: 2rem;
-}
-
-.boxround .boxround_select-label {
-  flex-shrink: 0;
-  margin-right: 2rem;
-}
-
-.boxround .boxround_select {
-  width: 100%;
-}
-
 .cardround {
   border: 1px solid #bbb;
   border-radius: 5px;
+  font-size: 0.9rem;
 }
 
 .cardround_header {
   border-bottom: 1px solid #bbb;
-  padding: 2rem 2rem 1rem;
-}
-
-.condition_label-hidden {
-  display: none;
-}
-
-.condition_text {
+  padding: 1rem;
   font-weight: 600;
 }
 
-.ml {
-  margin-left: 13px;
+.condition_text-nr {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.condition_label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.condition_label-inline {
+  margin: 0 0.5rem;
+  display: inline;
 }
 
 .condition_input {
-  margin-left: 13px;
   border: none;
   border: 1px solid #a9a9a9;
   border-radius: 4px;
   width: 35px;
   padding: 5px;
   font-size: inherit;
+  text-align: center;
 }
 
 .list-condition {
   list-style-type: none;
-  padding: 2rem;
   margin: 0;
+  padding: 0;
   margin-bottom: 2rem;
 }
 
 .list-item {
+  padding: 0.7rem 1rem;
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #bbb;
-  padding: 0.8rem 0.5rem;
   transition: background-color 0.2s;
 }
-
 .list-item:hover {
   background-color: #f9f9f9;
 }
 
-.item-right-text {
-  text-align: center;
-  font-size: 20px;
-}
-
-.settings-table {
-  padding: 2rem;
-}
-.settings-table td {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-}
-
-.td-col-1 {
-  padding-right: 2rem;
-}
-
-.td-col-2 {
-  width: 70%;
-  padding-right: 0.8rem;
-}
-
-.settings-table_select, .settings-table_input {
-  width: 100%;
-}
-.settings-table_select:hover, .settings-table_input:hover {
-  border-color: #63b50b;
-}
-
-.btn-add {
-  border-radius: 5px;
-}
-.btn-add:hover {
-  opacity: 0.9;
-}
-
-.btn-add, .btn-remove {
+.remove_btn, .add_btn {
   background: none;
   border: none;
   margin: 0;
@@ -704,24 +648,74 @@ body {
   width: auto;
   height: auto;
 }
-.btn-add i, .btn-remove i {
+.remove_btn i, .add_btn i {
   transition: color 0.3s;
 }
 
-.btn-add > i {
-  font-size: 1.8rem;
-  color: #808080;
-}
-.btn-add > i:hover {
-  color: #63b50b;
-}
-
-.btn-remove > i {
+.remove_btn > i {
   font-size: 1.5rem;
   color: #808080;
 }
-.btn-remove > i:hover {
+.remove_btn > i:hover {
   color: #e82020;
+}
+
+.add {
+  padding: 0 1rem 1rem;
+}
+
+.add_label {
+  display: inline-block;
+  margin: 0.5rem 0 0.5rem;
+  flex-shrink: 0;
+  flex: 0 0 135px;
+}
+
+.add_group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.add_select, .add_input {
+  width: 100%;
+  max-width: 500px;
+  margin-right: 0.8rem;
+}
+
+.add_btn {
+  border-radius: 5px;
+}
+.add_btn:hover {
+  opacity: 0.9;
+}
+
+.add_btn > i {
+  font-size: 1.8rem;
+  color: #808080;
+}
+.add_btn > i:hover {
+  color: #63b50b;
+}
+
+.boxround {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.boxround_select-label {
+  margin: 0 0.5rem 0.5rem 0;
+  flex-shrink: 0;
+}
+
+.boxround_select {
+  width: 100%;
+  max-width: 500px;
 }
 
 .btn-apply_holder {
@@ -739,58 +733,31 @@ body {
   opacity: 0.9;
 }
 
-.pair {
-  display: flex;
-  justify-content: space-between;
+.date-group {
+  font-size: 1.1rem;
 }
 
-.date-group {
-  margin-bottom: 1rem;
-  font-size: 1.2em;
+.date-group_weekday {
+  font-weight: 500;
 }
 
 .icon-group {
+  margin: 1rem 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 1rem;
-  font-size: 1.1em;
-  line-height: 1.5;
+}
+.icon-group .icon {
+  font-size: 4rem;
 }
 
-.daily-summary {
-  font-size: 0.9em;
-}
-
-.forecast-header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  display: block;
-}
-.forecast-header .icon {
-  font-size: 6rem;
-}
-.forecast-header .city, .forecast-header .big-temp {
+.icon-group_city, .icon-group_big-temp {
   text-align: center;
-}
-.forecast-header .city {
-  font-size: 1.5rem;
-}
-.forecast-header .big-temp {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
-.day-nr {
-  margin-right: 0.5rem;
-}
-
-.weekday {
-  font-weight: bolder;
-}
-
-.date {
-  font-weight: bolder;
+.icon-group_big-temp {
+  font-size: 1.8em;
 }
 
 .table-forecast {
@@ -798,63 +765,174 @@ body {
   white-space: nowrap;
   width: 100%;
 }
-.table-forecast tr:hover {
-  background-color: #f9f9f9;
-}
-.table-forecast .th {
-  padding: 0.5rem 2rem;
-  border-bottom: 1px solid black;
-}
+
 .table-forecast .td {
   line-height: 1.5rem;
-  padding: 0.5rem 2rem;
-  border-bottom: 1px solid black;
-}
-.table-forecast .td-col-1 {
-  width: 50%;
-  font-size: 0.9em;
-}
-.table-forecast .td-col-2 {
-  width: 50%;
-}
-.table-forecast .wind-speed {
-  margin-right: 1rem;
-}
-.table-forecast .small-font {
-  font-size: 0.9em;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #bbb;
 }
 
-.align-left {
-  text-align: left;
+.border-top {
+  border-top: 1px solid #bbb;
 }
 
 .align-right {
   text-align: right;
 }
 
-.mr {
-  margin-right: 0.5rem;
+.cardround_take {
+  padding: 1rem;
 }
-
-.border-top {
-  border-top: 1px solid black;
+.cardround_take h3, .cardround_take h4 {
+  font-size: inherit;
+}
+.cardround_take h3 {
+  margin-bottom: 2rem;
+}
+.cardround_take h4 {
+  margin-bottom: 0.5rem;
 }
 
 .list-take {
-  margin: 0 0 2rem;
-  padding: 0.5rem 2rem 2rem 2rem;
+  margin: 0;
+  padding: 0 0 1rem 1rem;
 }
 
-.list-take-item {
+.list-take_item {
   list-style: none;
   margin-bottom: 0.5rem;
   position: relative;
 }
-
-.list-take-item::before {
+.list-take_item:before {
   display: block;
   content: "-";
   font-weight: bold;
   position: absolute;
   left: -12px;
+}
+
+@media screen and (min-width: 700px) {
+  .wrapper {
+    padding: 0 2rem;
+  }
+}
+@media screen and (min-width: 500px) {
+  .nav_menu {
+    justify-content: flex-end;
+  }
+}
+@media screen and (min-width: 500px) {
+  .logo-mobile {
+    width: 80%;
+  }
+
+  .h1-big {
+    font-size: 3.5rem;
+  }
+
+  .h2-big {
+    font-size: 1.9rem;
+  }
+}
+@media screen and (min-width: 700px) {
+  .logo-mobile {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 850px) {
+  .about_holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .about_text {
+    max-width: 450px;
+  }
+
+  .logo-mobile {
+    display: none;
+  }
+
+  .logo-big {
+    display: block;
+    width: 40%;
+    margin-left: 3rem;
+  }
+
+  .btn-cta_holder {
+    display: block;
+    margin-top: 3rem;
+  }
+}
+@media screen and (min-width: 500px) {
+  .condition_label {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+}
+@media screen and (min-width: 700px) {
+  .cardround {
+    font-size: 1rem;
+  }
+
+  .cardround_header {
+    padding: 2rem 2rem 1rem;
+  }
+
+  .condition_text-nr {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .list-condition {
+    padding: 2rem;
+  }
+
+  .list-item {
+    padding: 0.7rem 0.5rem;
+  }
+
+  .add {
+    padding: 2rem;
+  }
+
+  .add_row {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+  }
+
+  .boxround {
+    font-size: 1rem;
+    flex-wrap: nowrap;
+    padding: 2rem;
+  }
+
+  .boxround_select-label {
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 700px) {
+  .table-forecast .td {
+    padding: 0.7rem 2rem;
+  }
+
+  .cardround_take {
+    padding: 2rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .pair {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cardround_weather {
+    width: 55%;
+  }
+
+  .cardround_take {
+    width: 43%;
+  }
 }

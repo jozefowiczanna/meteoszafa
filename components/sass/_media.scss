@@ -1,0 +1,156 @@
+// Base
+
+@media screen and (min-width: 700px) {
+	.wrapper {
+		padding: 0 2rem;
+	}
+}
+
+// Nav
+
+@media screen and (min-width: 500px) {
+	.nav_menu {
+		justify-content: flex-end;
+	}
+}
+
+// About
+
+@media screen and (min-width: 500px) {
+	.logo-mobile {
+		width: 80%;
+	}
+
+	.h1-big {
+		font-size: 3.5rem;
+	}
+	.h2-big {
+		font-size: 1.9rem;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.logo-mobile {
+		width: 60%;
+	}
+}
+
+@media screen and (min-width: 850px) {
+	.about_holder {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.about_text {
+		max-width: 450px;
+	}
+
+	.logo-mobile {
+		display: none;
+	}
+
+	.logo-big {
+		display: block;
+		width: 40%;
+		margin-left: 3rem;
+	}
+
+	.btn-cta_holder {
+		display: block;
+		margin-top: 3rem;
+	}
+}
+
+// Settings
+
+@media screen and (min-width: 500px) {
+	.condition_label {
+		display: inline;
+		margin-right: 0.5rem;
+	}
+
+	.boxround {
+
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.cardround {
+		font-size: 1rem;
+	}
+
+	.cardround_header {
+		padding: 2rem 2rem 1rem;
+	}
+
+	.condition_text-nr {
+		display: inline;
+		margin-right: 0.5rem;
+	}
+
+	.list-condition {
+		padding: 2rem;
+	}
+
+	.list-item {
+		padding: 0.7rem 0.5rem;
+	}
+
+	.add {
+		padding: 2rem;
+	}
+
+	.add_row {
+		display: flex;
+		align-items: baseline;
+		margin-bottom: 0.6rem;
+	}
+
+	.boxround {
+		font-size: 1rem;
+		flex-wrap: nowrap;
+		padding: 2rem;
+	}
+
+	.boxround_select-label {
+		margin-bottom: 0;
+	}
+
+}
+
+// =================================
+// forecast
+
+@media screen and (min-width: 700px) {
+	.table-forecast .td {
+	  padding: 0.7rem 2rem;
+	}
+
+	.cardround_take {
+		padding: 2rem;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.pair {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	// .cardround_weather, .cardround_take {
+	// 	flex-grow: 1;
+	// }
+
+	.cardround_weather {
+		width: 55%;
+	}
+
+	.cardround_take {
+		width: 43%;
+	}
+
+	.cardround_weather {
+		// margin-right: 2rem;
+	}
+}

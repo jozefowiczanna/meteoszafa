@@ -20,20 +20,29 @@ $text-color: #6c757d;
 
 $btn-cta-color: #27aae2;
 
-$btn-remove-bg: #808080;
-$btn-remove-bg-hover: #e82020; //red
+$remove_btn-bg: #808080;
+$remove_btn-bg-hover: #e82020; //red
 
-$btn-add-bg: #808080;
-$btn-add-bg-hover: #63b50b; //green
+$add_btn-bg: #808080;
+$add_btn-bg-hover: #63b50b; //green
 
 $btn-apply-bg: #444444;
 $btn-apply-color: #ffffff;
 
 // nav
 
-$menu_link-color: #000;
+$menu_link-color: #949494;
 $menu_link-color-hover: #bbb;
 
 // list
 
 $list-item-hover: #f9f9f9;
+
+
+// condition icons
+
+.diw-thermometer-25 {
+	color: blue;
+	display: inline-block;
+	font-size: 2rem;
+}

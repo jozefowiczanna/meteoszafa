@@ -1,123 +1,70 @@
-.boxround {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid $bc-border-color;
-  border-radius: 5px;
-  padding: 2rem;
-}
-.boxround .boxround_select-label {
-  flex-shrink: 0;
-	margin-right: 2rem;
-}
-.boxround .boxround_select {
-  width: 100%;
-}
-
 .cardround {
   border: 1px solid $bc-border-color;
   border-radius: 5px;
+	font-size: 0.9rem;
 }
 
 .cardround_header {
 	border-bottom: 1px solid $bc-border-color;
-  padding: 2rem 2rem 1rem;
-}
-
-.condition_label-hidden {
-  display: none;
-}
-
-.condition_text {
+  padding: 1rem;
 	font-weight: 600;
 }
 
-.ml {
-	margin-left: 13px;
+.condition_text-nr {
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+.condition_label {
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+}
+
+.condition_label-inline {
+	margin: 0 0.5rem;
+	display: inline;
 }
 
 .condition_input {
-  margin-left: 13px;
+	// margin-right: 0.2rem;
   border: none;
   border: 1px solid #a9a9a9;
   border-radius: 4px;
   width: 35px;
   padding: 5px;
   font-size: inherit;
+	text-align: center;
 }
+
+// =================== LIST
 
 .list-condition {
   list-style-type: none;
-  padding: 2rem;
   margin: 0;
+	padding: 0;
   margin-bottom: 2rem;
 }
 
 .list-item {
+	padding: 0.7rem 1rem;
+	margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $bc-border-color;
-  // height: 50px;
-	padding: 0.8rem 0.5rem;
 	transition: background-color 0.2s;
-}
-.list-item:hover {
-  background-color: $list-item-hover;
-}
-
-.item-right-text {
-  text-align: center;
-  font-size: 20px;
-}
-
-// --------------------- table
-
-.settings-table {
-	padding: 2rem;
-
-	td {
-
-		$td-p: 0.3rem;
-		padding-top: $td-p;
-		padding-bottom: $td-p;
-	}
-}
-
-.td-col-1 {
-	padding-right: 2rem;
-}
-
-.td-col-2 {
-	width: 70%;
-	padding-right: 0.8rem;
-}
-
-.settings-table_select, .settings-table_input {
-	width: 100%;
 
 	&:hover {
-		border-color: $btn-add-bg-hover;
+		background-color: $list-item-hover;
 	}
 }
 
-// .dropdown-add_select, .input-add_input {
-//   width: 100%;
-// }
+// list btn
 
-// --------------------- table end
+// list btn - remove
 
-// buttons
-
-.btn-add {
-	border-radius: $bc-border-radius;
-
-	&:hover {
-		opacity: 0.9;
-	}
-}
-
-.btn-add, .btn-remove {
+.remove_btn, .add_btn {
 	background: none;
 	border: none;
 	margin: 0;
@@ -131,25 +78,83 @@
 	}
 }
 
-.btn-add > i {
-	font-size: 1.8rem;
-	color: $btn-add-bg;
-
-	&:hover {
-		 color: $btn-add-bg-hover;
-	}
-}
-	.btn-remove > i {
+.remove_btn > i {
 		font-size: 1.5rem;
-		color: $btn-remove-bg;
+		color: $remove_btn-bg;
 
 		&:hover {
-			 color: $btn-remove-bg-hover;
+			 color: $remove_btn-bg-hover;
 		}
 }
 
+// =================== ADD group
+
+.add {
+	padding: 0 1rem 1rem;
+}
+
+.add_label {
+	display: inline-block;
+	margin: 0.5rem 0 0.5rem;
+	flex-shrink: 0;
+	flex: 0 0 135px;
+}
+
+.add_group {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.add_select, .add_input {
+	width: 100%;
+	max-width: 500px;
+	margin-right: 0.8rem;
+}
+
+.add_btn {
+	border-radius: $bc-border-radius;
+
+	&:hover {
+		opacity: 0.9;
+	}
+}
+
+.add_btn > i {
+	font-size: 1.8rem;
+	color: $add_btn-bg;
+
+	&:hover {
+		 color: $add_btn-bg-hover;
+	}
+}
+
+
+
+.boxround {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+  border: 1px solid $bc-border-color;
+  border-radius: 5px;
+  padding: 1rem;
+	font-size: 0.9rem;
+}
+
+.boxround_select-label {
+	margin: 0 0.5rem 0.5rem 0;
+	flex-shrink: 0;
+}
+
+.boxround_select {
+	width: 100%;
+	max-width: 500px;
+}
+
 .btn-apply_holder {
-  @include flex-c();
+  display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .btn-apply {

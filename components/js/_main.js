@@ -31,6 +31,11 @@ const citiesGeo = {
 			"name": "Kair",
 			"lat": 30.0626,
 			"lon": 31.2497
+		},
+		"miedzywodzie": {
+			"name": "Międzywodzie",
+			"lat": 54.0064,
+			"lon": 14.6958
 		}
 	};
 
@@ -150,16 +155,16 @@ function escapeDiacritics(str){
     s = s.replace(/ą/ig,'a');
 
 		//add "-" between words
-		s = s.replace(" ", "-");
+		s = s.replace(/ /ig, "-");
 		return s;
 }
 
 
 
-function createDefaultClothesList(){
-	const clothesList = document.querySelectorAll(".settings-table_select");
+function createDefaultselectClothes(){
+	const selectClothes = document.querySelectorAll(".js-select-clothes");
 	// stworzenie i dodanie pierwszej listy
-	clothesList[0].innerHTML = "";
+	selectClothes[0].innerHTML = "";
 	for (cloth in clothes) {
 
 		const optgroupEl = document.createElement("optgroup");
@@ -173,11 +178,11 @@ function createDefaultClothesList(){
 			options = options + optionEl;
 		}
 		optgroupEl.innerHTML = options;
-		clothesList[0].appendChild(optgroupEl);
+		selectClothes[0].appendChild(optgroupEl);
 	}
 	// skopiowanie listy do pozostałych
-	for (var i = 1; i < clothesList.length; i++) {
-		clothesList[i].innerHTML = clothesList[0].innerHTML;
+	for (var i = 1; i < selectClothes.length; i++) {
+		selectClothes[i].innerHTML = selectClothes[0].innerHTML;
 	}
 };
 
@@ -196,7 +201,7 @@ function addClothes(selector, cloth){
 	listItem.innerHTML =
 	`
 		<div class="list-item_text">${cloth}</div>
-		<button type="button" class="btn-remove"><i class="fas fa-minus-circle"></i></button>
+		<button type="button" class="remove_btn"><i class="fas fa-minus-circle"></i></button>
 	`;
 	list.appendChild(listItem);
 }
@@ -212,20 +217,20 @@ function addDefaultClothes(conditionNr){
 };
 
 addCitiesToList();
-createDefaultClothesList();
+createDefaultselectClothes();
 addDefaultClothes(1);
 addDefaultClothes(2);
 addDefaultClothes(3);
 addDefaultClothes(4);
 addDefaultClothes(5);
 
-const conditionLists = document.querySelectorAll(".condition");
+const conditionLists = document.querySelectorAll(".js-condition");
 for (list of conditionLists){
 	list.addEventListener("click", function(e){
-		if (e.target.parentNode.classList.contains("btn-remove")){
+		if (e.target.parentNode.classList.contains("remove_btn")){
 			const t = e.target.closest(".list-item");
 			t.remove();
-		} else if (e.target.parentNode.classList.contains("btn-add")) {
+		} else if (e.target.parentNode.classList.contains("add_btn")) {
 			const btn = e.target.parentNode;
 			// wyszukanie nr listy do ktorej zostanie dolaczony element
 			const card = e.target.closest(".cardround_body");
@@ -233,11 +238,11 @@ for (list of conditionLists){
 			const selector = `[data-condition-list="${nr}"]`;
 
 			// pobranie nazwy ubrania, ktore ma zostac dolaczone do listy
-			if (btn.classList.contains("btn-add-select")){
+			if (btn.classList.contains("js-add_btn-select")){
 				const val = card.querySelector("select").value; // warrtosc elementu
 				const cloth = card.querySelector(`[value=${val}]`).innerHTML; // wlasciwa nazwa z polskimi literami
 				addClothes(selector, cloth);
-			} else if (btn.classList.contains("btn-add-input")){
+			} else if (btn.classList.contains("js-add_btn-input")){
 				const cloth = card.querySelector("input").value;
 				addClothes(selector, cloth);
 			}

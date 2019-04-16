@@ -1,0 +1,23 @@
+// Nav
+.nav {
+	position: fixed;
+	width: 100%;
+	background-color: $bg-color;
+	z-index: 10;
+}
+
+.nav_menu {
+	display: flex;
+	justify-content: space-around;
+}
+
+.nav_menu_link {
+	color: $menu_link-color;
+	text-decoration: none;
+	font-weight: 700;
+	padding: 1rem;
+
+	&:hover {
+		color: $menu_link-color-hover;
+	}
+}

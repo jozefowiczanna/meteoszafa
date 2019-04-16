@@ -11,6 +11,7 @@ const jsFinal = ['development/js/*.js'];
 
 const jsSources = [
 	'components/js/_templates.js',
+	'components/js/_fullpage.js',
 	'components/js/_main.js'
 ];
 

@@ -1,15 +1,39 @@
-.about-holder {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
+// About
+
+.h1-big {
+	font-size: 2.2rem;
+	color: $light-blue;
+	margin-bottom: 0;
 }
 
-.about_text {
-  color: #6c757d;
-  font-size: 1rem;
-  // font-weight: 300;
-  max-width: 450px;
+.h2-big {
+	font-weight: lighter;
+	margin-bottom: 1.5rem;
+	font-size: 1.2rem;
+}
+
+.about {
+	padding-top: 5rem;
+}
+
+.logo_holder {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo-mobile {
+	width: 100%;
+	padding: 0 2rem 1rem;
+}
+
+.logo-big {
+	display: none;
+}
+
+.btn-cta_holder {
+	display: flex;
+	justify-content: center;
 }
 
 .btn-cta {
@@ -19,18 +43,11 @@
   border: 2px solid #27aae2;
   background: #27aae2;
   color: #fff;
-  margin-top: 3rem;
+  margin-top: 1rem;
   transition: background-color 0.3s;
 }
+
 .btn-cta:hover {
   background: transparent;
   color: #000;
-}
-
-.logo-big-img {
-  width: 40%;
-}
-
-.about-text-holder, .logo-big-img {
-  margin-bottom: 7rem;
 }
