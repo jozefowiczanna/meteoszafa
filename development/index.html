@@ -1,25 +1,61 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="pl">
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel='icon' href='images/favicon.ico' type='image/x-icon'>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Document</title>
+	<title>METEOSZAFA - dopasuj ubrania do pogody</title>
+	
+
 </head>
 <body cz-shortcut-listen="true">
 
 	<!-- header of the page -->
 	<header class="header" id="top">
-		<nav class="nav">
-			<div class="wrapper nav_menu">
-				<a class="nav_menu_link" href="#about">co?</a>
-				<a class="nav_menu_link" href="#setwhere">gdzie?</a>
-				<a class="nav_menu_link" href="#sethow">jak?</a>
-				<a class="nav_menu_link" href="#forecast">ruszaj!</a>
+		<nav class="sidebar">
+			<div class="toggle-btn">
+				<div class="hamburger-icon">
+					<div class="hamburger"></div>
+				</div>
 			</div>
+			<ul>
+				<li><a href="#about" class="js-trigger">O projekcie</a></li>
+				<li><a href="#how" class="js-trigger">Jak to działa?</a></li>
+				<li class="li-flex">
+					<a href="#conditions" class="js-trigger">Warunki</a>
+					<button class="show-cons-btn"><i class="fas fa-chevron-down"></i></button>
+				</li>
+				<div class="slide-cons hidden">
+					<li><a href="#conditions" class="js-trigger pl">Warunek 1</a></li>
+					<li><a href="#bgc-02" class="js-trigger pl">Warunek 2</a></li>
+					<li><a href="#bgc-03" class="js-trigger pl">Warunek 3</a></li>
+					<li><a href="#bgc-04" class="js-trigger pl">Warunek 4</a></li>
+					<li><a href="#bgc-05" class="js-trigger pl">Warunek 5</a></li>
+				</div>
+				<li><a href="#where" class="js-trigger">Dokąd pojedziesz?</a></li>
+				<li class="li-flex">
+					<a href="#forecast-scroll" class="js-trigger">Prognoza</a>
+					<button class="show-days-btn"><i class="fas fa-chevron-down"></i></button>
+				</li>
+				<div class="slide-days hidden">
+					<div class="slide-days-flex">
+						<li><a href="#day-1" class="js-trigger pl">1</a></li>
+						<li><a href="#day-2" class="js-trigger pl">2</a></li>
+						<li><a href="#day-3" class="js-trigger pl">3</a></li>
+						<li><a href="#day-4" class="js-trigger pl">4</a></li>
+						<li><a href="#day-5" class="js-trigger pl">5</a></li>
+						<li><a href="#day-6" class="js-trigger pl">6</a></li>
+						<li><a href="#day-7" class="js-trigger pl">7</a></li>
+						<li><a href="#day-8" class="js-trigger pl">8</a></li>
+					</div>
+				</div>
+				<li><a href="https://jozefowiczanna.github.io/" target="_blank">Autorka</a></li>
+			</ul>
 		</nav>
 	</header>
 
@@ -27,7 +63,7 @@
 		<div class="">
 
 			<!-- about -->
-			<section class="section about" id="#about">
+			<section class="about" id="about">
 				<div class="wrapper">
 					<div class="about_holder">
 						<div class="about_text-holder">
@@ -41,7 +77,7 @@
 								<p>A co jeśli mógłbyś zrobić taką listę tylko raz i więcej nie zawracać sobie głowy? Określasz co lubisz nosić w zależności od warunków atmosferycznych i zapisujesz swoje preferencje. Następnie wybierasz cel podróży i otrzymujesz prognozę wraz z listą ubrań, które powinieneś zabrać.</p>
 							</div>
 							<div class="btn-cta_holder">
-								<button type="button" class="btn btn-cta" name="button">Zaczynaj</button>
+								<button type="button" class="btn btn-cta js-trigger" data-target="#how" name="button">Zaczynaj</button>
 							</div>
 						</div>
 						<img class="logo-big" src="images/logo_rain.png" alt="">
@@ -50,18 +86,26 @@
 			</section>
 
 			<!-- settings -->
-			<section class="section settings">
+			<section class="settings">
 				<form action="GET">
 
 					<!-- sethow -->
 
-					<section class="section">
-						<div class="wrapper">
-							<h2 id="sethow">Co założysz?</h2>
-						</div>
+					<section>
+						<section class="sethow" id="how">
+							<div class="wrapper">
+								<div class="plr">
+									<h2>Jak to działa?</h2>
+									<p>Do dyspozycji masz pięć warunków. Pierwsze trzy dotyczą temperatury, której zakres możesz zmieniać według własnego uznania. Czwarty warunek dotyczy prędkości wiatru, piąty szansy opadów w procentach.</p>
+									<p>Do każdego warunku możesz dodać listę ubrań, które chcesz założyć jeśli dany warunek zostanie spełniony.</p>
+									<p>Gdy ustalisz i spersonalizujesz listy ubrań, pozostanie Ci wybranie celu podróży. Liczba miast jest na razie ograniczona.</p>
+									<p>Po kliknięciu "sprawdź prognozę" pojawi się 8-dniowa prognoza wraz z listą ubrań, które spełniają określone warunki.</p>
+								</div>
+							</div>
+						</section>
 
 						<!-- CONDITION 1 -->
-						<section class="bgc bgc-01">
+						<section class="bgc bgc-01" id="conditions">
 							<div class="wrapper">
 								<div class="big-wrapper">
 									<div class="big-text-group big-text">Warunek 1:</div>
@@ -73,7 +117,7 @@
 								</div>
 								<div class="cardround bgc-box js-condition">
 									<div class="cardround_header">
-										<label class="condition_label" for="condition-1">Temperatura mniejsza lub równa</label>
+										<label class="condition_label" for="condition-1">Temperatura poniżej</label>
 										<input class="condition_input" type="text" id="condition-1" value="10">
 										<span class="condition_unit">°C</span>
 									</div><!-- cardround_header -->
@@ -105,7 +149,7 @@
 
 
 						<!-- CONDITION 2 -->
-						<section class="bgc bgc-02">
+						<section class="bgc bgc-02" id="bgc-02">
 							<div class="wrapper">
 								<div class="big-wrapper">
 									<div class="big-text-group big-text">Warunek 2:</div>
@@ -116,10 +160,10 @@
 								</div>
 								<div class="cardround bgc-box js-condition">
 									<div class="cardround_header">
-										<label class="condition_label" for="condition-2a">Temperatura pomiędzy</label>
+										<label class="condition_label" for="condition-2a">Temperatura od</label>
 										<input class="condition_input" type="text" id="condition-2a" value="10">
 										<span class="condition_unit">°C</span>
-										<label class="condition_label-inline" for="condition-2b"> a </label>
+										<label class="condition_label-inline" for="condition-2b">do</label>
 										<input class="condition_input" type="text" id="condition-2b" value="20">
 										<span class="condition_text">°C</span>
 									</div><!-- cardround_header -->
@@ -150,7 +194,7 @@
 						</section>
 
 						<!-- CONDITION 3 -->
-						<section class="bgc bgc-03">
+						<section class="bgc bgc-03" id="bgc-03">
 							<div class="wrapper">
 								<div class="big-wrapper">
 									<div class="big-text-group big-text">Warunek 3:</div>
@@ -193,7 +237,7 @@
 						</section>
 
 						<!-- CONDITION 4 -->
-						<section class="bgc bgc-04">
+						<section class="bgc bgc-04" id="bgc-04">
 							<div class="wrapper">
 								<div class="big-wrapper">
 									<div class="big-text-group big-text">Warunek 4:</div>
@@ -205,7 +249,7 @@
 								</div>
 								<div class="cardround bgc-box js-condition">
 									<div class="cardround_header">
-										<label class="condition_label" for="condition-4">Wiatr większy niż</label>
+										<label class="condition_label" for="condition-4">Prędkość wiatru powyżej</label>
 										<input class="condition_input" type="text" id="condition-4" value="10">
 										<span class="condition_unit">km/h</span>
 									</div><!-- cardround_header -->
@@ -236,7 +280,7 @@
 						</section>
 
 						<!-- CONDITION 5 -->
-						<section class="bgc bgc-05">
+						<section class="bgc bgc-05" id="bgc-05">
 							<div class="wrapper">
 								<div class="big-wrapper">
 									<div class="big-text-group big-text">Warunek 5:</div>
@@ -248,7 +292,7 @@
 								</div>
 								<div class="cardround bgc-box js-condition">
 									<div class="cardround_header">
-										<label class="condition_label" for="condition-5">Opady większe niż</label>
+										<label class="condition_label" for="condition-5">Szansa opadów powyżej</label>
 										<input class="condition_input" type="text" id="condition-5" value="10">
 										<span class="condition_unit">%</span>
 									</div><!-- cardround_header -->
@@ -281,10 +325,10 @@
 					</section><!-- sethow -->
 
 					<!-- setwhere -->
-					<section class="section section_where">
+					<section id="where" class="section_where">
 						<div class="wrapper">
-							<h2 id="setwhere">Dokąd pojedziesz?</h2>
-							<div class="boxround">
+							<h2>Dokąd pojedziesz?</h2>
+							<div class="boxround boxround_where">
 								<label class="boxround_select-label" for="select-city">Wybierz miasto:</label>
 								<select class="select boxround_select" name="select-city" id="select-city">
 								</select>
@@ -294,98 +338,16 @@
 
 				</form>
 				<div class="btn-apply_holder">
-					<button type="button" class="btn btn-apply">Sprawdź prognozę</button>
+					<button type="button" class="btn btn-apply"><a href="#forecast" class="btn js-trigger">Sprawdź prognozę</a></button>
 				</div>
 			</section>
 
 			<!-- forecast -->
-			<section class="section forecast" id="#forecast">
-				<h2 id="forecast">Pakuj się</h2>
+			<div id="forecast-scroll"></div>
+			<section class="forecast hidden" id="forecast">
 				<div class="forecast_content">
-
+				</div>
 				</div><!-- forecast_content -->
-				<div class="pair" data-day="1">
-						<div class="cardround cardround_weather">
-							<div class="cardround_header no-border">
-								<div class="forecast-header">
-									<div class="date-group">
-										<div>
-											<span class="date-group_day">Dzień </span>
-											<span>1: </span>
-										</div>
-										<span class="date-group_weekday">Poniedziałek </span>
-										<span>21.01.2019</span>
-									</div>
-									<div class="icon-group">
-										<div>
-											<div class="icon-group_city">Poznań</div>
-											<div class="icon-group_big-temp">20°C</div>
-										</div>
-										<div class="icon diw-cloud-moon"></div>
-									</div>
-									<div class="daily-summary align-left">
-										Bezchmurnie
-									</div>
-								</div>
-							</div>
-							<div class="cardround_body">
-								<table class="table table-forecast">
-									<tbody>
-										<tr class="border-top">
-											<td class="td td-col-1">Temperatura w dzień</td>
-											<td class="td td-col-2 align-right">
-												<span class="temp-day mr">20°C</span>
-											<span class="apparent-temp-day small-font">(18°C*)</span>
-											</td>
-										</tr>
-										<tr>
-											<td class="td td-col-1 border-top">Temperatura w nocy</td>
-											<td class="td td-col-2 border-top align-right">
-												<span class="temp-night mr">12°C</span>
-												<span class="apparent-temp-night small-font">(9°C*)</span>
-											</td>
-										</tr>
-										<tr>
-											<td class="td td-col-1">Zachmurzenie</td>
-											<td class="td td-col-2 align-right clouds">11%</td>
-										</tr>
-										<tr>
-											<td class="td td-col-1">Wilgotność</td>
-											<td class="td td-col-2 align-right humidity">23%</td>
-										</tr>
-										<tr>
-											<td class="td td-col-1">Szansa opadów</td>
-											<td class="td td-col-2 align-right humidity">20%</td>
-										</tr>
-										<tr>
-											<td class="td td-col-1">Prędkość wiatru</td>
-											<td class="td td-col-2 align-right wind">
-												<span class="wind-speed">12 km/h</span>
-												<img class="windarrow" src="images/windarrow.svg" alt="kierunek wiatru" style="transform: rotate(123deg);">
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2" class="td td-col-2 align-right small-font no-border">*temperatura odczuwalna</td>
-										</tr>
-									</tbody>
-								</table>
-							</div><!-- cardround_body -->
-						</div><!-- cardround -->
-						<div class="cardround cardround_take">
-							<h3>Zabierz:</h3>
-							<h4>Temp. 10 - 20°C</h4>
-							<ul class="list-take">
-								<li class="list-take_item">lekka czapka</li>
-								<li class="list-take_item">chustka</li>
-								<li class="list-take_item">adidasy</li>
-							</ul>
-							<h4>Wiatr &gt; 10 km/h</h4>
-							<ul class="list-take">
-								<li class="list-take_item">nauszniki</li>
-								<li class="list-take_item">kurtka przeciwwiatrowa</li>
-							</ul>
-						</div>
-					</div><!-- pair -->
 			</section> <!-- forecast END -->
 		</div>
 	</main>
@@ -393,12 +355,20 @@
 	<!-- footer -->
 	<footer class="footer">
 		<div class="wrapper">
-			<p class="footer_author">Logo, layout i kod - <a class="footer_link" href="https://jozefowiczanna.github.io/">Anna Józefowicz</a></p>
-			<p class="footer_credits">Ikony pogody - <a class="footer_link" href="http://www.amitjakhu.com/">Amit Jakhu</a></p>
+			<p>Logo, layout i kod - <a class="footer_link" href="https://jozefowiczanna.github.io/">Anna Józefowicz</a></p>
+			<p class="footer_icon">Ikony pogody - <a class="footer_link" href="https://www.behance.net/amitjakhu" target="_blank">Amit Jakhu</a></p>
 		</div>
 	</footer>
 
+	<div class="slide-msg">
+		<p>Aby zobaczyć prognozę, <a href="#where" class="js-trigger">wybierz cel podróży</a></p>
+		<button class="remove-msg-btn">
+			<i class="fas fa-times-circle"></i>
+		</button>
+	</div>
+
 <script src="jquery/jquery-3.4.0.min.js"></script>
+<script src="js/moveTo.min.js"></script>
 <script src="js/script.js"></script>
 
 </body></html>

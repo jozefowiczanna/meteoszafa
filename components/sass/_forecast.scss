@@ -1,3 +1,32 @@
+.forecast {
+	background-color: $bg-forecast;
+	padding-top: 3rem;
+}
+
+.hidden {
+	display: none;
+}
+
+.bg {
+	padding: 1rem 0 3rem;
+	background-color: $bg-forecast;
+}
+
+.pb0 {
+	padding-bottom: 0 !important;
+}
+
+.cardround_weather {
+	font-size: 0.8rem;
+	margin-bottom: 2rem;
+}
+
+.cardround_weather, .cardround_take {
+	box-shadow: 0 10px 20px hsla(0, 0%, 80%, 1);
+	border-left: 10px solid #c6c6c6;
+	color: #4e4e4e;
+}
+
 .date-group {
 	font-size: 1.1rem;
 }
@@ -7,14 +36,14 @@
 }
 
 .icon-group {
-	margin: 1rem 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+	margin: 2rem 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 
-	.icon {
-		font-size: 4rem;
-	}
+		.icon {
+			font-size: 4rem;
+		}
 }
 
 .icon-group_city, .icon-group_big-temp {
@@ -36,9 +65,9 @@
 }
 
 .table-forecast .td {
-  line-height: 1.5rem;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid $bc-border-color;
+	line-height: 1.5rem;
+	padding: 0.5rem 1rem;
+	border-bottom: 1px solid $bc-border-color;
 }
 
 .border-top {

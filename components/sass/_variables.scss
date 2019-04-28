@@ -7,16 +7,17 @@ $h6-font-size: 10px;
 
 // Box and card
 $bc-border-radius: 5px;
-$bc-border-color: #bbb;
+$bc-border-color: hsla(0, 0%, 80%, 1);
 $bc-padding-left: 1rem;
 
 // colors
 
 $light-blue: #27aae2;
 $bg-color: #FDFDFD;
+$bg-forecast: #f7f7f7;
 $text-color: #000;
 
-// button colors:
+// button:
 
 $btn-cta-color: #27aae2;
 
@@ -32,8 +33,15 @@ $btn-apply-color: #ffffff;
 // nav
 
 $menu_link-color: #949494;
-$menu_link-color-hover: #bbb;
+$menu_link-color-hover: #bbb;   
 
 // list
 
 $list-item-hover: #f9f9f9;
+
+// footer
+$footer: #c2c2c2;
+$footer-dark: #8b8b8b;
+$footer-dark-hover: #b3b3b3;
+$footer-hover: #ebebeb;
+$footer-bg: #525252;

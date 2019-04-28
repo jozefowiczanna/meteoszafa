@@ -1,24 +1,210 @@
 // Nav
-.nav {
+$sidebar-w: 200px;
+$hamb-w: 30px;
+$hamb-h: 4px;
+$hamb-m: 8px;
+$hamb-br: 5px;
+$btn-wh: $hamb-w + 20px;
+$btn-m: 10px;
+$bb: 1px solid rgba(100, 100, 100, 0.4);
+
+.sidebar {
 	position: fixed;
-	width: 100%;
-	background-color: $bg-color;
+	width: $sidebar-w;
+	height: 100%;
+	left: -$sidebar-w;
+	// right: -$sidebar-w;
+	background: #151719;
+	font-family: sans-serif;
+	transition: all 0.3s;
 	z-index: 999;
-	// box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); // on-scroll
+}
+  
+.sidebar.active {
+	left: 0;
+	// right: 0;
 }
 
-.nav_menu {
-	display: flex;
-	justify-content: space-around;
+.sidebar ul {
+	margin: 0;
+	padding: 0;
+	padding-top: 10px;
+	list-style: none;
 }
 
-.nav_menu_link {
-	color: $menu_link-color;
+.sidebar ul li a {
+	display: block;
+	color: rgba(230, 230, 230, 0.9);
 	text-decoration: none;
-	font-weight: 700;
-	padding: 1rem;
+	padding: 15px 30px;
+	border-bottom: $bb;
+	transition: all 0.2s;
+}
 
-	&:hover {
-		color: $menu_link-color-hover;
+.sidebar ul li a:hover, .sidebar .show-cons-btn:hover, .show-days-btn:hover {
+	background: rgba(100, 100, 100, 0.2);
+	color: rgba(250, 250, 250, 1);
+}
+
+.sidebar .pl {
+	padding: 10px 50px;
+	font-size: 0.9em;
+}
+
+.sidebar .li-flex {
+	display: flex;
+
+	a {
+		width: 100%;
+	}
+}
+
+.show-cons-btn, .show-days-btn {
+	background: none;
+	width: 60px;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+	border-bottom: $bb;
+	transition: all 0.2s;
+}
+
+.fa-chevron-down {
+	color: rgba(230, 230, 230, 0.9);
+	transform: rotate(0);
+	transition: 0.3s;
+}
+
+.fa-chevron-down.active {
+	transform: rotate(180deg);
+	transition: 0.3s;
+}
+
+.sidebar .toggle-btn {
+	position: absolute;
+	left: $sidebar-w + $btn-m;
+	// right: $sidebar-w + $btn-m;
+	top: 10px;
+	width: $btn-wh;
+	height: $btn-wh;
+	cursor: pointer;
+}
+
+.sidebar.hidden {
+	display: none;
+}
+
+.sidebar .hamburger-icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: $btn-wh;
+	height: $btn-wh;
+	cursor: pointer;
+	background: hsla(100, 100%, 100%, 0.8);
+	border-radius: 5px;
+}
+
+.sidebar .hamburger {
+	width: $hamb-w;
+	height: $hamb-h;
+	background: #151719;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	border-radius: $hamb-br;
+	transition: 0.3s;
+}
+
+.sidebar .hamburger:before, .sidebar .hamburger:after {
+	content: '';
+	position: absolute;
+	width: $hamb-w;
+	height: $hamb-h;
+	background: #151719;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	border-radius: $hamb-br;
+	transition: 0.3s;
+}
+
+.sidebar .hamburger:before {
+	top: -$hamb-m;
+}
+
+.sidebar .hamburger:after {
+	top: $hamb-m;
+}
+  
+.sidebar .hamburger-icon.active .hamburger {
+	background: rgba(0, 0, 0, 0);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.sidebar .hamburger-icon.active .hamburger:before {
+	top: 0;
+	transform: rotate(45deg);
+}
+
+.sidebar .hamburger-icon.active .hamburger:after {
+	top: 0;
+	transform: rotate(135deg);
+}
+
+.slide-days-flex{
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 30px;
+	border-bottom: $bb;
+
+	.pl {
+		padding: 20px;
+		border-bottom: none;
+	}
+}
+
+.slide-msg {
+	position: fixed;
+    right: 10px;
+    top: 0;
+    display: flex;
+    background: hsl(45, 100%, 95%);
+    padding: 1rem;
+    margin: 10px;
+    justify-content: space-between;
+	border: 3px solid hsl(45, 100%, 50%);
+    border-radius: 10px;
+	box-shadow: 0 10px 30px rgba(68, 58, 29, 0.3);
+	
+	p {
+		max-width: 220px;
+		line-height: 1.7;
+		padding: 0;
+
+		a {
+			color: inherit;
+			font-weight: 600;
+		}
+	}
+
+	.remove-msg-btn {
+		background: none;
+		border: none;
+		align-self: flex-start;
+		cursor: pointer;
+		color: hsl(45, 100%, 45%);
+		transition: 0.3s;
+		padding: 0;
+		outline: none;
+
+		&:hover {
+			color: red;
+		}
+
+		i {
+			font-size: 1.5rem;
+		}
 	}
 }

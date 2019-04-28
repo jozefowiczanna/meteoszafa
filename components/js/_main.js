@@ -1,5 +1,10 @@
 // _main.js
+
+// NOTE skróty używane przy ANCHOR: c = const, f = function, e = event
+
 $(document).ready(function(){
+
+// ANCHOR c. lista miast, dł. i szer. geograficzna 
 
 const citiesGeo = {
 		"poznan": {
@@ -39,6 +44,7 @@ const citiesGeo = {
 		}
 	};
 
+	// ANCHOR c. lista ciuchów podzielona na kategorie
 	const clothes = {
 		"kurtki" :
 			["kurtka jesienna", "kurtka letnia", "kurtka wiosenna", "kurtka zimowa", "kurtka przeciwwiatrowa", "płaszcz jesienny", "płaszcz letni", "płaszcz wiosenny", "płaszcz zimowy"],
@@ -55,7 +61,8 @@ const citiesGeo = {
 		"buty" :
 			["adidasy", "baleriny", "botki", "japonki", "kalosze", "kozaki", "obuwie trekkingowe", "sandały", "trampki", "śniegowce"]
 	};
-
+	
+	// ANCHOR c. ikony pogody - główna wartość obiektów odpowiada nazwie z API; wartość "icon" odpowiada nazwie grafiki
 	const icons = {
 		"clear-day" : {
 			icon : "sun",
@@ -111,8 +118,16 @@ const citiesGeo = {
 		}
 	};
 
-// ------------------- kalendarz
+	// ANCHOR  c. domyślna lista ciuchów dla każdego z warunków z osobna
+	const defaultClothes = {
+		"condition-1": ["czapka zimowa", "szalik", "buty zimowe", "rękawiczki"],
+		"condition-2": ["lekka czapka", "chustka", "adidasy"],
+		"condition-3": ["japonki", "krótkie spodenki"],
+		"condition-4": ["nauszniki", "kurtka przeciwwiatrowa"],
+		"condition-5": ["parasol", "peleryna"]
+	}
 
+// ANCHOR f. funkcja zwracająca tablicę z dniem tygodnia i data; dayNr = 0 oznacza dzisiaj, 1 - jutro, itd.
 
 function getDate(dayNr) {
 	function leadingZero(nr){
@@ -130,7 +145,7 @@ function getDate(dayNr) {
 	return dateInfo = [weekday, `${day}.${month}.${year}`];
 }
 
-// ------------------- kalendarz END
+// ANCHOR f. dodanie do HTML listy miast do wyboru
 
 function addCitiesToList(){
 	const boxroundSelect = document.querySelector(".boxround_select");
@@ -159,7 +174,7 @@ function escapeDiacritics(str){
 		return s;
 }
 
-
+// ANCHOR f. dodanie do HTML listy ciuchów możliwych do dodania
 
 function createDefaultselectClothes(){
 	const selectClothes = document.querySelectorAll(".js-select-clothes");
@@ -186,13 +201,7 @@ function createDefaultselectClothes(){
 	}
 };
 
-const defaultClothes = {
-	"condition-1": ["czapka zimowa", "szalik", "buty zimowe", "rękawiczki"],
-	"condition-2": ["lekka czapka", "chustka", "adidasy"],
-	"condition-3": ["japonki", "krótkie spodenki"],
-	"condition-4": ["nauszniki", "kurtka przeciwwiatrowa"],
-	"condition-5": ["parasol", "peleryna"]
-}
+
 
 function addClothes(selector, cloth){
 	const list = document.querySelector(selector);
@@ -201,7 +210,9 @@ function addClothes(selector, cloth){
 	listItem.innerHTML =
 	`
 		<div class="list-item_text">${cloth}</div>
-		<button type="button" class="remove_btn"><i class="fas fa-minus-circle"></i></button>
+		<button type="button" class="remove_btn">
+			<i class="fas fa-minus-circle"></i>
+		</button>
 	`;
 	list.appendChild(listItem);
 }
@@ -216,14 +227,14 @@ function addDefaultClothes(conditionNr){
 	}
 };
 
-addCitiesToList();
-createDefaultselectClothes();
-addDefaultClothes(1);
-addDefaultClothes(2);
-addDefaultClothes(3);
-addDefaultClothes(4);
-addDefaultClothes(5);
+// ANCHOR f. funkcje uruchamiane tylko raz po załadowaniu strony - wypełnienie HTML template'ami
+addCitiesToList(); // dodanie listy miast
+createDefaultselectClothes(); // dodanie rozwijanej listy z ciuchami
+for (let i= 1; i<6; i++){
+	addDefaultClothes(i); // dodanie domyślnej listy ciuchów - innej dla każdego warunku
+}
 
+// ANCHOR e. buttony - możliwość usunięcia lub dodania wybranych elementów ubioru
 const conditionLists = document.querySelectorAll(".js-condition");
 for (list of conditionLists){
 	list.addEventListener("click", function(e){
@@ -237,12 +248,12 @@ for (list of conditionLists){
 			const nr = card.querySelector("[data-condition-list]").dataset.conditionList;
 			const selector = `[data-condition-list="${nr}"]`;
 
-			// pobranie nazwy ubrania, ktore ma zostac dolaczone do listy
-			if (btn.classList.contains("js-add_btn-select")){
-				const val = card.querySelector("select").value; // warrtosc elementu
+			// dodanie ubrania do listy
+			if (btn.classList.contains("js-add_btn-select")){ // rozwijana lista
+				const val = card.querySelector("select").value; // wartość elementu
 				const cloth = card.querySelector(`[value=${val}]`).innerHTML; // wlasciwa nazwa z polskimi literami
 				addClothes(selector, cloth);
-			} else if (btn.classList.contains("js-add_btn-input")){
+			} else if (btn.classList.contains("js-add_btn-input")){ // pole input
 				const cloth = card.querySelector("input").value;
 				addClothes(selector, cloth);
 			}
@@ -250,9 +261,12 @@ for (list of conditionLists){
 	})
 }
 
+// SECTION f. główna funkcja przetwarzająca dane z API
 function processData(data, city){
+	$(".forecast").removeClass("hidden");
 	console.log(data);
 	const fullForecast = [];
+	// pobranie prognozy na 8 dni - pierwszy dzień = 0;
 	for (let i = 0; i < data.daily.data.length; i++) {
 		const iconFromAPI = data.daily.data[i].icon;
 		const info = {
@@ -260,7 +274,7 @@ function processData(data, city){
 			weekday : getDate(i)[0],
 			date : getDate(i)[1],
 			city : city,
-			// dodanie podsumowania
+			// dailySummary - dodanie podsumowania
 			// czasami podsumowanie nie jest dostępne, wtedy można dodac opis z ikony
 			dailySummary : (data.daily.data[i].summary !== undefined) ? data.daily.data[i].summary : icons[iconName].pl,
 			tempDay : Math.round(data.daily.data[i].temperatureHigh) + "°C",
@@ -276,8 +290,8 @@ function processData(data, city){
 			listTemplate : "",
 			condition : "",
 		}
-		// ================ sprawdzenie, ktory warunek sie sprawdzil i załadowanie listy
-
+		
+		// ANCHOR c. f. sprawdzenie, ktory warunek został spełniony i załadowanie listy z ubraniami
 		const condition1 = parseInt(document.querySelector("#condition-1").value);
 		const condition2a = parseInt(document.querySelector("#condition-2a").value);
 		const condition2b = parseInt(document.querySelector("#condition-2b").value);
@@ -292,15 +306,15 @@ function processData(data, city){
 		let text = "";
 		let clothes = [];
 
-		if (temp <= condition1) {
+		if (temp < condition1) {
 			nr = 1;
-			text = `Temp. <= ${condition1}°C`;
-		} else if (temp > condition2a && temp < condition2b) {
+			text = `Temperatura poniżej ${condition1}°C`;
+		} else if (temp >= condition2a && temp <= condition2b) {
 			nr = 2;
-			text = `Temp. ${condition2a} - ${condition2b}°C`;
-		} else if (temp >= condition3) {
+			text = `Temperatura od ${condition2a} do ${condition2b}°C`;
+		} else if (temp > condition3) {
 			nr = 3;
-			text = `Temp. >= ${condition3}°C`;
+			text = `Temperatura powyżej ${condition3}°C`;
 		} else {
 			console.log("Coś się nie zgadza. Sprawdź czy warunki są poprawne!");
 		}
@@ -317,7 +331,7 @@ function processData(data, city){
 		// dodanie listy spelniajacej 4 warunek (wiatr)
 		if (windSpeed > condition4) {
 			clothes = [];
-			text = `Wiatr > ${condition4} km/h`;
+			text = `Prędkość wiatru powyżej ${condition4} km/h`;
 			selected = $(`[data-condition-list="4"] li div`);
 			for (let i = 0; i < selected.length; i++) {
 				clothes.push(selected[i].innerText);
@@ -328,7 +342,7 @@ function processData(data, city){
 		// dodanie listy spelniajacej 5 warunek (opady)
 		if (rainSnow > condition5) {
 			clothes = [];
-			text = `Opady > ${condition5}%`;
+			text = `Szansa opadów powyżej ${condition5}%`;
 			selected = $(`[data-condition-list="5"] li div`);
 			for (let i = 0; i < selected.length; i++) {
 				clothes.push(selected[i].innerText);
@@ -340,12 +354,15 @@ function processData(data, city){
 		fullForecast.push(info);
 	}
 	$(".forecast_content").html("");
+	$(".forecast_content").append(forecastHeader);
 	for (var i = 0; i < fullForecast.length; i++) {
 		addForecast(fullForecast[i]);
 	}
-
+	moveToPlugin();
 }
+// !SECTION
 
+// TODO  f. połączenie z API 
 function getData(){
 	const city = document.querySelector("#select-city").value;
 	$.ajax({
@@ -360,7 +377,33 @@ function getData(){
 	});
 }
 
-// ==================== koniec API
-
 document.querySelector(".btn-apply").addEventListener("click", getData);
+document.querySelector(".toggle-btn").addEventListener("click", function(){
+	document.querySelector(".sidebar").classList.toggle("active");
+	document.querySelector(".hamburger-icon").classList.toggle("active");
+});
+
+// ANCHOR pokazywanie i chowanie submenu w sidebar
+function toggleSubmenu(icon, menu) {
+	icon.toggleClass("active");
+	if (icon.hasClass("active")) {
+		menu.slideDown();
+	} else {
+		menu.slideUp();
+	}
+}
+
+$(".show-cons-btn").click(() => toggleSubmenu($(".show-cons-btn .fa-chevron-down"), $(".slide-cons")));
+$(".show-days-btn").click(() => toggleSubmenu($(".show-days-btn .fa-chevron-down"), $(".slide-days")));
+
+
+// ANCHOR plugin "moveTo.js" (smooth scroll), funkcja uruchomiona po wczytaniu strony i ponownie po załadowniu do html sekcji forecast
+const moveTo = new MoveTo();
+function moveToPlugin() {
+	const triggers = document.getElementsByClassName('js-trigger');
+	for (trigger of triggers) { moveTo.registerTrigger(trigger);}
+}
+moveToPlugin();
+
+
 })

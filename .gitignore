@@ -1,4 +1,6 @@
-.tmp
+.history
 .sass-cache
+.tmp
+.vscode
 node_modules
 development/assets/*

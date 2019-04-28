@@ -1,16 +1,16 @@
-@mixin flex-a {
+%flex-a {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
 
-@mixin flex-b {
+%flex-b {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-@mixin flex-c {
+%flex-c {
 	display: flex;
 	justify-content: center;
 	align-items: center;

@@ -65,17 +65,28 @@
 // Settings
 
 @media screen and (min-width: 500px) {
+	.sethow {
+		.plr {
+			padding: 0 1rem;
+		}
+	}
+
 	.condition_label {
 		display: inline;
 		margin-right: 0.5rem;
 	}
-
-	.boxround {
-
-	}
 }
 
 @media screen and (min-width: 700px) {
+	.sethow {
+		h2 {
+			font-size: 2rem;
+		}
+		.plr {
+			padding: 0 2rem;
+		}
+	}
+
 	.cardround {
 		font-size: 1rem;
 	}
@@ -112,11 +123,16 @@
 	.boxround_select-label {
 		margin-bottom: 0;
 	}
-
 }
 
 // =================================
 // forecast
+
+@media screen and (min-width: 500px) {
+	.cardround_weather {
+		font-size: 0.9rem;
+	}
+}
 
 @media screen and (min-width: 700px) {
 	.table-forecast .td {
@@ -126,6 +142,10 @@
 	.cardround_take {
 		padding: 2rem;
 	}
+
+	.cardround_weather {
+		font-size: 1rem;
+	}
 }
 
 @media screen and (min-width: 900px) {
@@ -134,20 +154,13 @@
 		justify-content: space-between;
 	}
 
-	// .cardround_weather, .cardround_take {
-	// 	flex-grow: 1;
-	// }
-
 	.cardround_weather {
 		width: 55%;
+		margin-bottom: 0;
 	}
 
 	.cardround_take {
 		width: 43%;
-	}
-
-	.cardround_weather {
-		// margin-right: 2rem;
 	}
 }
 

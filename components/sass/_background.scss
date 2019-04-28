@@ -91,7 +91,7 @@ $bgc-05_list-hover: hsla(198, 70%, 88%, 1);
 	#{$sel} {
 		background-color: $bg;
 		.bgc-box {
-			border: 5px solid $bg !important;
+			border: 5px solid $bg;
 			box-shadow: $shadow $box;
 			background-color: $light;
 		}
