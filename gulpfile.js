@@ -10,9 +10,8 @@ const htmlSources = ['development/*.html'];
 const jsFinal = ['development/js/*.js'];
 
 const jsSources = [
-	'components/js/_templates.js',
-	'components/js/_fullpage.js',
-	'components/js/_main.js'
+	'components/js/_main.js',
+	'components/js/_storage.js'
 ];
 
 gulp.task('compass', function(done){
@@ -65,4 +64,4 @@ gulp.task('connect', function(){
 const seriesFunctions = gulp.series('html', 'concat', 'js', 'compass');
 const parallelFunctions = gulp.parallel('connect', 'watch');
 
-gulp.task('all', gulp.series(seriesFunctions, parallelFunctions));
+gulp.task('default', gulp.series(seriesFunctions, parallelFunctions));

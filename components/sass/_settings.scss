@@ -17,38 +17,52 @@
 	font-size: 0.9rem;
 }
 
-.cardround_header {
+.cardround-header {
   padding: 1rem;
 	font-weight: 600;
 }
 
-.condition_text-nr {
+.condition-text-nr {
 	display: block;
 	margin-bottom: 0.5rem;
 }
 
-.condition_label {
+.condition-label {
 	display: block;
 	margin-bottom: 0.5rem;
 	font-weight: 600;
 }
 
-.condition_label-inline {
+.condition-label-inline {
 	margin: 0 0.5rem;
 	display: inline;
 }
 
-.condition_input {
+.condition-unit {
+	margin-right: 1rem;
+}
+
+.condition-input {
 	// margin-right: 0.2rem;
   border: none;
   border: 1px solid #a9a9a9;
   border-radius: 4px;
-  width: 35px;
+  width: 45px;
   padding: 5px;
   font-size: inherit;
 	text-align: center;
 }
 
+.condition-input.error, .add-input.error {
+	border-color: red;
+}
+
+.field-error {
+	font-weight: 600;
+	margin-top: 0.5rem;
+	color: red;
+	font-size: 0.9em;
+}
 // =================== LIST
 
 .list-condition {
@@ -75,7 +89,7 @@
 
 // list btn - remove
 
-.remove_btn, .add_btn {
+.remove-btn, .add-btn {
 	background: none;
 	border: none;
 	margin: 0;
@@ -91,12 +105,12 @@
 
 
 
-.remove_btn i {
+.remove-btn i {
 		font-size: 1.5rem;
-		color: $remove_btn-bg;
+		color: $remove-btn-bg;
 
 		&:hover {
-			 color: $remove_btn-bg-hover;
+			 color: $remove-btn-bg-hover;
 		}
 }
 
@@ -106,26 +120,26 @@
 	padding: 0 1rem 1rem;
 }
 
-.add_label {
+.add-label {
 	display: inline-block;
 	margin: 0.5rem 0 0.5rem;
 	flex-shrink: 0;
 	flex: 0 0 135px;
 }
 
-.add_group {
+.add-group {
 	display: flex;
 	align-items: center;
 	width: 100%;
 }
 
-.add_select, .add_input {
+.add-select, .add-input {
 	width: 100%;
 	max-width: 500px;
 	margin-right: 0.8rem;
 }
 
-.add_btn {
+.add-btn {
 	border-radius: $bc-border-radius;
 
 	&:hover {
@@ -133,12 +147,12 @@
 	}
 }
 
-.add_btn i {
+.add-btn i {
 	font-size: 1.8rem;
-	color: $add_btn-bg;
+	color: $add-btn-bg;
 
 	&:hover {
-		 color: $add_btn-bg-hover;
+		 color: $add-btn-bg-hover;
 	}
 }
 
@@ -159,21 +173,21 @@
 	margin: 3rem 0 2rem;
 }
 
-.boxround_where {
+.boxround-where {
 	border: 5px solid #e3e3e3;
 }
 
-.boxround_select-label {
+.boxround-select-label {
 	margin: 0 0.5rem 0.5rem 0;
 	flex-shrink: 0;
 }
 
-.boxround_select {
+.boxround-select {
 	width: 100%;
 	max-width: 500px;
 }
 
-.btn-apply_holder {
+.btn-apply-holder {
   display: flex;
 	justify-content: center;
 	align-items: center;
@@ -197,6 +211,21 @@
 	}
 }
 
-.section_where {
+.section-where {
 	padding: 3rem 0;
+}
+
+
+// ****************** test-input
+
+.test-input {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	color: inherit;
+	border: none;
+	/* border-bottom: 3px dotted; */
+	background: none;
+	width: 60px;
+	text-align: center;
 }

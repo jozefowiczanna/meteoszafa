@@ -12,8 +12,8 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 	position: fixed;
 	width: $sidebar-w;
 	height: 100%;
-	left: -$sidebar-w;
-	// right: -$sidebar-w;
+	// left: -$sidebar-w;
+	right: -$sidebar-w;
 	background: #151719;
 	font-family: sans-serif;
 	transition: all 0.3s;
@@ -21,8 +21,8 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 }
   
 .sidebar.active {
-	left: 0;
-	// right: 0;
+	// left: 0;
+	right: 0;
 }
 
 .sidebar ul {
@@ -82,8 +82,8 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 
 .sidebar .toggle-btn {
 	position: absolute;
-	left: $sidebar-w + $btn-m;
-	// right: $sidebar-w + $btn-m;
+	// left: $sidebar-w + $btn-m;
+	right: $sidebar-w + $btn-m;
 	top: 10px;
 	width: $btn-wh;
 	height: $btn-wh;
@@ -167,9 +167,8 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 
 .slide-msg {
 	position: fixed;
-    right: 10px;
+    left: 10px;
     top: 0;
-    display: flex;
     background: hsl(45, 100%, 95%);
     padding: 1rem;
     margin: 10px;
@@ -177,11 +176,15 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 	border: 3px solid hsl(45, 100%, 50%);
     border-radius: 10px;
 	box-shadow: 0 10px 30px rgba(68, 58, 29, 0.3);
+	z-index: 1100;
 	
 	p {
-		max-width: 220px;
-		line-height: 1.7;
+		font-size: 0.9rem;
+		max-width: 350px;
+		line-height: 1.5;
 		padding: 0;
+		margin-right: 1rem;
+		margin-bottom: 0.5rem;
 
 		a {
 			color: inherit;
@@ -189,22 +192,30 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 		}
 	}
 
+	.flex {
+		display: flex;
+	}
+
 	.remove-msg-btn {
 		background: none;
 		border: none;
 		align-self: flex-start;
 		cursor: pointer;
-		color: hsl(45, 100%, 45%);
-		transition: 0.3s;
+		color: #ff1100;
+		transition: 0.2s;
 		padding: 0;
 		outline: none;
 
 		&:hover {
-			color: red;
+			color: #ff584d;
 		}
 
 		i {
 			font-size: 1.5rem;
 		}
 	}
+}
+
+.slide-msg.hidden {
+	display: none;
 }

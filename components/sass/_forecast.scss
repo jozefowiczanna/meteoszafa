@@ -16,12 +16,12 @@
 	padding-bottom: 0 !important;
 }
 
-.cardround_weather {
+.cardround-weather {
 	font-size: 0.8rem;
 	margin-bottom: 2rem;
 }
 
-.cardround_weather, .cardround_take {
+.cardround-weather, .cardround-take {
 	box-shadow: 0 10px 20px hsla(0, 0%, 80%, 1);
 	border-left: 10px solid #c6c6c6;
 	color: #4e4e4e;
@@ -31,7 +31,7 @@
 	font-size: 1.1rem;
 }
 
-.date-group_weekday {
+.date-group-weekday {
 	font-weight: 500;
 }
 
@@ -46,12 +46,12 @@
 		}
 }
 
-.icon-group_city, .icon-group_big-temp {
+.icon-group-city, .icon-group-big-temp {
 	text-align: center;
 	font-size: 1.3rem;
 }
 
-.icon-group_big-temp {
+.icon-group-big-temp {
 	font-size: 1.8em;
 }
 
@@ -81,7 +81,7 @@
 // ======================
 // take
 
-.cardround_take {
+.cardround-take {
 	padding: 1rem;
 
 	h3, h4 {
@@ -102,7 +102,7 @@
 	padding: 0 0 1rem 1rem;
 }
 
-.list-take_item {
+.list-take-item {
 	list-style: none;
   margin-bottom: 0.5rem;
   position: relative;

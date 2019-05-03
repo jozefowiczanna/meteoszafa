@@ -1,16 +1,3 @@
-// _background.scss
-
-
-// **********
-// font-size: 1.5rem;
-// padding: 0.5rem;
-// margin-left: -0.5rem;
-// background-color: #1f83ad;
-// color: white;
-// border-radius: 5px;
-// *****************
-
-
 .bgc {
 	padding: 5rem 0 7rem;
 }
@@ -46,45 +33,45 @@ $shadow: 0 40px 50px;
 
 // condition 1 (blue)
 $bgc-01: hsl(198, 70%, 60%);
-$bgc-01_box: hsl(198, 100%, 28%);
-$bgc-01_text: hsl(198, 70%, 30%);
-$bgc-01_light: hsla(198, 95%, 97%, 1);
-$bgc-01_list: hsla(198, 95%, 90%, 1);
-$bgc-01_list-hover: hsla(198, 95%, 85%, 1);
+$bgc-01-box: hsl(198, 100%, 28%);
+$bgc-01-text: hsl(198, 70%, 30%);
+$bgc-01-light: hsla(198, 95%, 97%, 1);
+$bgc-01-list: hsla(198, 95%, 90%, 1);
+$bgc-01-list-hover: hsla(198, 95%, 85%, 1);
 
 // condition 2 (yellow)
 $bgc-02: hsl(55, 80%, 80%);
-$bgc-02_box: hsl(55, 63%, 35%);
-$bgc-02_text: hsl(53, 64%, 45%);
-$bgc-02_light: hsla(55, 95%, 97%, 1);
-$bgc-02_list: hsla(55, 90%, 90%, 1);
-$bgc-02_list-hover: hsla(55, 90%, 80%, 1);
+$bgc-02-box: hsl(55, 63%, 35%);
+$bgc-02-text: hsl(53, 64%, 45%);
+$bgc-02-light: hsla(55, 95%, 97%, 1);
+$bgc-02-list: hsla(55, 90%, 90%, 1);
+$bgc-02-list-hover: hsla(55, 90%, 80%, 1);
 $bgc-02-border: hsla(55, 80%, 50%, 1);
 
 // condition 3 (green)
 $bgc-03: hsl(88, 63%, 63%);
-$bgc-03_box: hsl(88, 55%, 30%);
-$bgc-03_text: hsl(88, 73%, 35%);
-$bgc-03_light: hsla(88, 90%, 98%, 1);
-$bgc-03_list: hsla(88, 90%, 90%, 1);
-$bgc-03_list-hover: hsla(88, 90%, 80%, 1);
+$bgc-03-box: hsl(88, 55%, 30%);
+$bgc-03-text: hsl(88, 73%, 35%);
+$bgc-03-light: hsla(88, 90%, 98%, 1);
+$bgc-03-list: hsla(88, 90%, 90%, 1);
+$bgc-03-list-hover: hsla(88, 90%, 80%, 1);
 
 // condition 4 (gray)
 $bgc-04: hsl(0, 0%, 95%);
-$bgc-04_box: hsl(0, 0%, 50%);
-$bgc-04_text: hsl(0, 0%, 50%);
-$bgc-04_light: hsla(0, 0%, 98%, 1);
-$bgc-04_list: hsl(0, 0%, 95%);
-$bgc-04_list-hover: hsl(0, 0%, 90%);
+$bgc-04-box: hsl(0, 0%, 50%);
+$bgc-04-text: hsl(0, 0%, 50%);
+$bgc-04-light: hsla(0, 0%, 98%, 1);
+$bgc-04-list: hsl(0, 0%, 95%);
+$bgc-04-list-hover: hsl(0, 0%, 90%);
 $bgc-02-border: hsla(0, 0%, 80%, 1);
 
 // condition 5 (gray blue)
 $bgc-05: hsl(198, 50%, 65%);
-$bgc-05_box: hsl(198, 50%, 30%);
-$bgc-05_text: hsl(198, 50%, 30%);
-$bgc-05_light: hsla(198, 95%, 98%, 1);
-$bgc-05_list: hsla(198, 70%, 93%, 1);
-$bgc-05_list-hover: hsla(198, 70%, 88%, 1);
+$bgc-05-box: hsl(198, 50%, 30%);
+$bgc-05-text: hsl(198, 50%, 30%);
+$bgc-05-light: hsla(198, 95%, 98%, 1);
+$bgc-05-list: hsla(198, 70%, 93%, 1);
+$bgc-05-list-hover: hsla(198, 70%, 88%, 1);
 
 
 @mixin color-set($sel, $bg, $box, $text, $light, $list, $list-hover, $border) {
@@ -114,8 +101,8 @@ $bgc-05_list-hover: hsla(198, 70%, 88%, 1);
 	}
 }
 
-@include color-set(".bgc-01", $bgc-01, $bgc-01_box, $bgc-01_text, $bgc-01_light, $bgc-01_list, $bgc-01_list-hover, $bgc-01);
-@include color-set(".bgc-02", $bgc-02, $bgc-02_box, $bgc-02_text, $bgc-02_light, $bgc-02_list, $bgc-02_list-hover, $bgc-02-border);
-@include color-set(".bgc-03", $bgc-03, $bgc-03_box, $bgc-03_text, $bgc-03_light, $bgc-03_list, $bgc-03_list-hover, $bgc-03);
-@include color-set(".bgc-04", $bgc-04, $bgc-04_box, $bgc-04_text, $bgc-04_light, $bgc-04_list, $bgc-04_list-hover, $bgc-02-border);
-@include color-set(".bgc-05", $bgc-05, $bgc-05_box, $bgc-05_text, $bgc-05_light, $bgc-05_list, $bgc-05_list-hover, $bgc-05);
+@include color-set(".bgc-01", $bgc-01, $bgc-01-box, $bgc-01-text, $bgc-01-light, $bgc-01-list, $bgc-01-list-hover, $bgc-01);
+@include color-set(".bgc-02", $bgc-02, $bgc-02-box, $bgc-02-text, $bgc-02-light, $bgc-02-list, $bgc-02-list-hover, $bgc-02-border);
+@include color-set(".bgc-03", $bgc-03, $bgc-03-box, $bgc-03-text, $bgc-03-light, $bgc-03-list, $bgc-03-list-hover, $bgc-03);
+@include color-set(".bgc-04", $bgc-04, $bgc-04-box, $bgc-04-text, $bgc-04-light, $bgc-04-list, $bgc-04-list-hover, $bgc-02-border);
+@include color-set(".bgc-05", $bgc-05, $bgc-05-box, $bgc-05-text, $bgc-05-light, $bgc-05-list, $bgc-05-list-hover, $bgc-05);

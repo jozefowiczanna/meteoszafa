@@ -10,8 +10,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 	<title>METEOSZAFA - dopasuj ubrania do pogody</title>
-	
-
 </head>
 <body cz-shortcut-listen="true">
 
@@ -37,6 +35,7 @@
 					<li><a href="#bgc-04" class="js-trigger pl">Warunek 4</a></li>
 					<li><a href="#bgc-05" class="js-trigger pl">Warunek 5</a></li>
 				</div>
+				<li><a href="#save" class="js-trigger">Zapisz/resetuj</a></li>
 				<li><a href="#where" class="js-trigger">Dokąd pojedziesz?</a></li>
 				<li class="li-flex">
 					<a href="#forecast-scroll" class="js-trigger">Prognoza</a>
@@ -54,7 +53,7 @@
 						<li><a href="#day-8" class="js-trigger pl">8</a></li>
 					</div>
 				</div>
-				<li><a href="https://jozefowiczanna.github.io/" target="_blank">Autorka</a></li>
+				<li><a href="https://jozefowiczanna.github.io/" target="_blank">O mnie</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -65,18 +64,18 @@
 			<!-- about -->
 			<section class="about" id="about">
 				<div class="wrapper">
-					<div class="about_holder">
-						<div class="about_text-holder">
+					<div class="about-holder">
+						<div class="about-text-holder">
 							<h1 class="h1-big">METEOSZAFA</h1>
 							<h2 class="h2-big">dopasuj ubrania do pogody</h2>
-							<div class="logo_holder">
+							<div class="logo-holder">
 								<img class="logo-mobile" src="images/logo_rain.png" alt="">
 							</div>
-							<div class="about_text">
+							<div class="about-text">
 								<p>Pewnie znasz ten scenariusz: Planujesz wyjazd i ogarnia cię niechęć na myśl, że musisz się spakować. Jaka będzie pogoda? Upał? Deszcz? A może silny wiatr? Musisz sprawdzić prognozę pogody, a potem zastanowić się co zabrać...</p>
 								<p>A co jeśli mógłbyś zrobić taką listę tylko raz i więcej nie zawracać sobie głowy? Określasz co lubisz nosić w zależności od warunków atmosferycznych i zapisujesz swoje preferencje. Następnie wybierasz cel podróży i otrzymujesz prognozę wraz z listą ubrań, które powinieneś zabrać.</p>
 							</div>
-							<div class="btn-cta_holder">
+							<div class="btn-cta-holder">
 								<button type="button" class="btn btn-cta js-trigger" data-target="#how" name="button">Zaczynaj</button>
 							</div>
 						</div>
@@ -96,9 +95,9 @@
 							<div class="wrapper">
 								<div class="plr">
 									<h2>Jak to działa?</h2>
-									<p>Do dyspozycji masz pięć warunków. Pierwsze trzy dotyczą temperatury, której zakres możesz zmieniać według własnego uznania. Czwarty warunek dotyczy prędkości wiatru, piąty szansy opadów w procentach.</p>
+									<p>Do dyspozycji masz pięć warunków, których zakres wartości możesz zmieniać według własnego uznania. Pierwsze trzy dotyczą temperatury, czwarty prędkości wiatru, piąty szansy opadów w procentach.</p>
 									<p>Do każdego warunku możesz dodać listę ubrań, które chcesz założyć jeśli dany warunek zostanie spełniony.</p>
-									<p>Gdy ustalisz i spersonalizujesz listy ubrań, pozostanie Ci wybranie celu podróży. Liczba miast jest na razie ograniczona.</p>
+									<p>Gdy ustalisz i spersonalizujesz listy ubrań, pozostanie Ci wybranie celu podróży. Liczba miast jest na razie ograniczona, głównie do stolic państw europejskich.</p>
 									<p>Po kliknięciu "sprawdź prognozę" pojawi się 8-dniowa prognoza wraz z listą ubrań, które spełniają określone warunki.</p>
 								</div>
 							</div>
@@ -111,37 +110,43 @@
 									<div class="big-text-group big-text">Warunek 1:</div>
 									<div class="big-text-group">
 										<div class="icon diw-thermometer-25"></div>
-										<div class="big-text">20°C</div>
+										<div class="big-text"><input class="test-input" value="5" maxlength="3">°C</div>
+										<!-- <div class="big-text"><span class="js-con-output">20</span>°C</div> -->
 										<i class="fas fa-long-arrow-alt-down"></i>
 									</div>
 								</div>
 								<div class="cardround bgc-box js-condition">
-									<div class="cardround_header">
-										<label class="condition_label" for="condition-1">Temperatura poniżej</label>
-										<input class="condition_input" type="text" id="condition-1" value="10">
-										<span class="condition_unit">°C</span>
-									</div><!-- cardround_header -->
-									<div class="cardround_body">
+									<div class="cardround-header">
+										<label class="condition-label" for="condition-1">Temperatura poniżej</label>
+										<input class="condition-input" type="text" id="condition-1" value="5" maxlength="3" pattern="^-?[0-9]{1,2}$"
+										data-error="Dopuszczalne wartości: od -99 do 99">
+										<span class="condition-unit">°C</span>
+										<!-- <div class="field-error">Dopuszczalne wartości: od -99 do 99</div> -->
+									</div><!-- cardround-header -->
+									<div class="cardround-body">
 										<ul class="list-condition" data-condition-list="1">
 										</ul>
 										<div class="add">
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-												<div class="add_group">
-													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add-group">
+													<select class="select add-select js-select-clothes" name="select-clothes" id="select-clothes">
 													</select>
-													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+													<button type="button" class="add-btn js-add-btn-select"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj własne:</label>
-												<div class="add_group">
-													<input class="input add_input" type="text">
-													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+
+											</div><!-- add-row -->
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj własne:</label>
+												<div class="add-group">
+													<input class="input add-input" type="text" maxlength="50"
+													pattern="^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,\-\s]*$"
+													data-error="Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka">
+													<button type="button" class="add-btn js-add-btn-input"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
+											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround_body -->
+									</div><!-- cardround-body -->
 								</div><!-- cardround -->
 								<!-- END OF CONDITION 1 -->
 							</div>
@@ -155,39 +160,43 @@
 									<div class="big-text-group big-text">Warunek 2:</div>
 									<div class="big-text-group">
 										<div class="icon diw-thermometer-50"></div>
-										<div class="big-text">10°C - 20°C</div>
+										<div class="big-text"><span class="js-con-output"></span>°C - <span class="js-con-output"></span>°C</div>
 									</div>
 								</div>
 								<div class="cardround bgc-box js-condition">
-									<div class="cardround_header">
-										<label class="condition_label" for="condition-2a">Temperatura od</label>
-										<input class="condition_input" type="text" id="condition-2a" value="10">
-										<span class="condition_unit">°C</span>
-										<label class="condition_label-inline" for="condition-2b">do</label>
-										<input class="condition_input" type="text" id="condition-2b" value="20">
-										<span class="condition_text">°C</span>
-									</div><!-- cardround_header -->
-									<div class="cardround_body">
+									<div class="cardround-header">
+										<label class="condition-label" for="condition-2a">Temperatura od</label>
+										<input class="condition-input" type="text" id="condition-2a" value="5" maxlength="3" pattern="^-?[0-9]{1,2}$"
+										data-error="Dopuszczalne wartości: od -99 do 99">
+										<span class="condition-unit">°C</span>
+										<label class="condition-label-inline" for="condition-2b">do</label>
+										<input class="condition-input" type="text" id="condition-2b" value="18" maxlength="3" pattern="^-?[0-9]{1,2}$"
+										data-error="Dopuszczalne wartości: od -99 do 99">
+										<span class="condition-text">°C</span>
+									</div><!-- cardround-header -->
+									<div class="cardround-body">
 										<ul class="list-condition" data-condition-list="2">
 										</ul>
 										<div class="add">
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-												<div class="add_group">
-													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add-group">
+													<select class="select add-select js-select-clothes" name="select-clothes" id="select-clothes">
 													</select>
-													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+													<button type="button" class="add-btn js-add-btn-select"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj własne:</label>
-												<div class="add_group">
-													<input class="input add_input" type="text">
-													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+											</div><!-- add-row -->
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj własne:</label>
+												<div class="add-group">
+													<input class="input add-input" type="text" maxlength="50"
+													pattern="^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,\-\s]*$"
+													data-error="Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka">
+													<button type="button" class="add-btn js-add-btn-input"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
+											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround_body -->
+									</div><!-- cardround-body -->
 								</div><!-- cardround -->
 								<!-- END OF CONDITION 2 -->
 							</div>
@@ -200,37 +209,40 @@
 									<div class="big-text-group big-text">Warunek 3:</div>
 									<div class="big-text-group">
 										<div class="icon diw-thermometer-75"></div>
-										<div class="big-text">20°C</div>
+										<div class="big-text"><span class="js-con-output"></span>°C</div>
 										<i class="fas fa-long-arrow-alt-up"></i>
 									</div>
 								</div>
 								<div class="cardround bgc-box js-condition">
-									<div class="cardround_header">
-										<label class="condition_label" for="condition-3">Temperatura powyżej</label>
-										<input class="condition_input" type="text" id="condition-3" value="10">
-										<span class="condition_unit">°C</span>
-									</div><!-- cardround_header -->
-									<div class="cardround_body">
+									<div class="cardround-header">
+										<label class="condition-label" for="condition-3">Temperatura powyżej</label>
+										<input class="condition-input" type="text" id="condition-3" value="18" maxlength="3" pattern="^-?[0-9]{1,2}$"
+										data-error="Dopuszczalne wartości: od -99 do 99">
+										<span class="condition-unit">°C</span>
+									</div><!-- cardround-header -->
+									<div class="cardround-body">
 										<ul class="list-condition" data-condition-list="3">
 										</ul>
 										<div class="add">
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-												<div class="add_group">
-													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add-group">
+													<select class="select add-select js-select-clothes" name="select-clothes" id="select-clothes">
 													</select>
-													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+													<button type="button" class="add-btn js-add-btn-select"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj własne:</label>
-												<div class="add_group">
-													<input class="input add_input" type="text">
-													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+											</div><!-- add-row -->
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj własne:</label>
+												<div class="add-group">
+													<input class="input add-input" type="text" maxlength="50"
+													pattern="^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,\-\s]*$"
+													data-error="Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka">
+													<button type="button" class="add-btn js-add-btn-input"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
+											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround_body -->
+									</div><!-- cardround-body -->
 								</div><!-- cardround -->
 								<!-- END OF CONDITION 3 -->
 							</div>
@@ -243,37 +255,40 @@
 									<div class="big-text-group big-text">Warunek 4:</div>
 									<div class="big-text-group">
 										<div class="icon diw-wind"></div>
-										<div class="big-text">25 km/h</div>
+										<div class="big-text"><span class="js-con-output"></span> km/h</div>
 										<i class="fas fa-long-arrow-alt-up"></i>
 									</div>
 								</div>
 								<div class="cardround bgc-box js-condition">
-									<div class="cardround_header">
-										<label class="condition_label" for="condition-4">Prędkość wiatru powyżej</label>
-										<input class="condition_input" type="text" id="condition-4" value="10">
-										<span class="condition_unit">km/h</span>
-									</div><!-- cardround_header -->
-									<div class="cardround_body">
+									<div class="cardround-header">
+										<label class="condition-label" for="condition-4">Prędkość wiatru powyżej</label>
+										<input class="condition-input" type="text" id="condition-4" value="20" maxlength="3" pattern="^^([1-9]|[1-9][0-9]|[1][0-4][0-9]|[1][5][0])$"
+										data-error="Dopuszczalne wartości: od 1 do 150">
+										<span class="condition-unit">km/h</span>
+									</div><!-- cardround-header -->
+									<div class="cardround-body">
 										<ul class="list-condition" data-condition-list="4">
 										</ul>
 										<div class="add">
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-												<div class="add_group">
-													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add-group">
+													<select class="select add-select js-select-clothes" name="select-clothes" id="select-clothes">
 													</select>
-													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+													<button type="button" class="add-btn js-add-btn-select"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj własne:</label>
-												<div class="add_group">
-													<input class="input add_input" type="text">
-													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+											</div><!-- add-row -->
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj własne:</label>
+												<div class="add-group">
+													<input class="input add-input" type="text" maxlength="50"
+													pattern="^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,\-\s]*$"
+													data-error="Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka">
+													<button type="button" class="add-btn js-add-btn-input"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
+											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround_body -->
+									</div><!-- cardround-body -->
 								</div><!-- cardround -->
 								<!-- END OF CONDITION 4 -->
 							</div>
@@ -286,58 +301,70 @@
 									<div class="big-text-group big-text">Warunek 5:</div>
 									<div class="big-text-group">
 										<div class="icon diw-rain"></div>
-										<div class="big-text">80%</div>
+										<div class="big-text"><span class="js-con-output"></span>%</div>
 										<i class="fas fa-long-arrow-alt-up"></i>
 									</div>
 								</div>
 								<div class="cardround bgc-box js-condition">
-									<div class="cardround_header">
-										<label class="condition_label" for="condition-5">Szansa opadów powyżej</label>
-										<input class="condition_input" type="text" id="condition-5" value="10">
-										<span class="condition_unit">%</span>
-									</div><!-- cardround_header -->
-									<div class="cardround_body">
+									<div class="cardround-header">
+										<label class="condition-label" for="condition-5">Szansa opadów powyżej</label>
+										<input class="condition-input" type="text" id="condition-5" value="70" maxlength="3" pattern="^([1-9]|[1-9][0-9]|[1][0][0])$"
+										data-error="Dopuszczalne wartości: od 1 do 100">
+										<span class="condition-unit">%</span>
+									</div><!-- cardround-header -->
+									<div class="cardround-body">
 										<ul class="list-condition" data-condition-list="5">
 										</ul>
 										<div class="add">
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj z listy:</label>
-												<div class="add_group">
-													<select class="select add_select js-select-clothes" name="select-clothes" id="select-clothes">
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj z listy:</label>
+												<div class="add-group">
+													<select class="select add-select js-select-clothes" name="select-clothes" id="select-clothes">
 													</select>
-													<button type="button" class="add_btn js-add_btn-select"><i class="fas fa-plus-square"></i></button>
+													<button type="button" class="add-btn js-add-btn-select"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
-											<div class="add_row">
-												<label class="add_label" for="select-clothes">Dodaj własne:</label>
-												<div class="add_group">
-													<input class="input add_input" type="text">
-													<button type="button" class="add_btn js-add_btn-input"><i class="fas fa-plus-square"></i></button>
+											</div><!-- add-row -->
+											<div class="add-row">
+												<label class="add-label" for="select-clothes">Dodaj własne:</label>
+												<div class="add-group">
+													<input class="input add-input" type="text" maxlength="50"
+													pattern="^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,\-\s]*$"
+													data-error="Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka">
+													<button type="button" class="add-btn js-add-btn-input"><i class="fas fa-plus-square"></i></button>
 												</div>
-											</div><!-- add_row -->
+											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround_body -->
+									</div><!-- cardround-body -->
 								</div><!-- cardround -->
 								<!-- END OF CONDITION 5 -->
 							</div>
 						</section>
-
+						<section class="section-save" id="save">
+							<div class="wrapper">
+								<h2>Zapisz ustawienia</h2>
+								<p>Ustawienia </p>
+								<div class="save-group">
+									<button type="button" class="btn btn-save">Zapisz ustawienia</button>
+									<button type="button" class="btn btn-reset">Przywróć ustawienia domyślne</button>
+								</div>
+							</div>
+						</section>
 					</section><!-- sethow -->
 
 					<!-- setwhere -->
-					<section id="where" class="section_where">
+					<section id="where" class="section-where">
 						<div class="wrapper">
 							<h2>Dokąd pojedziesz?</h2>
-							<div class="boxround boxround_where">
-								<label class="boxround_select-label" for="select-city">Wybierz miasto:</label>
-								<select class="select boxround_select" name="select-city" id="select-city">
+							<div class="boxround boxround-where">
+								<label class="boxround-select-label" for="select-city">Wybierz miasto:</label>
+								<select class="select boxround-select" name="select-city" id="select-city">
 								</select>
 							</div>
 						</div>
 					</section>
 
 				</form>
-				<div class="btn-apply_holder">
+				<div class="btn-apply-holder">
 					<button type="button" class="btn btn-apply"><a href="#forecast" class="btn js-trigger">Sprawdź prognozę</a></button>
 				</div>
 			</section>
@@ -345,9 +372,9 @@
 			<!-- forecast -->
 			<div id="forecast-scroll"></div>
 			<section class="forecast hidden" id="forecast">
-				<div class="forecast_content">
+				<div class="forecast-content">
 				</div>
-				</div><!-- forecast_content -->
+				</divc><!-- forecast-content -->
 			</section> <!-- forecast END -->
 		</div>
 	</main>
@@ -355,20 +382,39 @@
 	<!-- footer -->
 	<footer class="footer">
 		<div class="wrapper">
-			<p>Logo, layout i kod - <a class="footer_link" href="https://jozefowiczanna.github.io/">Anna Józefowicz</a></p>
-			<p class="footer_icon">Ikony pogody - <a class="footer_link" href="https://www.behance.net/amitjakhu" target="_blank">Amit Jakhu</a></p>
+			<div>Logo, layout i kod - <span class="name"><a class="footer-link" href="https://jozefowiczanna.github.io/">Anna Józefowicz</a></span></div>
+			<div class="footer-icon">Ikony pogody - <a class="footer-link" href="https://www.behance.net/amitjakhu" target="_blank">Amit Jakhu</a></div>
 		</div>
 	</footer>
 
-	<div class="slide-msg">
-		<p>Aby zobaczyć prognozę, <a href="#where" class="js-trigger">wybierz cel podróży</a></p>
-		<button class="remove-msg-btn">
-			<i class="fas fa-times-circle"></i>
-		</button>
+	<div class="slide-msg js-forecast-msg hidden">
+		<div class="flex">
+			<p>Aby zobaczyć prognozę na kokretny dzień, <a href="#where" class="js-trigger">wybierz cel podróży</a></p>
+			<button class="remove-msg-btn">
+				<i class="fas fa-times-circle"></i>
+			</button>
+		</div>
+	</div>
+
+	<div class="slide-msg js-error-msg hidden">
+		<div class="flex">
+			<div>
+				<p>Nie można zapisać danych - przeglądarka nie obsługuje local storage.</p>
+				<p>Jeśli korzystasz z Safari, wyłącz przeglądanie w trybie prywatnym 
+					(<a href="https://support.apple.com/pl-pl/guide/safari/ibrw1069/mac" target="_blank">na Macu</a> lub 
+					<a href="https://support.apple.com/pl-pl/HT203036" target="_blank">na urządzeniach mobilnych</a>)
+					i spróbuj ponownie.
+				</p>
+			</div>
+			<button class="remove-msg-btn">
+				<i class="fas fa-times-circle"></i>
+			</button>
+		</div>
 	</div>
 
 <script src="jquery/jquery-3.4.0.min.js"></script>
 <script src="js/moveTo.min.js"></script>
 <script src="js/script.js"></script>
 
-</body></html>
+</body>
+</html>

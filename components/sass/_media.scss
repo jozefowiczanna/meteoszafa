@@ -1,21 +1,18 @@
-// Base
-
+// base
 @media screen and (min-width: 700px) {
 	.wrapper {
 		padding: 0 2rem;
 	}
 }
 
-// Nav
-
+// nav
 @media screen and (min-width: 500px) {
-	.nav_menu {
+	.nav-menu {
 		justify-content: flex-end;
 	}
 }
 
-// About
-
+// about
 @media screen and (min-width: 500px) {
 	.logo-mobile {
 		width: 80%;
@@ -36,13 +33,13 @@
 }
 
 @media screen and (min-width: 850px) {
-	.about_holder {
+	.about-holder {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
 
-	.about_text {
+	.about-text {
 		max-width: 450px;
 	}
 
@@ -56,14 +53,12 @@
 		margin-left: 3rem;
 	}
 
-	.btn-cta_holder {
-		display: block;
+	.btn-cta-holder {
 		margin-top: 3rem;
 	}
 }
 
-// Settings
-
+// settings
 @media screen and (min-width: 500px) {
 	.sethow {
 		.plr {
@@ -71,7 +66,7 @@
 		}
 	}
 
-	.condition_label {
+	.condition-label {
 		display: inline;
 		margin-right: 0.5rem;
 	}
@@ -91,11 +86,11 @@
 		font-size: 1rem;
 	}
 
-	.cardround_header {
+	.cardround-header {
 		padding: 2rem 2rem 1rem;
 	}
 
-	.condition_text-nr {
+	.condition-text-nr {
 		display: inline;
 		margin-right: 0.5rem;
 	}
@@ -108,7 +103,7 @@
 		padding: 2rem;
 	}
 
-	.add_row {
+	.add-row {
 		display: flex;
 		align-items: baseline;
 		margin-bottom: 0.6rem;
@@ -120,16 +115,30 @@
 		padding: 2rem;
 	}
 
-	.boxround_select-label {
+	.boxround-select-label {
 		margin-bottom: 0;
 	}
 }
 
-// =================================
-// forecast
+// conditions
+@media screen and (min-width: 550px) {
+	.big-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 2rem;
+	}
+}
 
+@media screen and (min-width: 900px) {
+	.big-wrapper {
+		font-size: 2.5rem;
+	}
+}
+
+// forecast
 @media screen and (min-width: 500px) {
-	.cardround_weather {
+	.cardround-weather {
 		font-size: 0.9rem;
 	}
 }
@@ -139,11 +148,11 @@
 	  padding: 0.7rem 2rem;
 	}
 
-	.cardround_take {
+	.cardround-take {
 		padding: 2rem;
 	}
 
-	.cardround_weather {
+	.cardround-weather {
 		font-size: 1rem;
 	}
 }
@@ -154,30 +163,21 @@
 		justify-content: space-between;
 	}
 
-	.cardround_weather {
+	.cardround-weather {
 		width: 55%;
 		margin-bottom: 0;
 	}
 
-	.cardround_take {
+	.cardround-take {
 		width: 43%;
 	}
 }
 
-// =================================
-// background
-@media screen and (min-width: 700px) {
-	.big-wrapper {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 2rem;
-	}
-}
 
 
-@media screen and (min-width: 900px) {
-	.big-wrapper {
-		font-size: 2.5rem;
+// footer
+@media screen and (min-width: 500px) {
+	.footer .name {
+		display: inline;
 	}
 }
