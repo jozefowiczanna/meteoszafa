@@ -12,9 +12,7 @@
 	<title>METEOSZAFA - dopasuj ubrania do pogody</title>
 </head>
 <body cz-shortcut-listen="true">
-
-	<!-- header of the page -->
-	<header class="header" id="top">
+	<header>
 		<nav class="sidebar">
 			<div class="toggle-btn">
 				<div class="hamburger-icon">
@@ -26,31 +24,35 @@
 				<li><a href="#how" class="js-trigger">Jak to działa?</a></li>
 				<li class="li-flex">
 					<a href="#conditions" class="js-trigger">Warunki</a>
-					<button class="show-cons-btn"><i class="fas fa-chevron-down"></i></button>
+					<button class="show-btn js-show-cons-btn"><i class="fas fa-chevron-down"></i></button>
 				</li>
 				<div class="slide-cons hidden">
-					<li><a href="#conditions" class="js-trigger pl">Warunek 1</a></li>
-					<li><a href="#bgc-02" class="js-trigger pl">Warunek 2</a></li>
-					<li><a href="#bgc-03" class="js-trigger pl">Warunek 3</a></li>
-					<li><a href="#bgc-04" class="js-trigger pl">Warunek 4</a></li>
-					<li><a href="#bgc-05" class="js-trigger pl">Warunek 5</a></li>
+					<div class="slide-cons-row">
+						<li><a href="#section-con-1" class="js-trigger circle-link"><span class="nav-circle nav-circle1"></span></a></li>
+						<li><a href="#section-con-2" class="js-trigger circle-link"><span class="nav-circle nav-circle2"></span></a></li>
+						<li><a href="#section-con-3" class="js-trigger circle-link"><span class="nav-circle nav-circle3"></span></a></li>
+					</div>
+					<div class="slide-cons-row">
+						<li><a href="#section-con-4" class="js-trigger icon-link"><div class="nav-icon diw-wind"></div></a></li>
+						<li><a href="#section-con-5" class="js-trigger icon-link"><div class="nav-icon diw-rain"></div></a></li>
+					</div>
 				</div>
 				<li><a href="#save" class="js-trigger">Zapisz/resetuj</a></li>
 				<li><a href="#where" class="js-trigger">Dokąd pojedziesz?</a></li>
 				<li class="li-flex">
 					<a href="#forecast-scroll" class="js-trigger">Prognoza</a>
-					<button class="show-days-btn"><i class="fas fa-chevron-down"></i></button>
+					<button class="show-btn js-show-days-btn"><i class="fas fa-chevron-down"></i></button>
 				</li>
 				<div class="slide-days hidden">
 					<div class="slide-days-flex">
-						<li><a href="#day-1" class="js-trigger pl">1</a></li>
-						<li><a href="#day-2" class="js-trigger pl">2</a></li>
-						<li><a href="#day-3" class="js-trigger pl">3</a></li>
-						<li><a href="#day-4" class="js-trigger pl">4</a></li>
-						<li><a href="#day-5" class="js-trigger pl">5</a></li>
-						<li><a href="#day-6" class="js-trigger pl">6</a></li>
-						<li><a href="#day-7" class="js-trigger pl">7</a></li>
-						<li><a href="#day-8" class="js-trigger pl">8</a></li>
+						<li><a href="#day-1" class="js-trigger">1</a></li>
+						<li><a href="#day-2" class="js-trigger">2</a></li>
+						<li><a href="#day-3" class="js-trigger">3</a></li>
+						<li><a href="#day-4" class="js-trigger">4</a></li>
+						<li><a href="#day-5" class="js-trigger">5</a></li>
+						<li><a href="#day-6" class="js-trigger">6</a></li>
+						<li><a href="#day-7" class="js-trigger">7</a></li>
+						<li><a href="#day-8" class="js-trigger">8</a></li>
 					</div>
 				</div>
 				<li><a href="https://jozefowiczanna.github.io/" target="_blank">O mnie</a></li>
@@ -89,7 +91,6 @@
 				<form action="GET">
 
 					<!-- sethow -->
-
 					<section>
 						<section class="sethow" id="how">
 							<div class="wrapper">
@@ -104,27 +105,25 @@
 						</section>
 
 						<!-- CONDITION 1 -->
-						<section class="bgc bgc-01" id="conditions">
+						<section class="con" id="section-con-1">
 							<div class="wrapper">
-								<div class="big-wrapper">
-									<div class="big-text-group big-text">Warunek 1:</div>
-									<div class="big-text-group">
+								<div class="con-header">
+									<div>Zimno</div>
+									<div class="icons-group">
 										<div class="icon diw-thermometer-25"></div>
-										<div class="big-text"><input class="test-input" value="5" maxlength="3">°C</div>
-										<!-- <div class="big-text"><span class="js-con-output">20</span>°C</div> -->
+										<div><span class="js-con-output"></span>°C</div>
 										<i class="fas fa-long-arrow-alt-down"></i>
 									</div>
 								</div>
-								<div class="cardround bgc-box js-condition">
-									<div class="cardround-header">
-										<label class="condition-label" for="condition-1">Temperatura poniżej</label>
-										<input class="condition-input" type="text" id="condition-1" value="5" maxlength="3" pattern="^-?[0-9]{1,2}$"
+								<div class="card js-con">
+									<div class="card-header">
+										<label class="con-label" for="input-con-1">Temperatura poniżej</label>
+										<input class="con-input" type="text" id="input-con-1" value="5" maxlength="3" pattern="^-?[0-9]{1,2}$"
 										data-error="Dopuszczalne wartości: od -99 do 99">
-										<span class="condition-unit">°C</span>
-										<!-- <div class="field-error">Dopuszczalne wartości: od -99 do 99</div> -->
-									</div><!-- cardround-header -->
-									<div class="cardround-body">
-										<ul class="list-condition" data-condition-list="1">
+										<span>°C</span>
+									</div>
+									<div class="card-body">
+										<ul class="list-con" data-con-list="1">
 										</ul>
 										<div class="add">
 											<div class="add-row">
@@ -134,8 +133,7 @@
 													</select>
 													<button type="button" class="add-btn js-add-btn-select"><i class="fas fa-plus-square"></i></button>
 												</div>
-
-											</div><!-- add-row -->
+											</div>
 											<div class="add-row">
 												<label class="add-label" for="select-clothes">Dodaj własne:</label>
 												<div class="add-group">
@@ -146,36 +144,34 @@
 												</div>
 											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround-body -->
-								</div><!-- cardround -->
-								<!-- END OF CONDITION 1 -->
+									</div><!-- card-body -->
+								</div><!-- card -->
 							</div>
-						</section>
-
+						</section><!-- END OF CONDITION 1 -->
 
 						<!-- CONDITION 2 -->
-						<section class="bgc bgc-02" id="bgc-02">
+						<section class="con" id="section-con-2">
 							<div class="wrapper">
-								<div class="big-wrapper">
-									<div class="big-text-group big-text">Warunek 2:</div>
-									<div class="big-text-group">
+								<div class="con-header">
+									<div>Umiarkowanie</div>
+									<div class="icons-group">
 										<div class="icon diw-thermometer-50"></div>
-										<div class="big-text"><span class="js-con-output"></span>°C - <span class="js-con-output"></span>°C</div>
+										<div><span class="js-con-output"></span>°C - <span class="js-con-output"></span>°C</div>
 									</div>
 								</div>
-								<div class="cardround bgc-box js-condition">
-									<div class="cardround-header">
-										<label class="condition-label" for="condition-2a">Temperatura od</label>
-										<input class="condition-input" type="text" id="condition-2a" value="5" maxlength="3" pattern="^-?[0-9]{1,2}$"
+								<div class="card js-con">
+									<div class="card-header">
+										<label class="con-label" for="input-con-2a">Temperatura od</label>
+										<input class="con-input" type="text" id="input-con-2a" value="5" maxlength="3" pattern="^-?[0-9]{1,2}$"
 										data-error="Dopuszczalne wartości: od -99 do 99">
-										<span class="condition-unit">°C</span>
-										<label class="condition-label-inline" for="condition-2b">do</label>
-										<input class="condition-input" type="text" id="condition-2b" value="18" maxlength="3" pattern="^-?[0-9]{1,2}$"
+										<span>°C</span>
+										<label class="label-inline" for="input-con-2b">do</label>
+										<input class="con-input" type="text" id="input-con-2b" value="18" maxlength="3" pattern="^-?[0-9]{1,2}$"
 										data-error="Dopuszczalne wartości: od -99 do 99">
-										<span class="condition-text">°C</span>
-									</div><!-- cardround-header -->
-									<div class="cardround-body">
-										<ul class="list-condition" data-condition-list="2">
+										<span>°C</span>
+									</div><!-- card-header -->
+									<div class="card-body">
+										<ul class="list-con" data-con-list="2">
 										</ul>
 										<div class="add">
 											<div class="add-row">
@@ -196,32 +192,32 @@
 												</div>
 											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround-body -->
-								</div><!-- cardround -->
+									</div><!-- card-body -->
+								</div><!-- card -->
 								<!-- END OF CONDITION 2 -->
 							</div>
 						</section>
 
 						<!-- CONDITION 3 -->
-						<section class="bgc bgc-03" id="bgc-03">
+						<section class="con" id="section-con-3">
 							<div class="wrapper">
-								<div class="big-wrapper">
-									<div class="big-text-group big-text">Warunek 3:</div>
-									<div class="big-text-group">
+								<div class="con-header">
+									<div>Ciepło</div>
+									<div class="icons-group"">
 										<div class="icon diw-thermometer-75"></div>
-										<div class="big-text"><span class="js-con-output"></span>°C</div>
+										<div><span class="js-con-output"></span>°C</div>
 										<i class="fas fa-long-arrow-alt-up"></i>
 									</div>
 								</div>
-								<div class="cardround bgc-box js-condition">
-									<div class="cardround-header">
-										<label class="condition-label" for="condition-3">Temperatura powyżej</label>
-										<input class="condition-input" type="text" id="condition-3" value="18" maxlength="3" pattern="^-?[0-9]{1,2}$"
+								<div class="card js-con">
+									<div class="card-header">
+										<label class="con-label" for="input-con-3">Temperatura powyżej</label>
+										<input class="con-input" type="text" id="input-con-3" value="18" maxlength="3" pattern="^-?[0-9]{1,2}$"
 										data-error="Dopuszczalne wartości: od -99 do 99">
-										<span class="condition-unit">°C</span>
-									</div><!-- cardround-header -->
-									<div class="cardround-body">
-										<ul class="list-condition" data-condition-list="3">
+										<span>°C</span>
+									</div><!-- card-header -->
+									<div class="card-body">
+										<ul class="list-con" data-con-list="3">
 										</ul>
 										<div class="add">
 											<div class="add-row">
@@ -242,32 +238,32 @@
 												</div>
 											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround-body -->
-								</div><!-- cardround -->
+									</div><!-- card-body -->
+								</div><!-- card -->
 								<!-- END OF CONDITION 3 -->
 							</div>
 						</section>
 
 						<!-- CONDITION 4 -->
-						<section class="bgc bgc-04" id="bgc-04">
+						<section class="con" id="section-con-4">
 							<div class="wrapper">
-								<div class="big-wrapper">
-									<div class="big-text-group big-text">Warunek 4:</div>
-									<div class="big-text-group">
+								<div class="con-header">
+									<div>Wiatr</div>
+									<div class="icons-group">
 										<div class="icon diw-wind"></div>
-										<div class="big-text"><span class="js-con-output"></span> km/h</div>
+										<div><span class="js-con-output"></span> km/h</div>
 										<i class="fas fa-long-arrow-alt-up"></i>
 									</div>
 								</div>
-								<div class="cardround bgc-box js-condition">
-									<div class="cardround-header">
-										<label class="condition-label" for="condition-4">Prędkość wiatru powyżej</label>
-										<input class="condition-input" type="text" id="condition-4" value="20" maxlength="3" pattern="^^([1-9]|[1-9][0-9]|[1][0-4][0-9]|[1][5][0])$"
+								<div class="card js-con">
+									<div class="card-header">
+										<label class="con-label" for="input-con-4">Prędkość wiatru powyżej</label>
+										<input class="con-input" type="text" id="input-con-4" value="20" maxlength="3" pattern="^^([1-9]|[1-9][0-9]|[1][0-4][0-9]|[1][5][0])$"
 										data-error="Dopuszczalne wartości: od 1 do 150">
-										<span class="condition-unit">km/h</span>
-									</div><!-- cardround-header -->
-									<div class="cardround-body">
-										<ul class="list-condition" data-condition-list="4">
+										<span>km/h</span>
+									</div><!-- card-header -->
+									<div class="card-body">
+										<ul class="list-con" data-con-list="4">
 										</ul>
 										<div class="add">
 											<div class="add-row">
@@ -288,32 +284,32 @@
 												</div>
 											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround-body -->
-								</div><!-- cardround -->
+									</div><!-- card-body -->
+								</div><!-- card -->
 								<!-- END OF CONDITION 4 -->
 							</div>
 						</section>
 
 						<!-- CONDITION 5 -->
-						<section class="bgc bgc-05" id="bgc-05">
+						<section class="con" id="section-con-5">
 							<div class="wrapper">
-								<div class="big-wrapper">
-									<div class="big-text-group big-text">Warunek 5:</div>
-									<div class="big-text-group">
+								<div class="con-header">
+									<div>Opady</div>
+									<div class="icons-group">
 										<div class="icon diw-rain"></div>
-										<div class="big-text"><span class="js-con-output"></span>%</div>
+										<div><span class="js-con-output"></span>%</div>
 										<i class="fas fa-long-arrow-alt-up"></i>
 									</div>
 								</div>
-								<div class="cardround bgc-box js-condition">
-									<div class="cardround-header">
-										<label class="condition-label" for="condition-5">Szansa opadów powyżej</label>
-										<input class="condition-input" type="text" id="condition-5" value="70" maxlength="3" pattern="^([1-9]|[1-9][0-9]|[1][0][0])$"
+								<div class="card js-con">
+									<div class="card-header">
+										<label class="con-label" for="input-con-5">Szansa opadów powyżej</label>
+										<input class="con-input" type="text" id="input-con-5" value="70" maxlength="3" pattern="^([1-9]|[1-9][0-9]|[1][0][0])$"
 										data-error="Dopuszczalne wartości: od 1 do 100">
-										<span class="condition-unit">%</span>
-									</div><!-- cardround-header -->
-									<div class="cardround-body">
-										<ul class="list-condition" data-condition-list="5">
+										<span>%</span>
+									</div><!-- card-header -->
+									<div class="card-body">
+										<ul class="list-con" data-con-list="5">
 										</ul>
 										<div class="add">
 											<div class="add-row">
@@ -334,19 +330,20 @@
 												</div>
 											</div><!-- add-row -->
 										</div><!-- add -->
-									</div><!-- cardround-body -->
-								</div><!-- cardround -->
+									</div><!-- card-body -->
+								</div><!-- card -->
 								<!-- END OF CONDITION 5 -->
 							</div>
 						</section>
 						<section class="section-save" id="save">
 							<div class="wrapper">
 								<h2>Zapisz ustawienia</h2>
-								<p>Ustawienia </p>
+								<p>Ustawienia zostaną zapisane na twoim urządzeniu. Kliknij "Resetuj", aby przywrócić ustawienia domyślne.</p>
 								<div class="save-group">
-									<button type="button" class="btn btn-save">Zapisz ustawienia</button>
-									<button type="button" class="btn btn-reset">Przywróć ustawienia domyślne</button>
+									<button type="button" class="btn btn-dark js-btn-save">Zapisz</button>
+									<button type="button" class="btn btn-dark js-btn-reset">Resetuj</button>
 								</div>
+								<p class="confirm-msg hidden">Zapisano ustawienia.</p>
 							</div>
 						</section>
 					</section><!-- sethow -->
@@ -362,10 +359,9 @@
 							</div>
 						</div>
 					</section>
-
 				</form>
-				<div class="btn-apply-holder">
-					<button type="button" class="btn btn-apply"><a href="#forecast" class="btn js-trigger">Sprawdź prognozę</a></button>
+				<div class="apply">
+					<button type="button" class="btn btn-dark js-trigger js-btn-apply" data-target="#forecast">Sprawdź prognozę</button>
 				</div>
 			</section>
 
@@ -396,13 +392,22 @@
 		</div>
 	</div>
 
-	<div class="slide-msg js-error-msg hidden">
+	<div class="slide-msg js-input-error-msg hidden">
+		<div class="flex">
+			<p>Nie można zapisać danych - popraw wartości w warunkach.</p>
+			<button class="remove-msg-btn">
+				<i class="fas fa-times-circle"></i>
+			</button>
+		</div>
+	</div>
+
+	<div class="slide-msg js-storage-error-msg hidden">
 		<div class="flex">
 			<div>
 				<p>Nie można zapisać danych - przeglądarka nie obsługuje local storage.</p>
 				<p>Jeśli korzystasz z Safari, wyłącz przeglądanie w trybie prywatnym 
 					(<a href="https://support.apple.com/pl-pl/guide/safari/ibrw1069/mac" target="_blank">na Macu</a> lub 
-					<a href="https://support.apple.com/pl-pl/HT203036" target="_blank">na urządzeniach mobilnych</a>)
+					<a href="https://support.apple.com/pl-pl/HT203036" target="_blank">na urządzeniu mobilnym</a>)
 					i spróbuj ponownie.
 				</p>
 			</div>

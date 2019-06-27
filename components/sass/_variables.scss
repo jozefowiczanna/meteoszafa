@@ -1,24 +1,13 @@
-$h1-font-size: 20px;
-$h2-font-size: 18px;;
-$h3-font-size: 16px;;
-$h4-font-size: 14px;;
-$h5-font-size: 12px;;
-$h6-font-size: 10px;
-
-// Box and card
+// box and card
 $bc-border-radius: 5px;
 $bc-border-color: hsla(0, 0%, 80%, 1);
-$bc-padding-left: 1rem;
-
 // colors
 
 $light-blue: #27aae2;
-$bg-color: #FDFDFD;
 $bg-forecast: #f7f7f7;
 $text-color: #000;
 
 // button:
-
 $btn-cta-color: #27aae2;
 
 $remove-btn-bg: #808080;
@@ -31,13 +20,19 @@ $btn-apply-bg: #444444;
 $btn-apply-color: #ffffff;
 
 // nav
-
 $menu-link-color: #949494;
 $menu-link-color-hover: #bbb;
 
-// list
+$circle1: #0da0dd;
+$circle2: #f4df00;
+$circle3: #75d702;
 
+// list
 $list-item-hover: #f9f9f9;
+
+// saved-msg, reset-msg
+
+$ok-msg: #02b802;
 
 // footer
 $footer: #c2c2c2;

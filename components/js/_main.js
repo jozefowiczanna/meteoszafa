@@ -1,6 +1,5 @@
 // NOTE skróty używane przy ANCHOR: c = const, f = function, e = event
 
-
 // ANCHOR c. lista miast, dł. i szer. geograficzna
 const citiesGeo = {
 	"amsterdam": {
@@ -268,6 +267,15 @@ const clothes = {
 		["adidasy", "baleriny", "botki", "japonki", "kalosze", "kozaki", "obuwie trekkingowe", "sandały", "trampki", "śniegowce"]
 };
 
+// ANCHOR  c. domyślna lista ciuchów dla każdego z warunków z osobna
+const defaultClothes = {
+	"con-1": ["czapka zimowa", "gruby szalik", "kurtka zimowa", "buty zimowe", "rękawiczki"],
+	"con-2": ["lekka czapka", "adidasy", "płaszcz"],
+	"con-3": ["kapelusz", "t-shirt", "krótkie spodenki", "sandały"],
+	"con-4": ["nauszniki", "kurtka przeciwwiatrowa"],
+	"con-5": ["parasol", "kalosze"]
+}
+
 // ANCHOR c. ikony pogody - główna wartość obiektów odpowiada nazwie z API; wartość "icon" odpowiada nazwie grafiki
 const icons = {
 	"clear-day" : {
@@ -324,20 +332,11 @@ const icons = {
 	}
 };
 
-// ANCHOR  c. domyślna lista ciuchów dla każdego z warunków z osobna
-const defaultClothes = {
-	"condition-1": ["czapka zimowa", "gruby szalik", "kurtka zimowa", "buty zimowe", "rękawiczki"],
-	"condition-2": ["lekka czapka", "adidasy", "płaszcz"],
-	"condition-3": ["kapelusz", "t-shirt", "krótkie spodenki", "sandały"],
-	"condition-4": ["nauszniki", "kurtka przeciwwiatrowa"],
-	"condition-5": ["parasol", "kalosze"]
-}
-
 // ANCHOR domyślne wartości temperatury, prędkości wiatru i szansy opadów
 const defaultValues = [5, 5, 18, 18, 20, 70];
 
-
-// SECTION templates
+// SECTION template
+// ANCHOR f. lista ciuchów dołączana do prognozy na każdy dzień
 function addForecastClothes(text, list) {
 	let template = `
 	<h4>${text}</h4>
@@ -359,13 +358,14 @@ const forecastHeader = `
 </div>
 `;
 
+// ANCHOR template z prognozą pogody
 function addForecast(info) {
 	let template = `
 	<div class="bg" id="day-${info.dayNr}">
 		<div class="wrapper">
 			<div class="pair" data-day="${info.dayNr}" >
-				<div class="cardround cardround-weather">
-					<div class="cardround-header no-border">
+				<div class="card card-weather">
+					<div class="card-header no-border">
 						<div class="forecast-header">
 							<div class="date-group">
 								<div>
@@ -387,7 +387,7 @@ function addForecast(info) {
 							</div>
 						</div>
 					</div>
-					<div class="cardround-body">
+					<div class="card-body">
 						<table class="table table-forecast">
 							<tbody>
 								<tr class="border-top">
@@ -428,9 +428,9 @@ function addForecast(info) {
 								</tr>
 							</tbody>
 						</table>
-					</div><!-- cardround-body -->
-				</div><!-- cardround -->
-				<div class="cardround cardround-take">
+					</div><!-- card-body -->
+				</div><!-- card -->
+				<div class="card card-take">
 					<h3>Zabierz:</h3>
 					${info.listTemplate}
 				</div>
@@ -460,7 +460,7 @@ function getDate(dayNr) {
 }
 
 // ANCHOR f. dodanie do HTML listy miast do wyboru
-function addCitiesToList(){
+function addCitiesToList() {
 	const boxroundSelect = document.querySelector(".boxround-select");
 	boxroundSelect.innerHTML = "";
 	for (city in citiesGeo){
@@ -471,7 +471,7 @@ function addCitiesToList(){
 	}
 }
 
-function escapeDiacritics(str){
+function escapeDiacritics(str) {
 	let s = str;
 		s = s.replace(/ż/ig,'z');
     s = s.replace(/ó/ig,'o');
@@ -487,8 +487,8 @@ function escapeDiacritics(str){
 		return s;
 }
 
-// ANCHOR f. dodanie do HTML listy ciuchów możliwych do dodania
-function createDefaultselectClothes(){
+// ANCHOR f. dodanie do HTML rozwijanej listy wyboru z ciuchami
+function createDefaultselectClothes() {
 	const selectClothes = document.querySelectorAll(".js-select-clothes");
 	// stworzenie i dodanie pierwszej listy
 	selectClothes[0].innerHTML = "";
@@ -530,12 +530,12 @@ function addClothes(selector, cloth){
 // dodanie listy ciuchów do każdego z warunków
 function addClothesToConditions(clothes){
 	for (let i= 1; i<6; i++){
-		const list = document.querySelector(`[data-condition-list="${i}"]`);
+		const list = document.querySelector(`[data-con-list="${i}"]`);
 		list.innerHTML = "";
-		const selector = `[data-condition-list="${i}"]`;
-		const condition = "condition-" + i;
-		for (let i=0; i<clothes[condition].length; i++){
-			addClothes(selector, clothes[condition][i])
+		const selector = `[data-con-list="${i}"]`;
+		const con = "con-" + i;
+		for (let i=0; i<clothes[con].length; i++){
+			addClothes(selector, clothes[con][i])
 		}
 	}
 };
@@ -546,7 +546,7 @@ createDefaultselectClothes(); // dodanie rozwijanej listy z ciuchami
 addClothesToConditions(defaultClothes);
 
 // ANCHOR e. buttony - możliwość usunięcia lub dodania wybranych elementów ubioru
-const conditionLists = document.querySelectorAll(".js-condition");
+const conditionLists = document.querySelectorAll(".js-con");
 for (list of conditionLists){
 	list.addEventListener("click", function(e){
 		if (e.target.parentNode.classList.contains("remove-btn")){
@@ -555,9 +555,9 @@ for (list of conditionLists){
 		} else if (e.target.parentNode.classList.contains("add-btn")) {
 			const btn = e.target.parentNode;
 			// wyszukanie nr listy do ktorej zostanie dolaczony element
-			const card = e.target.closest(".cardround-body");
-			const nr = card.querySelector("[data-condition-list]").dataset.conditionList;
-			const selector = `[data-condition-list="${nr}"]`;
+			const card = e.target.closest(".card-body");
+			const nr = card.querySelector("[data-con-list]").dataset.conList;
+			const selector = `[data-con-list="${nr}"]`;
 
 			// dodanie ubrania do listy
 			if (btn.classList.contains("js-add-btn-select")){ // rozwijana lista
@@ -565,7 +565,7 @@ for (list of conditionLists){
 				const cloth = card.querySelector(`[value=${val}]`).innerHTML; // wlasciwa nazwa z polskimi literami
 				addClothes(selector, cloth);
 			} else if (btn.classList.contains("js-add-btn-input") && !btn.hasAttribute("disabled")){ // pole input
-				if (btn.closest(".add-row").querySelector(".add-input").value !== "") { // sor czy input ma jakąś wartość
+				if (btn.closest(".add-row").querySelector(".add-input").value !== "") { // spr czy input ma jakąś wartość
 					const cloth = card.querySelector("input").value;
 					addClothes(selector, cloth);
 				}
@@ -599,20 +599,25 @@ const hideFieldError = function(row, elem) {
 	}
 };
 
-const conOutputs = document.querySelectorAll(".js-con-output"); // elementy w których wyświetlają się poprawne wartości z inputów
-const conInputs = document.querySelectorAll(".condition-input");
-for (let i = 0; i < conInputs.length; i++) {
-	conOutputs[i].innerText = conInputs[i].value;
+// ANCHOR f. (sekcja z warunkami) kopiowanie wartości atmosf. z inputów do ikonek
+function copyInputData(input, output) {
+	for (let i = 0; i < input.length; i++) {
+		output[i].innerText = input[i].value;
+	}
 }
+
+const conOutputs = document.querySelectorAll(".js-con-output");
+const conInputs = document.querySelectorAll(".con-input");
+copyInputData(conInputs, conOutputs);
 for (let i = 0; i < conInputs.length; i++) {
 	conInputs[i].addEventListener("input", function() {
 		if (this.checkValidity() === true && this.value !== "") {
 			this.classList.remove("error");
-			hideFieldError(".cardround-header", this);
+			hideFieldError(".card-header", this);
 			conOutputs[i].innerText = this.value;
 		} else {
 			this.classList.add("error");
-			displayFieldError(".cardround-header", this);
+			displayFieldError(".card-header", this);
 			conOutputs[i].innerText = "";
 		}
 	})
@@ -663,8 +668,7 @@ function processData(data, city){
 			weekday : getDate(i)[0],
 			date : getDate(i)[1],
 			city : city,
-			// czasami podsumowanie nie jest dostępne, wtedy można dodac opis z ikony
-			dailySummary : (summary !== undefined) ? summary : icons[iconName].pl,
+			dailySummary : (summary !== undefined) ? summary : icons[iconName].pl, // czasami podsumowanie nie jest dostępne, wtedy można dodac opis z ikony
 			tempDay : Math.round(temperatureHigh) + "°C",
 			apparentTempDay : Math.round(apparentTemperatureHigh) + "°C",
 			tempNight : Math.round(temperatureLow) + "°C",
@@ -680,12 +684,12 @@ function processData(data, city){
 		}
 
 		// ANCHOR c. f. sprawdzenie, ktory warunek został spełniony i załadowanie listy z ubraniami
-		const condition1 = parseInt(document.querySelector("#condition-1").value);
-		const condition2a = parseInt(document.querySelector("#condition-2a").value);
-		const condition2b = parseInt(document.querySelector("#condition-2b").value);
-		const condition3 = parseInt(document.querySelector("#condition-3").value);
-		const condition4 = parseInt(document.querySelector("#condition-4").value);
-		const condition5 = parseInt(document.querySelector("#condition-5").value);
+		const con1 = parseInt(document.querySelector("#input-con-1").value);
+		const con2a = parseInt(document.querySelector("#input-con-2a").value);
+		const con2b = (document.querySelector("#input-con-2b").value);
+		const con3 = (document.querySelector("#input-con-3").value);
+		const con4 = parseInt(document.querySelector("#input-con-4").value);
+		const con5 = parseInt(document.querySelector("#input-con-5").value);
 		const temp = parseInt(info.tempDay);
 		const wind = parseInt(data.daily.data[i].windSpeed);
 		const rainSnow = Math.round(data.daily.data[i].precipProbability * 100);
@@ -693,23 +697,23 @@ function processData(data, city){
 		let nr = 0;
 		let text = "";
 		let clothes = [];
-
-		if (temp < condition1) {
+		if (temp < con1) {
 			nr = 1;
-			text = `Temperatura poniżej ${condition1}°C`;
-		} else if (temp >= condition2a && temp <= condition2b) {
+			text = `Temperatura poniżej ${con1}°C`;
+		}
+		if (temp >= con2a && temp <= con2b) {
 			nr = 2;
-			text = `Temperatura od ${condition2a} do ${condition2b}°C`;
-		} else if (temp > condition3) {
+			text = `Temperatura od ${con2a} do ${con2b}°C`;
+		}
+		
+		if (temp > con3) {
 			nr = 3;
-			text = `Temperatura powyżej ${condition3}°C`;
-		} else {
-			console.log("Coś się nie zgadza. Sprawdź czy warunki są poprawne!");
+			text = `Temperatura powyżej ${con3}°C`;
 		}
 
 		// dodanie listy spelniajacej 1 z 3 pierwszych warunkow
 		if (nr !== 0) {
-			selected = $(`[data-condition-list="${nr}"] li div`);
+			selected = $(`[data-con-list="${nr}"] li div`);
 			for (let i = 0; i < selected.length; i++) {
 				clothes.push(selected[i].innerText);
 			}
@@ -717,10 +721,10 @@ function processData(data, city){
 		let listTemplate = addForecastClothes(text, clothes);
 
 		// dodanie listy spelniajacej 4 warunek (wiatr)
-		if (wind > condition4) {
+		if (wind > con4) {
 			clothes = [];
-			text = `Prędkość wiatru powyżej ${condition4} km/h`;
-			selected = $(`[data-condition-list="4"] li div`);
+			text = `Prędkość wiatru powyżej ${con4} km/h`;
+			selected = $(`[data-con-list="4"] li div`);
 			for (let i = 0; i < selected.length; i++) {
 				clothes.push(selected[i].innerText);
 			}
@@ -728,16 +732,15 @@ function processData(data, city){
 		}
 
 		// dodanie listy spelniajacej 5 warunek (opady)
-		if (rainSnow > condition5) {
+		if (rainSnow > con5) {
 			clothes = [];
-			text = `Szansa opadów powyżej ${condition5}%`;
-			selected = $(`[data-condition-list="5"] li div`);
+			text = `Szansa opadów powyżej ${con5}%`;
+			selected = $(`[data-con-list="5"] li div`);
 			for (let i = 0; i < selected.length; i++) {
 				clothes.push(selected[i].innerText);
 			}
 			listTemplate += addForecastClothes(text, clothes);
 		}
-
 		info.listTemplate = listTemplate;
 		fullForecast.push(info);
 	}
@@ -750,7 +753,7 @@ function processData(data, city){
 }
 // !SECTION
 
-// TODO  f. połączenie z API
+// ANCHOR  f. połączenie z API
 function getData(){
 	const city = document.querySelector("#select-city").value;
 	$.ajax({
@@ -765,13 +768,14 @@ function getData(){
 	});
 }
 
-document.querySelector(".btn-apply").addEventListener("click", getData);
-document.querySelector(".toggle-btn").addEventListener("click", function(){
-	document.querySelector(".sidebar").classList.toggle("active");
-	document.querySelector(".hamburger-icon").classList.toggle("active");
+$(".js-btn-apply").on("click", getData);
+
+$(".toggle-btn").on("click", function(){
+	$(".sidebar").toggleClass("active");
+	$(".hamburger-icon").toggleClass("active");
 });
 
-// ANCHOR pokazywanie i chowanie submenu w sidebar
+// ANCHOR e. f. pokazywanie i chowanie submenu w sidebar
 function toggleSubmenu(icon, menu) {
 	icon.toggleClass("active");
 	if (icon.hasClass("active")) {
@@ -781,9 +785,8 @@ function toggleSubmenu(icon, menu) {
 	}
 }
 
-$(".show-cons-btn").click(() => toggleSubmenu($(".show-cons-btn .fa-chevron-down"), $(".slide-cons")));
-$(".show-days-btn").click(() => toggleSubmenu($(".show-days-btn .fa-chevron-down"), $(".slide-days")));
-
+$(".js-show-cons-btn").click(() => toggleSubmenu($(".js-show-cons-btn .fa-chevron-down"), $(".slide-cons")));
+$(".js-show-days-btn").click(() => toggleSubmenu($(".js-show-days-btn .fa-chevron-down"), $(".slide-days")));
 
 // ANCHOR plugin "moveTo.js" (smooth scroll), funkcja uruchomiona po wczytaniu strony i ponownie po załadowniu do html sekcji forecast
 const moveTo = new MoveTo();
@@ -792,5 +795,3 @@ function moveToPlugin() {
 	for (trigger of triggers) { moveTo.registerTrigger(trigger);}
 }
 moveToPlugin();
-
-

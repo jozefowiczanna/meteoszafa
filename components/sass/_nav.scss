@@ -1,5 +1,5 @@
 // Nav
-$sidebar-w: 200px;
+$sidebar-w: 250px;
 $hamb-w: 30px;
 $hamb-h: 4px;
 $hamb-m: 8px;
@@ -12,89 +12,114 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 	position: fixed;
 	width: $sidebar-w;
 	height: 100%;
-	// left: -$sidebar-w;
 	right: -$sidebar-w;
 	background: #151719;
 	font-family: sans-serif;
 	transition: all 0.3s;
 	z-index: 999;
+	
+	ul {
+		margin: 0;
+		padding: 0;
+		padding-top: 10px;
+		list-style: none;
+	}
+
+	a {
+		display: block;
+		color: rgba(230, 230, 230, 0.9);
+		text-decoration: none;
+		padding: 15px 30px;
+		border-bottom: $bb;
+		transition: all 0.2s;
+	}
+
+	.show-btn {
+		background: none;
+		width: 60px;
+		border: 0;
+		cursor: pointer;
+		outline: none;
+		border-bottom: $bb;
+		transition: all 0.2s;
+	}
+
+	a:hover, .show-btn:hover {
+		background: rgba(100, 100, 100, 0.2);
+		color: rgba(250, 250, 250, 1);
+	}
+
+	.li-flex {
+		display: flex;
+	
+		a {
+			width: 100%;
+		}
+	}
+
+	.slide-cons-row {
+		display: flex;
+		justify-content: center;
+		border-bottom: $bb;
+	}
+
+	.circle-link {
+		padding: 10px 10px;
+		border: none;
+		margin: 0 5px;
+	}
+
+	.icon-link {
+		padding: 10px 10px 0;
+		border: none;
+		margin: 0 5px;
+	}
+	
+	.nav-circle {
+		padding: 14px;
+		border: 2px solid white;
+		border-radius: 50%;
+		display: block;
+	}
+
+	.nav-circle1 { background: $circle1 }
+	.nav-circle2 { background: $circle2 }	
+	.nav-circle3 { background: $circle3 }
+
+	.nav-icon {
+		font-size: 40px;
+	}
+
+	.fa-chevron-down {
+		color: rgba(230, 230, 230, 0.9);
+		transform: rotate(0);
+		transition: 0.3s;
+	}
+	
+	.fa-chevron-down.active {
+		transform: rotate(180deg);
+		transition: 0.3s;
+	}
+	
+	.toggle-btn {
+		position: absolute;
+		right: $sidebar-w + $btn-m;
+		top: 10px;
+		width: $btn-wh;
+		height: $btn-wh;
+		cursor: pointer;
+	}
 }
   
 .sidebar.active {
-	// left: 0;
 	right: 0;
-}
-
-.sidebar ul {
-	margin: 0;
-	padding: 0;
-	padding-top: 10px;
-	list-style: none;
-}
-
-.sidebar ul li a {
-	display: block;
-	color: rgba(230, 230, 230, 0.9);
-	text-decoration: none;
-	padding: 15px 30px;
-	border-bottom: $bb;
-	transition: all 0.2s;
-}
-
-.sidebar ul li a:hover, .sidebar .show-cons-btn:hover, .show-days-btn:hover {
-	background: rgba(100, 100, 100, 0.2);
-	color: rgba(250, 250, 250, 1);
-}
-
-.sidebar .pl {
-	padding: 10px 50px;
-	font-size: 0.9em;
-}
-
-.sidebar .li-flex {
-	display: flex;
-
-	a {
-		width: 100%;
-	}
-}
-
-.show-cons-btn, .show-days-btn {
-	background: none;
-	width: 60px;
-	border: 0;
-	cursor: pointer;
-	outline: none;
-	border-bottom: $bb;
-	transition: all 0.2s;
-}
-
-.fa-chevron-down {
-	color: rgba(230, 230, 230, 0.9);
-	transform: rotate(0);
-	transition: 0.3s;
-}
-
-.fa-chevron-down.active {
-	transform: rotate(180deg);
-	transition: 0.3s;
-}
-
-.sidebar .toggle-btn {
-	position: absolute;
-	// left: $sidebar-w + $btn-m;
-	right: $sidebar-w + $btn-m;
-	top: 10px;
-	width: $btn-wh;
-	height: $btn-wh;
-	cursor: pointer;
 }
 
 .sidebar.hidden {
 	display: none;
 }
 
-.sidebar .hamburger-icon {
+.hamburger-icon {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -106,7 +131,7 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 	border-radius: 5px;
 }
 
-.sidebar .hamburger {
+.hamburger {
 	width: $hamb-w;
 	height: $hamb-h;
 	background: #151719;
@@ -119,7 +144,7 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 	transition: 0.3s;
 }
 
-.sidebar .hamburger:before, .sidebar .hamburger:after {
+.hamburger:before, .hamburger:after {
 	content: '';
 	position: absolute;
 	width: $hamb-w;
@@ -130,25 +155,25 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 	transition: 0.3s;
 }
 
-.sidebar .hamburger:before {
+.hamburger:before {
 	top: -$hamb-m;
 }
 
-.sidebar .hamburger:after {
+.hamburger:after {
 	top: $hamb-m;
 }
   
-.sidebar .hamburger-icon.active .hamburger {
+.hamburger-icon.active .hamburger {
 	background: rgba(0, 0, 0, 0);
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
 }
 
-.sidebar .hamburger-icon.active .hamburger:before {
+.hamburger-icon.active .hamburger:before {
 	top: 0;
 	transform: rotate(45deg);
 }
 
-.sidebar .hamburger-icon.active .hamburger:after {
+.hamburger-icon.active .hamburger:after {
 	top: 0;
 	transform: rotate(135deg);
 }
@@ -156,11 +181,11 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 .slide-days-flex{
 	display: flex;
 	flex-wrap: wrap;
-	padding-left: 30px;
+	padding-left: 10px;
 	border-bottom: $bb;
 
-	.pl {
-		padding: 20px;
+	a {
+		padding: 18px;
 		border-bottom: none;
 	}
 }

@@ -1,5 +1,13 @@
 window.addEventListener("load", function(){
 
+function showConfirmMsg(msg) {
+    $(".confirm-msg").text(msg);
+    $(".confirm-msg").slideDown("fast");
+    setTimeout(function (){
+        $(".confirm-msg").slideUp("fast");
+    }, 3000)
+}
+    
 function storageAvailable(type) {
     var storage;
     try {
@@ -26,41 +34,35 @@ function storageAvailable(type) {
 }
 
 function loadUserData() {
-    var con1 = localStorage.getItem('con1');
-    var con2a = localStorage.getItem('con2a');
-    var con2b = localStorage.getItem('con2b');
-    var con3 = localStorage.getItem('con3');
-    var con4 = localStorage.getItem('con4');
-    var con5 = localStorage.getItem('con5');
-    var list1 = localStorage.getItem('list1');
-    var list2 = localStorage.getItem('list2');
-    var list3 = localStorage.getItem('list3');
-    var list4 = localStorage.getItem('list4');
-    var list5 = localStorage.getItem('list5');
-    console.log(list3);
 
-    document.querySelector('#condition-1').value = con1;
-    document.querySelector('#condition-2a').value = con2a;
-    document.querySelector('#condition-2b').value = con2b;
-    document.querySelector('#condition-3').value = con3;
-    document.querySelector('#condition-4').value = con4;
-    document.querySelector('#condition-5').value = con5;
+    const conditions = localStorage.getItem('conditions').split(",");
+    const conInputs = document.querySelectorAll(".con-input");
+    const conOutputs = document.querySelectorAll(".js-con-output");
+    for (let i = 0; i < conInputs.length; i++) {
+        conInputs[i].value = conditions[i];
+    }
+
+    const list1 = localStorage.getItem('list1');
+    const list2 = localStorage.getItem('list2');
+    const list3 = localStorage.getItem('list3');
+    const list4 = localStorage.getItem('list4');
+    const list5 = localStorage.getItem('list5');
 
     const userClothes = {
-        "condition-1": list1.split(","),
-        "condition-2": list2.split(","),
-        "condition-3": list3.split(","),
-        "condition-4": list4.split(","),
-        "condition-5": list5.split(",")
+        "con-1": list1.split(","),
+        "con-2": list2.split(","),
+        "con-3": list3.split(","),
+        "con-4": list4.split(","),
+        "con-5": list5.split(",")
     }
 
     addClothesToConditions(userClothes);
+    copyInputData(conInputs, conOutputs);
 }
 
 function loadFromList(nr) {
-    const lists = document.querySelectorAll(".list-condition");
+    const lists = document.querySelectorAll(".list-con");
     const list = lists[nr].querySelectorAll(".list-item-text");
-    console.log(lists);
     let arr = [];
     for (const el of list) {
         arr.push(el.innerText);
@@ -69,41 +71,57 @@ function loadFromList(nr) {
 }
 
 function setUserData() {
-    if (storageAvailable('localStorage')) {
-        localStorage.setItem('con1', document.querySelector('#condition-1').value);
-        localStorage.setItem('con2a', document.querySelector('#condition-2a').value);
-        localStorage.setItem('con2b', document.querySelector('#condition-2b').value);
-        localStorage.setItem('con3', document.querySelector('#condition-3').value);
-        localStorage.setItem('con4', document.querySelector('#condition-4').value);
-        localStorage.setItem('con5', document.querySelector('#condition-5').value);
-    
-        localStorage.setItem('list1', loadFromList(0));
-        localStorage.setItem('list2', loadFromList(1));
-        localStorage.setItem('list3', loadFromList(2));
-        localStorage.setItem('list4', loadFromList(3));
-        localStorage.setItem('list5', loadFromList(4));
-    
-        loadUserData();
+    const errors = document.querySelectorAll(".error");
+    if (errors.length > 0) {
+        $(".js-input-error-msg").slideDown("fast");
     } else {
-        $(".js-error-msg").slideDown("fast");
+        if (storageAvailable('localStorage')) {
+            const conInputs = document.querySelectorAll(".con-input");
+            let conStr = "";
+            for (const con of conInputs) {
+                conStr += con.value+",";
+            }
+            conStr = conStr.slice(0, -1); // remove last comma
+            localStorage.setItem('conditions', conStr);
+        
+            localStorage.setItem('list1', loadFromList(0));
+            localStorage.setItem('list2', loadFromList(1));
+            localStorage.setItem('list3', loadFromList(2));
+            localStorage.setItem('list4', loadFromList(3));
+            localStorage.setItem('list5', loadFromList(4));
+        
+            loadUserData();
+        } else {
+            $(".js-storage-error-msg").slideDown("fast");
+        }
+
+        showConfirmMsg("Zapisano ustawienia.");
     }
 }
 
-document.querySelector(".btn-save").addEventListener("click", setUserData);
-// ANCHOR przywrócenie ustawień domyślnych, zapisanych w stałych defaultClothes i defaultValues
-document.querySelector(".btn-reset").addEventListener("click", () => {
+function resetUserData() {
     addClothesToConditions(defaultClothes);
-    const inputs = document.querySelectorAll(".condition-input");
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].value = defaultValues[i];
+    const conInputs = document.querySelectorAll(".con-input");
+    const conOutputs = document.querySelectorAll(".js-con-output");
+    copyInputData(conInputs, conOutputs);
+    for (let i = 0; i < conInputs.length; i++) {
+        conInputs[i].value = defaultValues[i];
+        conOutputs[i].innerText = conInputs[i].value;
     }
-});
+    showConfirmMsg("Przywrócono ustawienia domyślne.");
+}
+
+document.querySelector(".js-btn-save").addEventListener("click", setUserData);
+// ANCHOR przywrócenie ustawień domyślnych, zapisanych w stałych defaultClothes i defaultValues
+document.querySelector(".js-btn-reset").addEventListener("click", resetUserData);
 // button chowający komunikat z błędem
-document.querySelector(".js-error-msg .remove-msg-btn").addEventListener("click", () => $(".js-error-msg").slideUp("fast"));
+document.querySelector(".js-storage-error-msg .remove-msg-btn").addEventListener("click", () => $(".js-storage-error-msg").slideUp("fast"));
+document.querySelector(".js-input-error-msg .remove-msg-btn").addEventListener("click", () => $(".js-input-error-msg").slideUp("fast"));
+
 
 if (storageAvailable('localStorage')) {
-    if(localStorage.getItem('con1')) {
+    if(localStorage.getItem('conditions')) {
         loadUserData();
       }
-  }
+}
 })

@@ -33,6 +33,10 @@
 }
 
 @media screen and (min-width: 850px) {
+	.h1-big, .h2-big {
+		text-align: left;
+	}
+
 	.about-holder {
 		display: flex;
 		justify-content: space-between;
@@ -66,7 +70,7 @@
 		}
 	}
 
-	.condition-label {
+	.con-label {
 		display: inline;
 		margin-right: 0.5rem;
 	}
@@ -82,11 +86,11 @@
 		}
 	}
 
-	.cardround {
+	.card {
 		font-size: 1rem;
 	}
 
-	.cardround-header {
+	.card-header {
 		padding: 2rem 2rem 1rem;
 	}
 
@@ -120,9 +124,19 @@
 	}
 }
 
+@media screen and (min-width: 900px) {
+	.sethow {
+		padding: 5rem 0;
+	}
+	
+	.con {
+		padding: 5rem 0 7rem;
+	}
+}
+
 // conditions
 @media screen and (min-width: 550px) {
-	.big-wrapper {
+	.con-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -131,14 +145,14 @@
 }
 
 @media screen and (min-width: 900px) {
-	.big-wrapper {
+	.con-header {
 		font-size: 2.5rem;
 	}
 }
 
 // forecast
 @media screen and (min-width: 500px) {
-	.cardround-weather {
+	.card-weather {
 		font-size: 0.9rem;
 	}
 }
@@ -148,11 +162,11 @@
 	  padding: 0.7rem 2rem;
 	}
 
-	.cardround-take {
+	.card-take {
 		padding: 2rem;
 	}
 
-	.cardround-weather {
+	.card-weather {
 		font-size: 1rem;
 	}
 }
@@ -163,13 +177,13 @@
 		justify-content: space-between;
 	}
 
-	.cardround-weather {
+	.card-weather {
 		width: 55%;
 		margin-bottom: 0;
 	}
 
-	.cardround-take {
-		width: 43%;
+	.card-take {
+		width: 42%;
 	}
 }
 

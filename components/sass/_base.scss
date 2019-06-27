@@ -25,9 +25,10 @@ p {
 
 .btn {
   border: none;
-  background-color: #ddd;
+  background: none;
   cursor: pointer;
   border-radius: 30px;
+  outline: none;
 }
 
 .input {
@@ -46,11 +47,6 @@ p {
   border-radius: 5px;
   height: 30px;
 	background-color: #fff;
-}
-
-.cardround {
-	background-color: #fff;
-	position: relative;
 }
 
 .no-border {
